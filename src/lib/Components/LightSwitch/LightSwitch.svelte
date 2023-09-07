@@ -8,8 +8,6 @@
 		setModeCurrent
 	} from '@skeletonlabs/skeleton';
 
-    import { UilSun, UilMoon } from 'svelte-unicons'
-
 	function onToggleHandler(): void {
 		$modeCurrent = !$modeCurrent;
 		setModeUserPrefers($modeCurrent);
@@ -27,10 +25,10 @@
 	{@html `<\u{73}cript nonce="%sveltekit.nonce%">(${setInitialClassState.toString()})();</script>`}
 </svelte:head>
 
-<button class="p-1 hover:text-tertiary-500" on:click={onToggleHandler}>
+<button class="hover:text-tertiary-500" on:click={onToggleHandler}>
 	{#if $modeCurrent}
-		<UilMoon/>
+		<iconify-icon icon="akar-icons:moon" height='24'/>
 	{:else}
-		<UilSun/>
+		<iconify-icon icon="ph:sun-bold" height='24'/>
 	{/if}
 </button>

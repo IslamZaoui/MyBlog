@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '../app.postcss';
+	import 'iconify-icon'
 
 	// Highlight JS
 	import hljs from 'highlight.js';
@@ -13,7 +14,6 @@
 	import LightSwitch from '$lib/Components/LightSwitch/LightSwitch.svelte';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
-	import { UilSearch } from 'svelte-unicons';
 	import type { PageData } from './$types';
 	import { fade } from 'svelte/transition';
 
@@ -24,11 +24,11 @@
 	<svelte:fragment slot="pageHeader">
 		<nav class="w-full h-[60px] flex justify-center">
 			<div class="h-full w-[900px] flex justify-between">
-				<div class="flex gap-2 items-center">
+				<div class="flex gap-3 items-center">
 					<strong class="h3">Zaoui Islam</strong>
 					<LightSwitch />
-					<button class="btn-icon btn-icon-sm hover:text-tertiary-500">
-						<UilSearch />
+					<button class="hover:text-tertiary-500">
+						<iconify-icon icon="mdi:search" height='24'></iconify-icon>
 					</button>
 				</div>
 				<div class="flex gap-2 items-center">
