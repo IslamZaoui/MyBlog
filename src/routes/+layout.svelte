@@ -1,6 +1,11 @@
 <script lang="ts">
 	import '../app.postcss';
-	import 'iconify-icon'
+	import 'iconify-icon';
+
+	import { dev } from '$app/environment';
+	import { inject } from '@vercel/analytics';
+
+	inject({ mode: dev ? 'development' : 'production' });
 
 	// Highlight JS
 	import hljs from 'highlight.js';
@@ -28,7 +33,7 @@
 					<strong class="h3">Islam Zaoui</strong>
 					<LightSwitch />
 					<button class="hover:text-tertiary-500">
-						<iconify-icon icon="mdi:search" height='24'></iconify-icon>
+						<iconify-icon icon="mdi:search" height="24" />
 					</button>
 				</div>
 				<div class="flex gap-2 items-center">
@@ -56,14 +61,21 @@
 	<svelte:fragment slot="pageFooter">
 		<nav class="w-full text-center p-5 text-[13px] space-x-3">
 			<span>© 2023 Islam Zaoui</span>
-			<a class="underline hover:text-tertiary-500" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"
-				>CC BY-SA</a
+			<a
+				class="underline hover:text-tertiary-500"
+				href="https://creativecommons.org/licenses/by-sa/4.0/"
+				target="_blank">CC BY-SA</a
 			>
 			<span
-				>Powered with 💖 by <a class="underline hover:text-tertiary-500" href="https://kit.svelte.dev/" target="_blank"
-					>Sveltekit</a
+				>Powered with 💖 by <a
+					class="underline hover:text-tertiary-500"
+					href="https://kit.svelte.dev/"
+					target="_blank">Sveltekit</a
 				>
-				& <a class="underline hover:text-tertiary-500" href="https://skeleton.dev/" target="_blank">Skeleton</a>.</span
+				&
+				<a class="underline hover:text-tertiary-500" href="https://skeleton.dev/" target="_blank"
+					>Skeleton</a
+				>.</span
 			>
 		</nav>
 	</svelte:fragment>

@@ -3,6 +3,10 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 </script>
 
+<svelte:head>
+	<title>Islam Zaoui</title>
+</svelte:head>
+
 <div class="container h-full mx-auto flex justify-center items-center mt-6">
 	<div class="flex flex-col gap-5 items-center">
 		<Avatar src="{base}/asset/ME.jpg" width="w-[250px]" />
