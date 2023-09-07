@@ -6,7 +6,7 @@
 <div class="container h-full mx-auto flex justify-center items-center mt-6">
 	<div class="flex flex-col gap-5 items-center">
 		<Avatar src="{base}/asset/ME.jpg" width="w-[250px]" />
-		<strong class="h1">Zaoui Islam</strong>
+		<strong class="h1">Islam Zaoui</strong>
 		<pre class="text-[18px]">Junior Multi-Platform Apps Developer 💻</pre>
 		<span class="flex gap-2">
 			<a class="hover:text-tertiary-500" href="https://github.com/IslamZaoui" target="_blank"

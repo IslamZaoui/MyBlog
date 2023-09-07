@@ -25,7 +25,7 @@
 		<nav class="w-full h-[60px] flex justify-center">
 			<div class="h-full w-[900px] flex justify-between">
 				<div class="flex gap-3 items-center">
-					<strong class="h3">Zaoui Islam</strong>
+					<strong class="h3">Islam Zaoui</strong>
 					<LightSwitch />
 					<button class="hover:text-tertiary-500">
 						<iconify-icon icon="mdi:search" height='24'></iconify-icon>
@@ -55,7 +55,7 @@
 	{/key}
 	<svelte:fragment slot="pageFooter">
 		<nav class="w-full text-center p-5 text-[13px] space-x-3">
-			<span>© 2023 Zaoui Islam</span>
+			<span>© 2023 Islam Zaoui</span>
 			<a class="underline hover:text-tertiary-500" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"
 				>CC BY-SA</a
 			>
