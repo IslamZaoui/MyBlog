@@ -39,7 +39,7 @@
 					<a href="/"><strong class="h3">Islam Zaoui</strong></a>
 					<LightSwitch />
 					<a
-						class="hover:text-tertiary-500 {data.url.startsWith('/search')
+						class="hover:dark:text-tertiary-500 hover:text-tertiary-800 {data.url.startsWith('/search')
 							? 'text-tertiary-500'
 							: ''}"
 						href="/search"
@@ -49,13 +49,13 @@
 				</div>
 				<div class="flex gap-2 items-center">
 					<a
-						class="text-lg hover:text-tertiary-500 {data.url === '/'
+						class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800 {data.url === '/'
 							? 'underline underline-offset-8'
 							: ''}"
 						href="/">Home</a
 					>
 					<a
-						class="text-lg hover:text-tertiary-500 {data.url.startsWith('/posts')
+						class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800 {data.url.startsWith('/posts')
 							? 'underline underline-offset-8'
 							: ''}"
 						href="/posts">Posts</a
@@ -76,7 +76,7 @@
 			<div class="space-x-3">
 				<span>© {getCurrentYear()} Islam Zaoui</span>
 				<a
-					class="underline hover:text-tertiary-500"
+					class="underline hover:dark:text-tertiary-500 hover:text-tertiary-800"
 					href="https://creativecommons.org/licenses/by-sa/4.0/"
 					target="_blank">CC BY-SA</a
 				>
@@ -84,19 +84,19 @@
 			<div>
 				<span
 					>Powered by <a
-						class="underline hover:text-tertiary-500"
+						class="underline hover:dark:text-tertiary-500 hover:text-tertiary-800"
 						href="https://kit.svelte.dev/"
 						target="_blank">Sveltekit</a
 					>
 					&
-					<a class="underline hover:text-tertiary-500" href="https://skeleton.dev/" target="_blank"
+					<a class="underline hover:dark:text-tertiary-500 hover:text-tertiary-800" href="https://skeleton.dev/" target="_blank"
 						>Skeleton</a
 					>.
 				</span>
 			</div>
 			<span>
 				The design is inspired from
-				<a class="underline hover:text-tertiary-500" href="https://haseebmajid.dev/" target="_blank"
+				<a class="underline hover:dark:text-tertiary-500 hover:text-tertiary-800" href="https://haseebmajid.dev/" target="_blank"
 					>Haseeb Majids</a
 				>
 			</span>

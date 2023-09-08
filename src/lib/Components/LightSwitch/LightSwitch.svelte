@@ -27,7 +27,7 @@
 	{@html `<\u{73}cript nonce="%sveltekit.nonce%">(${setInitialClassState.toString()})();</script>`}
 </svelte:head>
 
-<button class="hover:text-tertiary-500" on:click={onToggleHandler}>
+<button class="hover:dark:text-tertiary-500 hover:text-tertiary-800" on:click={onToggleHandler}>
 	{#if $modeCurrent}
 		<Fa icon={faMoon} size="18" />
 	{:else}

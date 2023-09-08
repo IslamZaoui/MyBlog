@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { formatDate } from '$lib';
-	import { faCalendarDays, faClock, faFileWord, faTags } from '@fortawesome/free-solid-svg-icons';
+	import { faCalendarDays, faClock, faEye, faFileWord, faTags } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	import type { PageData } from './$types';
 	import { TableOfContents } from '@skeletonlabs/skeleton';
@@ -41,6 +41,11 @@
 				<div class="flex gap-2 items-center">
 					<Fa icon={faClock} class="text-gray-500" />
 					<span>{data.meta.readTime} min</span>
+				</div>
+				<span>•</span>
+				<div class="flex gap-2 items-center">
+					<Fa icon={faEye} class="text-gray-500" />
+					<span>{data.meta.views} views</span>
 				</div>
 			</footer>
 		</header>

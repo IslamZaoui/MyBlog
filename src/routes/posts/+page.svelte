@@ -12,7 +12,7 @@
 	<div class="space-y-2 w-[700px]">
 		<header class="flex flex-col gap-4 mb-8">
 			<strong class="text-4xl">Posts</strong>
-			<a href="posts/rss.xml" class="text-xl underline hover:text-tertiary-500 w-fit" data-sveltekit-preload-data='false'>RSS</a>
+			<a href="posts/rss.xml" class="text-xl underline hover:dark:text-tertiary-500 hover:text-tertiary-800 w-fit" data-sveltekit-preload-data='false'>RSS</a>
 		</header>
 		<div class="grid grid-cols-1 gap-4">
 			{#each data.posts as post}
