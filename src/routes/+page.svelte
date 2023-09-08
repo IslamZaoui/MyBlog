@@ -18,10 +18,15 @@
 	<div class="flex flex-col gap-5 items-center">
 		<Avatar src="{base}/asset/ME.jpg" width="w-[250px]" />
 		<strong class="h1">Islam Zaoui</strong>
-		<p class="text-[18px] text-center">Junior Multi-Platform Apps and Web Developer 💻</p>
+		<div>
+			<p class="text-[18px] text-center">Junior Multi-Platform Apps and Web Developer 💻</p>
+			<p class="text-[18px] text-center">Attended Université de M'sila 🇩🇿</p>
+		</div>
 		<span class="flex gap-4">
-			<a class="hover:dark:text-tertiary-500 hover:text-tertiary-800" href="https://github.com/IslamZaoui" target="_blank"
-				><Fa icon={faGithub} size="30" /></a
+			<a
+				class="hover:dark:text-tertiary-500 hover:text-tertiary-800"
+				href="https://github.com/IslamZaoui"
+				target="_blank"><Fa icon={faGithub} size="30" /></a
 			>
 			<a
 				class="hover:dark:text-tertiary-500 hover:text-tertiary-800"

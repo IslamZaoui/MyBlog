@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.postcss';
 	import Fa from 'svelte-fa';
-	import { faSearch } from '@fortawesome/free-solid-svg-icons';
+	import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
@@ -11,7 +11,7 @@
 	// Highlight JS
 	import hljs from 'highlight.js';
 	import 'highlight.js/styles/github-dark.css';
-	import { AppShell, storeHighlightJs } from '@skeletonlabs/skeleton';
+	import { AppShell, Drawer, storeHighlightJs, type DrawerSettings } from '@skeletonlabs/skeleton';
 	storeHighlightJs.set(hljs);
 
 	// Floating UI for Popups
@@ -22,10 +22,21 @@
 
 	import type { PageData } from './$types';
 	import { fade } from 'svelte/transition';
-	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
 
 	import { gsap } from 'gsap/dist/gsap';
 	import { Flip } from 'gsap/dist/Flip';
+
+	import { initializeStores } from '@skeletonlabs/skeleton';
+	initializeStores();
+
+	import { getDrawerStore } from '@skeletonlabs/skeleton';
+	const drawerStore = getDrawerStore();
+
+	const drawerSettings: DrawerSettings = {
+		width: 'w-[100px]',
+		position:'right'
+	};
 
 	export let data: PageData;
 
@@ -50,14 +61,46 @@
 			ease: 'power1.easeOut'
 		});
 	});
+
+	onNavigate(() => {
+		drawerStore.close();
+	});
 </script>
 
+<Drawer>
+	<nav class="flex flex-col gap-3 p-2 items-center">
+		<div>
+			<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/">Home</a>
+			{#if data.url === '/'}<div
+					class="navA border-t-2 dark:border-white border-black"
+					data-flip-id="navA"
+				/>{/if}
+		</div>
+		<div>
+			<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/posts">Posts</a
+			>
+			{#if data.url.startsWith('/posts')}<div
+					class="navA border-t-2 dark:border-white border-black"
+					data-flip-id="navA"
+				/>{/if}
+		</div>
+		<div>
+			<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/projects"
+				>Projects</a
+			>
+			{#if data.url.startsWith('/projects')}<div
+					class="navA border-t-2 dark:border-white border-black"
+					data-flip-id="navA"
+				/>{/if}
+		</div>
+	</nav>
+</Drawer>
 <AppShell>
 	<svelte:fragment slot="pageHeader">
 		<nav class="w-full h-[60px] flex justify-center px-4">
 			<div class="h-full w-[900px] flex justify-between">
 				<div class="flex gap-3 items-center justify-center">
-					<a href="/"><strong class="h3">Islam Zaoui</strong></a>
+					<a href="/"><strong class="text-xl">Islam Zaoui</strong></a>
 					<LightSwitch />
 					<a
 						class="hover:dark:text-tertiary-500 hover:text-tertiary-800 {data.url.startsWith(
@@ -70,19 +113,37 @@
 						<Fa icon={faSearch} size="18" />
 					</a>
 				</div>
-				<div class="flex gap-2 items-center">
+				<div class="md:flex hidden gap-2 items-center">
 					<div>
 						<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/">Home</a
 						>
-						{#if data.url === '/'}<div class="navA border-t-2 dark:border-white border-black" data-flip-id="navA"/>{/if}
+						{#if data.url === '/'}<div
+								class="navA border-t-2 dark:border-white border-black"
+								data-flip-id="navA"
+							/>{/if}
 					</div>
 					<div>
 						<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/posts"
 							>Posts</a
 						>
-						{#if data.url.startsWith('/posts')}<div class="navA border-t-2 dark:border-white border-black" data-flip-id="navA"/>{/if}
+						{#if data.url.startsWith('/posts')}<div
+								class="navA border-t-2 dark:border-white border-black"
+								data-flip-id="navA"
+							/>{/if}
+					</div>
+					<div>
+						<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/projects"
+							>Projects</a
+						>
+						{#if data.url.startsWith('/projects')}<div
+								class="navA border-t-2 dark:border-white border-black"
+								data-flip-id="navA"
+							/>{/if}
 					</div>
 				</div>
+				<button class="md:hidden" on:click={() => drawerStore.open(drawerSettings)}
+					><Fa icon={faBars} size="18" /></button
+				>
 			</div>
 		</nav>
 	</svelte:fragment>
