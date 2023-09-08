@@ -1,4 +1,3 @@
-import { fail } from 'assert';
 import type { RequestHandler } from './$types';
 import { parseHTML } from 'linkedom'
 
