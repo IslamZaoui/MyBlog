@@ -35,11 +35,6 @@ const config = {
 		alias: {
 			'posts': '/src/posts'
 		},
-		vite: {
-			optimizeDeps: {
-				include: ["highlight.js/lib/core"],
-			},
-		},
 	}
 };
 export default config;
