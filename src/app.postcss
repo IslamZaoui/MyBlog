@@ -7,3 +7,63 @@ html,
 body{
     @apply h-full;
 }
+
+.prose{
+	@apply max-w-full;
+}
+
+.prose h1 {
+	@apply text-tertiary-700;
+    @apply dark:text-tertiary-500;
+}
+
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+	@apply text-primary-900;
+    @apply dark:text-primary-500;
+}
+
+/* Paragraph text colors */
+.prose p,
+.prose ol,
+.prose ul,
+.prose li {
+	@apply dark:text-white;
+	@apply text-black;
+}
+
+.prose th,
+.prose td{
+    @apply dark:text-white;
+	@apply text-black;
+}
+
+/* Strong text colors */
+.prose strong,
+.prose em {
+	@apply dark:text-tertiary-500;
+	@apply text-tertiary-900;
+}
+
+.prose :not(pre) code:not(.codeblock-code) {
+	@apply dark:text-primary-50;
+	@apply dark:bg-surface-400;
+    @apply text-primary-200;
+	@apply bg-surface-600;
+	@apply p-1;
+	@apply rounded;
+}
+
+.prose .codeblock pre {
+	  background-color: transparent;
+}
+
+  
+
+.prose a {
+	@apply text-blue-900;
+	@apply dark:text-blue-500;
+}

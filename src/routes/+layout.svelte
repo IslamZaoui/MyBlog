@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.postcss';
-	import 'iconify-icon';
+	import Fa from 'svelte-fa';
+	import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
@@ -23,60 +24,82 @@
 	import { fade } from 'svelte/transition';
 
 	export let data: PageData;
+
+	function getCurrentYear(): number {
+		const currentDate = new Date();
+		return currentDate.getFullYear();
+	}
 </script>
 
 <AppShell>
 	<svelte:fragment slot="pageHeader">
-		<nav class="w-full h-[60px] flex justify-center">
+		<nav class="w-full h-[60px] flex justify-center px-4">
 			<div class="h-full w-[900px] flex justify-between">
-				<div class="flex gap-3 items-center">
-					<strong class="h3">Islam Zaoui</strong>
+				<div class="flex gap-3 items-center justify-center">
+					<a href="/"><strong class="h3">Islam Zaoui</strong></a>
 					<LightSwitch />
-					<button class="hover:text-tertiary-500">
-						<iconify-icon icon="mdi:search" height="24" />
-					</button>
+					<a
+						class="hover:text-tertiary-500 {data.url.startsWith('/search')
+							? 'text-tertiary-500'
+							: ''}"
+						href="/search"
+					>
+						<Fa icon={faSearch} size="18" />
+					</a>
 				</div>
 				<div class="flex gap-2 items-center">
 					<a
 						class="text-lg hover:text-tertiary-500 {data.url === '/'
 							? 'underline underline-offset-8'
 							: ''}"
-						href="/">Main</a
+						href="/">Home</a
 					>
 					<a
-						class="text-lg hover:text-tertiary-500 {data.url === '/page2'
+						class="text-lg hover:text-tertiary-500 {data.url.startsWith('/posts')
 							? 'underline underline-offset-8'
 							: ''}"
-						href="/page2">Page2</a
+						href="/posts">Posts</a
 					>
 				</div>
 			</div>
 		</nav>
 	</svelte:fragment>
 	{#key data.url}
-		<div in:fade>
+		<div in:fade class="px-4">
 			<slot />
 		</div>
 	{/key}
 	<svelte:fragment slot="pageFooter">
-		<nav class="w-full text-center p-5 text-[13px] space-x-3">
-			<span>© 2023 Islam Zaoui</span>
-			<a
-				class="underline hover:text-tertiary-500"
-				href="https://creativecommons.org/licenses/by-sa/4.0/"
-				target="_blank">CC BY-SA</a
-			>
-			<span
-				>Powered with 💖 by <a
+		<nav
+			class="flex md:flex-row flex-col justify-center w-full text-center p-5 text-[13px] md:gap-3"
+		>
+			<div class="space-x-3">
+				<span>© {getCurrentYear()} Islam Zaoui</span>
+				<a
 					class="underline hover:text-tertiary-500"
-					href="https://kit.svelte.dev/"
-					target="_blank">Sveltekit</a
+					href="https://creativecommons.org/licenses/by-sa/4.0/"
+					target="_blank">CC BY-SA</a
 				>
-				&
-				<a class="underline hover:text-tertiary-500" href="https://skeleton.dev/" target="_blank"
-					>Skeleton</a
-				>.</span
-			>
+			</div>
+			<div>
+				<span
+					>Powered by <a
+						class="underline hover:text-tertiary-500"
+						href="https://kit.svelte.dev/"
+						target="_blank">Sveltekit</a
+					>
+					&
+					<a class="underline hover:text-tertiary-500" href="https://skeleton.dev/" target="_blank"
+						>Skeleton</a
+					>.
+				</span>
+			</div>
+			<span>
+				The design is inspired from
+				<a class="underline hover:text-tertiary-500" href="https://haseebmajid.dev/" target="_blank"
+					>Haseeb Majids</a
+				>
+			</span>
 		</nav>
 	</svelte:fragment>
 </AppShell>

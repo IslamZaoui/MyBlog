@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import { faFacebook, faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 	import { Avatar } from '@skeletonlabs/skeleton';
+	import Fa from 'svelte-fa';
 </script>
 
 <svelte:head>
@@ -11,25 +13,25 @@
 	<div class="flex flex-col gap-5 items-center">
 		<Avatar src="{base}/asset/ME.jpg" width="w-[250px]" />
 		<strong class="h1">Islam Zaoui</strong>
-		<pre class="text-[18px]">Junior Multi-Platform Apps Developer 💻</pre>
-		<span class="flex gap-2">
+		<p class="text-[18px] text-center">Junior Multi-Platform Apps and Web Developer 💻</p>
+		<span class="flex gap-4">
 			<a class="hover:text-tertiary-500" href="https://github.com/IslamZaoui" target="_blank"
-				><iconify-icon icon="mdi:github" height="40"/></a
+				><Fa icon={faGithub} size="30" /></a
 			>
 			<a
 				class="hover:text-tertiary-500"
 				href="https://www.linkedin.com/in/zaouiislam/"
-				target="_blank"><iconify-icon icon="mdi:linkedin" height="40"/></a
+				target="_blank"><Fa icon={faLinkedin} size="30" /></a
 			>
 			<a
 				class="hover:text-tertiary-500"
 				href="https://www.facebook.com/IslamZaouii/"
-				target="_blank"><iconify-icon icon="ic:baseline-facebook" height="40"/></a
+				target="_blank"><Fa icon={faFacebook} size="30" /></a
 			>
 			<a
 				class="hover:text-tertiary-500"
 				href="https://www.instagram.com/islamzaoui__/"
-				target="_blank"><iconify-icon icon="mdi:instagram" height="40"/></a
+				target="_blank"><Fa icon={faInstagram} size="30" /></a
 			>
 		</span>
 	</div>

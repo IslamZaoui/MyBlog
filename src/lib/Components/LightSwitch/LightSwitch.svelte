@@ -7,6 +7,8 @@
 		setModeUserPrefers,
 		setModeCurrent
 	} from '@skeletonlabs/skeleton';
+	import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+	import Fa from 'svelte-fa';
 
 	function onToggleHandler(): void {
 		$modeCurrent = !$modeCurrent;
@@ -27,8 +29,8 @@
 
 <button class="hover:text-tertiary-500" on:click={onToggleHandler}>
 	{#if $modeCurrent}
-		<iconify-icon icon="akar-icons:moon" height='24'/>
+		<Fa icon={faMoon} size="18" />
 	{:else}
-		<iconify-icon icon="ph:sun-bold" height='24'/>
+		<Fa icon={faSun} size="18" />
 	{/if}
 </button>
