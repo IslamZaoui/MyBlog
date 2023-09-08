@@ -1,5 +1,10 @@
 import type { RequestHandler } from './$types';
 import * as p from 'path';
+import type { Config } from '@sveltejs/adapter-vercel';
+
+export const config: Config = {
+    runtime: 'nodejs18.x',
+};
 
 async function getPosts() {
 	let posts: Post[] = []
