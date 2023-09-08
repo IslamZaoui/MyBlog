@@ -30,7 +30,7 @@ const config = {
 	},
 	kit: {
 		adapter: adapter({
-			runtime:'nodejs18.x'
+			runtime:'edge'
 		}),
 		alias: {
 			'posts':'/src/posts'
