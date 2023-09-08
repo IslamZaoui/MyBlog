@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import {
 		modeOsPrefers,
@@ -28,9 +29,13 @@
 </svelte:head>
 
 <button class="hover:dark:text-tertiary-500 hover:text-tertiary-800" on:click={onToggleHandler}>
-	{#if $modeCurrent}
-		<Fa icon={faMoon} size="18" />
-	{:else}
-		<Fa icon={faSun} size="18" />
-	{/if}
+	{#key $modeCurrent}
+		<div in:fade>
+			{#if $modeCurrent}
+				<Fa icon={faMoon} size="18" />
+			{:else}
+				<Fa icon={faSun} size="18" />
+			{/if}
+		</div>
+	{/key}
 </button>

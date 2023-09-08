@@ -9,16 +9,16 @@
 <a href="/posts/{post.slug}"
 	><div class="card shadow-md rounded-md">
 		<article class="p-4 space-y-2">
-			<header class="text-2xl font-bold">{post.title}</header>
+			<header class="postTitle text-2xl font-bold" data-flip-id="postTitle-{post.title}">{post.title}</header>
 			<p class="line-clamp-2">{post.description}</p>
-			<div class="flex gap-2 items-center">
+			<div class="postTags flex gap-2 items-center" data-flip-id="postTags-{post.title}">
 				<Fa icon={faTags} class="text-gray-500" />
 				{#each post.tags as tag, i (i)}
 					<span>{tag}{i !== post.tags.length - 1 ? ',' : ''}</span>
 				{/each}
 			</div>
 		</article>
-		<footer class="pb-4 pl-4 text-sm flex items-center gap-3">
+		<footer class="postDetails pb-4 pl-4 text-sm flex items-center gap-3" data-flip-id="postDetails-{post.title}">
 			<div class="flex gap-2 items-center">
 				<Fa icon={faCalendarDays} class="text-gray-500" />
 				<span>{formatDate(post.date)}</span>

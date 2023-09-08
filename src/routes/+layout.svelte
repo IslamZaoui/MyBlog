@@ -22,6 +22,10 @@
 
 	import type { PageData } from './$types';
 	import { fade } from 'svelte/transition';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
+
+	import { gsap } from 'gsap/dist/gsap';
+	import { Flip } from 'gsap/dist/Flip';
 
 	export let data: PageData;
 
@@ -29,6 +33,23 @@
 		const currentDate = new Date();
 		return currentDate.getFullYear();
 	}
+
+	gsap.registerPlugin(Flip);
+
+	let state: Flip.FlipState;
+
+	beforeNavigate(() => {
+		state = Flip.getState('.postTitle, .postTags, .postDetails, .navA, .posts');
+	});
+
+	afterNavigate(async () => {
+		Flip.from(state, {
+			targets: '.postTitle, .postTags, .postDetails, .navA, .posts',
+			duration: 0.3,
+			scale: true,
+			ease: 'power1.easeOut'
+		});
+	});
 </script>
 
 <AppShell>
@@ -50,20 +71,17 @@
 					</a>
 				</div>
 				<div class="flex gap-2 items-center">
-					<a
-						class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800 {data.url === '/'
-							? 'underline underline-offset-8'
-							: ''}"
-						href="/">Home</a
-					>
-					<a
-						class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800 {data.url.startsWith(
-							'/posts'
-						)
-							? 'underline underline-offset-8'
-							: ''}"
-						href="/posts">Posts</a
-					>
+					<div>
+						<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/">Home</a
+						>
+						{#if data.url === '/'}<div class="navA border-t-2 dark:border-white border-black" data-flip-id="navA"/>{/if}
+					</div>
+					<div>
+						<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/posts"
+							>Posts</a
+						>
+						{#if data.url.startsWith('/posts')}<div class="navA border-t-2 dark:border-white border-black" data-flip-id="navA"/>{/if}
+					</div>
 				</div>
 			</div>
 		</nav>

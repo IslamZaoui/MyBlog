@@ -39,11 +39,11 @@ list_files_in_directory(directory_path)
 `
 </script>
 
-## Table of content
-
 # Introduction to Operating Systems
 
 An operating system (OS) is a crucial software component that manages hardware and software resources on a computer. It acts as an intermediary between applications and the computer's hardware, enabling users to interact with the system and execute tasks efficiently. This markdown provides a brief overview of operating systems and includes a code snippet showcasing how to list files in a directory using Python.
+
+## Table of content
 
 ## Types of Operating Systems
 
