@@ -8,7 +8,7 @@ import shiki from 'shiki'
 
 /**@type {import(mdsvex).mdsvexOptions} */
 const mdsvexOptions = {
-	extensions: ['.md'],
+	extensions: ['.svx'],
 	remarkPlugins: [remarkUnwrapImages, [remarkToc, { tight: true }]],
 	rehypePlugins: [rehypeSlug],
 	highlight: {
@@ -22,7 +22,7 @@ const mdsvexOptions = {
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte', '.md'],
+	extensions: ['.svelte', '.svx'],
 	preprocess: [mdsvex(mdsvexOptions), vitePreprocess()],
 
 	vitePlugin: {

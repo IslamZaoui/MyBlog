@@ -5,16 +5,16 @@ date: '2023-9-8'
 tags:
   - Chat-gpt
   - OS
-words: 2
-readTime: 0
+words: 185
+readTime: 2
 published: true
 ---
 
 <script lang='ts'>
-    import { CodeBlock } from '@skeletonlabs/skeleton';
+import { CodeBlock } from '@skeletonlabs/skeleton';
 
-    const code = `
-    import os
+const code = `
+import os
 
 def list_files_in_directory(directory_path):
     try:
@@ -36,7 +36,7 @@ def list_files_in_directory(directory_path):
 # Example usage:
 directory_path = "/path/to/your/directory"
 list_files_in_directory(directory_path)
-    `
+`
 </script>
 
 ## Table of content
