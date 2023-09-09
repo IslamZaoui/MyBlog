@@ -8,6 +8,7 @@ export const load = (async ({ params, fetch,url }) => {
 
         const response = await fetch(`/API/views?path=${url.pathname}`)
         meta.views = await response.text() as unknown as number
+        meta.slug = params.post
         
         return {
             content: post.default,

@@ -2,6 +2,8 @@ import type { RequestHandler } from './$types';
 import * as p from 'path';
 import type { Config } from '@sveltejs/adapter-vercel';
 
+export const prerender = true
+
 export const config: Config = {
 	runtime: 'nodejs18.x',
 };

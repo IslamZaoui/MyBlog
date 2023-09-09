@@ -149,7 +149,7 @@
 			<div class="space-x-3">
 				<span>© {getCurrentYear()} Islam Zaoui</span>
 				<a
-					class="underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
+					class="underline underline-offset-4 hover:no-underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
 					href="https://creativecommons.org/licenses/by-sa/4.0/"
 					target="_blank">CC BY-SA</a
 				>
@@ -157,13 +157,13 @@
 			<div>
 				<span
 					>Powered by <a
-						class="underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
+						class="underline underline-offset-4 hover:no-underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
 						href="https://kit.svelte.dev/"
 						target="_blank">Sveltekit</a
 					>
 					&
 					<a
-						class="underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
+						class="underline underline-offset-4 hover:no-underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
 						href="https://skeleton.dev/"
 						target="_blank">Skeleton</a
 					>.
@@ -172,7 +172,7 @@
 			<span>
 				The design is inspired from
 				<a
-					class="underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
+					class="underline underline-offset-4 hover:no-underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
 					href="https://haseebmajid.dev/"
 					target="_blank">Haseeb Majids</a
 				>
