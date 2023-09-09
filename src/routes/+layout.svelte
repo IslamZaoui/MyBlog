@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import '../app.postcss';
 	import Fa from 'svelte-fa';
 	import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -22,7 +23,7 @@
 
 	import type { PageData } from './$types';
 	import { fade } from 'svelte/transition';
-	import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
+	import { afterNavigate, beforeNavigate, goto, onNavigate } from '$app/navigation';
 
 	import { gsap } from 'gsap/dist/gsap';
 	import { Flip } from 'gsap/dist/Flip';
@@ -31,6 +32,8 @@
 	initializeStores();
 
 	import { getDrawerStore } from '@skeletonlabs/skeleton';
+	import { ScrollToTop } from '$lib';
+
 	const drawerStore = getDrawerStore();
 
 	const drawerSettings: DrawerSettings = {
@@ -49,11 +52,13 @@
 
 	let state: Flip.FlipState;
 
-	beforeNavigate(async() => {
+	beforeNavigate(async () => {
+		ScrollToTop('instant');
 		state = await Flip.getState('.postTitle, .postTags, .postDetails, .navA, .posts');
 	});
 
 	afterNavigate(async () => {
+		ScrollToTop('instant');
 		await Flip.from(state, {
 			targets: '.postTitle, .postTags, .postDetails, .navA, .posts',
 			duration: 0.3,
@@ -88,10 +93,10 @@
 </Drawer>
 <AppShell>
 	<svelte:fragment slot="pageHeader">
-		<nav class="w-full h-[60px] flex justify-center px-4 select-none">
+		<nav class="w-full h-[60px] flex justify-center px-4 select-none" id="top">
 			<div class="h-full w-[900px] flex justify-between">
 				<div class="flex gap-3 items-center justify-center">
-					<a href="/"><strong class="text-xl">Islam Zaoui</strong></a>
+					<a href="/"><strong id="SiteTitle" class="text-2xl">Islam Zaoui</strong></a>
 					<LightSwitch />
 					<a
 						class="hover:dark:text-tertiary-500 hover:text-tertiary-800 {data.url.startsWith(
@@ -106,7 +111,9 @@
 				</div>
 				<div class="md:flex hidden gap-2 items-center">
 					<div>
-						<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/">Home</a
+						<a
+							class="text-lg font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
+							href="/">Home</a
 						>
 						{#if data.url === '/'}<div
 								class="navA border-t-2 dark:border-white border-black"
@@ -114,8 +121,9 @@
 							/>{/if}
 					</div>
 					<div>
-						<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/posts"
-							>Posts</a
+						<a
+							class="text-lg font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
+							href="/posts">Posts</a
 						>
 						{#if data.url.startsWith('/posts')}<div
 								class="navA border-t-2 dark:border-white border-black"
@@ -141,7 +149,7 @@
 			<div class="space-x-3">
 				<span>© {getCurrentYear()} Islam Zaoui</span>
 				<a
-					class="underline hover:dark:text-tertiary-500 hover:text-tertiary-800"
+					class="underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
 					href="https://creativecommons.org/licenses/by-sa/4.0/"
 					target="_blank">CC BY-SA</a
 				>
@@ -149,13 +157,13 @@
 			<div>
 				<span
 					>Powered by <a
-						class="underline hover:dark:text-tertiary-500 hover:text-tertiary-800"
+						class="underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
 						href="https://kit.svelte.dev/"
 						target="_blank">Sveltekit</a
 					>
 					&
 					<a
-						class="underline hover:dark:text-tertiary-500 hover:text-tertiary-800"
+						class="underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
 						href="https://skeleton.dev/"
 						target="_blank">Skeleton</a
 					>.
@@ -164,7 +172,7 @@
 			<span>
 				The design is inspired from
 				<a
-					class="underline hover:dark:text-tertiary-500 hover:text-tertiary-800"
+					class="underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
 					href="https://haseebmajid.dev/"
 					target="_blank">Haseeb Majids</a
 				>

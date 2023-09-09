@@ -3,10 +3,10 @@ import * as p from 'path';
 import type { Config } from '@sveltejs/adapter-vercel';
 
 export const config: Config = {
-    runtime: 'nodejs18.x',
+	runtime: 'nodejs18.x',
 };
 
-async function getPosts() {
+async function getPosts(pageNumber = 1, postsPerPage = 5) {
 	let posts: Post[] = []
 
 	const paths = import.meta.glob('/src/posts/**/*.svx', { eager: true })
@@ -22,17 +22,29 @@ async function getPosts() {
 	}
 
 	posts = posts.sort((first, second) =>
-    new Date(second.date).getTime() - new Date(first.date).getTime()
+		new Date(second.date).getTime() - new Date(first.date).getTime()
 	)
 
-	return posts
+	const startIndex = (pageNumber - 1) * postsPerPage
+	const endIndex = startIndex + postsPerPage
+	const paginatedPosts = posts.slice(startIndex, endIndex)
+
+	const hasMorePosts = endIndex < posts.length
+
+    return {
+        posts: paginatedPosts,
+        hasMorePosts,
+    }
 }
 
-export const GET: RequestHandler = async () => {
-    const posts = await getPosts()
-    return new Response(JSON.stringify(posts),{
-		headers:{
-			'content-Type':'application/json'
+
+export const GET: RequestHandler = async ({ url }) => {
+	const page = +(url.searchParams.get('page') ?? 1)
+	const perPage = +(url.searchParams.get('perPage') ?? 5)
+	const posts = await getPosts(page, perPage)
+	return new Response(JSON.stringify(posts), {
+		headers: {
+			'content-Type': 'application/json'
 		}
 	});
 };

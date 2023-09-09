@@ -54,6 +54,7 @@
     "remark-toc": "^8.0.1",
     "remark-unwrap-images": "^3.0.1",
     "shiki": "^0.14.4",
+    "svelte-scrolling": "^1.2.2",
     "vite-imagetools": "^5.0.8"
   }
 }

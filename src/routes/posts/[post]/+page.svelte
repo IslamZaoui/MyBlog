@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { formatDate } from '$lib';
-	import { faArrowLeft, faCalendarDays, faClock, faEye, faFileWord, faTags } from '@fortawesome/free-solid-svg-icons';
+	import { ScrollToTop, formatDate } from '$lib';
+	import { faArrowLeft, faArrowUp, faCalendarDays, faClock, faEye, faFileWord, faTags } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	import type { PageData } from './$types';
 
@@ -29,7 +29,7 @@
 					{/each}
 				</small>
 			</div>
-			<footer class="postDetails text-sm flex items-center gap-3" data-flip-id="postDetails-{data.meta.title}">
+			<footer class="postDetails text-[14px] flex items-center gap-2 flex-wrap" data-flip-id="postDetails-{data.meta.title}">
 				<div class="flex gap-2 items-center">
 					<Fa icon={faCalendarDays} class="text-gray-500" />
 					<span>{formatDate(data.meta.date)}</span>
@@ -55,4 +55,8 @@
 			<svelte:component this={data.content} />
 		</div>
 	</article>
+	<button
+		class="variant-filled btn-icon fixed bottom-10 right-4 z-50"
+		on:click={() => ScrollToTop('smooth')}><Fa icon={faArrowUp} /></button
+	>
 </div>
