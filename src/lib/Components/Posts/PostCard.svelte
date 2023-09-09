@@ -6,7 +6,7 @@
     export let post: Post
 </script>
 
-<a href="/posts/{post.slug}"
+<a href="/posts/{post.slug}" class='select-none'
 	><div class="card shadow-md rounded-md">
 		<article class="p-4 space-y-2">
 			<header class="postTitle text-2xl font-bold" data-flip-id="postTitle-{post.title}">{post.title}</header>

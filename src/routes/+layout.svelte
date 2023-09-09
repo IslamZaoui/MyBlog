@@ -35,7 +35,7 @@
 
 	const drawerSettings: DrawerSettings = {
 		width: 'w-[100px]',
-		position:'right'
+		position: 'right'
 	};
 
 	export let data: PageData;
@@ -49,12 +49,12 @@
 
 	let state: Flip.FlipState;
 
-	beforeNavigate(() => {
-		state = Flip.getState('.postTitle, .postTags, .postDetails, .navA, .posts');
+	beforeNavigate(async() => {
+		state = await Flip.getState('.postTitle, .postTags, .postDetails, .navA, .posts');
 	});
 
 	afterNavigate(async () => {
-		Flip.from(state, {
+		await Flip.from(state, {
 			targets: '.postTitle, .postTags, .postDetails, .navA, .posts',
 			duration: 0.3,
 			scale: true,
@@ -68,7 +68,7 @@
 </script>
 
 <Drawer>
-	<nav class="flex flex-col gap-3 p-2 items-center">
+	<nav class="flex flex-col gap-3 p-2 items-center select-none">
 		<div>
 			<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/">Home</a>
 			{#if data.url === '/'}<div
@@ -84,20 +84,11 @@
 					data-flip-id="navA"
 				/>{/if}
 		</div>
-		<div>
-			<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/projects"
-				>Projects</a
-			>
-			{#if data.url.startsWith('/projects')}<div
-					class="navA border-t-2 dark:border-white border-black"
-					data-flip-id="navA"
-				/>{/if}
-		</div>
 	</nav>
 </Drawer>
 <AppShell>
 	<svelte:fragment slot="pageHeader">
-		<nav class="w-full h-[60px] flex justify-center px-4">
+		<nav class="w-full h-[60px] flex justify-center px-4 select-none">
 			<div class="h-full w-[900px] flex justify-between">
 				<div class="flex gap-3 items-center justify-center">
 					<a href="/"><strong class="text-xl">Islam Zaoui</strong></a>
@@ -131,15 +122,6 @@
 								data-flip-id="navA"
 							/>{/if}
 					</div>
-					<div>
-						<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/projects"
-							>Projects</a
-						>
-						{#if data.url.startsWith('/projects')}<div
-								class="navA border-t-2 dark:border-white border-black"
-								data-flip-id="navA"
-							/>{/if}
-					</div>
 				</div>
 				<button class="md:hidden" on:click={() => drawerStore.open(drawerSettings)}
 					><Fa icon={faBars} size="18" /></button
@@ -154,7 +136,7 @@
 	{/key}
 	<svelte:fragment slot="pageFooter">
 		<nav
-			class="flex md:flex-row flex-col justify-center w-full text-center p-5 text-[13px] md:gap-3"
+			class="flex md:flex-row flex-col justify-center w-full text-center p-5 text-[13px] md:gap-3 select-none"
 		>
 			<div class="space-x-3">
 				<span>© {getCurrentYear()} Islam Zaoui</span>

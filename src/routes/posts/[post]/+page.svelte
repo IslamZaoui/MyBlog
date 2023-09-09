@@ -15,7 +15,7 @@
 
 <div class="container h-full mx-auto flex justify-center items-center mt-6">
 	<article class="w-[800px] space-y-10">
-		<header class="space-y-4">
+		<header class="space-y-4 select-none">
 			<a class='flex gap-2 items-center posts' href="/posts" data-flip-id="posts">
 				<Fa icon={faArrowLeft}/>
 				<h3 class='h3'>Posts</h3>
