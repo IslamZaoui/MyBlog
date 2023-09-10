@@ -3,7 +3,7 @@ import type { PageLoad } from './$types';
 
 export const load = (async ({ params, fetch,url }) => {
     try {
-        const post = await import(`../../../posts/${params.post}/index.svx`)
+        const post = await import(`../../../../static/posts/${params.post}/index.svx`)
         const meta = post.metadata as Post
 
         const response = await fetch(`/API/views?path=${url.pathname}`)

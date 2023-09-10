@@ -1,8 +1,13 @@
 import { purgeCss } from 'vite-plugin-tailwind-purgecss';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
-import { imagetools} from 'vite-imagetools'
+import { imagetools } from 'vite-imagetools'
 
 export default defineConfig({
-	plugins: [sveltekit(), purgeCss(), imagetools()]
+	plugins: [sveltekit(), purgeCss(), imagetools()],
+	server: {
+		fs: {
+			allow: ['./static'],
+		},
+	},
 });

@@ -9,7 +9,7 @@ export const config: Config = {
 async function getPosts(pageNumber = 1, postsPerPage = 5) {
 	let posts: Post[] = []
 
-	const paths = import.meta.glob('/src/posts/**/*.svx', { eager: true })
+	const paths = import.meta.glob('/static/posts/**/*.svx', { eager: true })
 	for (const path in paths) {
 		const file = paths[path]
 		const slug = p.basename(p.dirname(path))

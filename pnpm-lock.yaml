@@ -20,6 +20,9 @@ dependencies:
   '@fortawesome/free-solid-svg-icons':
     specifier: ^6.4.2
     version: 6.4.2
+  '@mux-elements/mux-video':
+    specifier: ^0.7.1
+    version: 0.7.1
   '@vercel/analytics':
     specifier: ^1.0.2
     version: 1.0.2
@@ -498,6 +501,21 @@ packages:
       - encoding
       - supports-color
     dev: true
+
+  /@mux-elements/mux-video@0.7.1:
+    resolution: {integrity: sha512-67chD2MmauoZk6Xzj74wJkbEgZUpLw6esSgv9fq5nFQ7tyB52QLHQ6rSHPwzhTnc/fw1U5CKSFKGtzLzT7ZbGA==}
+    deprecated: This package has moved to the @mux/mux-video scope. See https://www.mux.com/blog/mux-elements-are-getting-a-new-old-home-on-npm-mux for more information.
+    dependencies:
+      '@mux-elements/playback-core': 0.7.0
+    dev: false
+
+  /@mux-elements/playback-core@0.7.0:
+    resolution: {integrity: sha512-ikjoDxnrMoxRS7xu7ispAtWkHfrh9FbtvZm+kB8pPpVmwzqM59r/asZxsOnar6EPEzl/sUfxme/5b1plggnvuA==}
+    deprecated: This package has moved to the @mux/playback-core scope. See https://www.mux.com/blog/mux-elements-are-getting-a-new-old-home-on-npm-mux for more information.
+    dependencies:
+      hls.js: 1.1.5
+      mux-embed: 4.28.0
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1800,6 +1818,10 @@ packages:
     engines: {node: '>=12.0.0'}
     dev: false
 
+  /hls.js@1.1.5:
+    resolution: {integrity: sha512-mQX5TSNtJEzGo5HPpvcQgCu+BWoKDQM6YYtg/KbgWkmVAcqOCvSTi0SuqG2ZJLXxIzdnFcKU2z7Mrw/YQWhPOA==}
+    dev: false
+
   /html-escaper@3.0.3:
     resolution: {integrity: sha512-RuMffC89BOWQoY0WKGpIhn5gX3iI54O6nRA0yC124NYVtzjmFWBIiFd8M0x+ZdX0P9R4lADg1mgP8C7PxGOWuQ==}
     dev: false
@@ -2180,6 +2202,10 @@ packages:
   /ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: true
+
+  /mux-embed@4.28.0:
+    resolution: {integrity: sha512-8S/neKvfizeJFaSSCy8XJZaSqjqXJES/VRuKJ8jhXfNY2KPwEFlggQO9CuoK+vpxhWFZ8jVJJ3s0W98Ig+puBA==}
+    dev: false
 
   /mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}

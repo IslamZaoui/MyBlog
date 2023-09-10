@@ -12,6 +12,7 @@
 	import Fa from 'svelte-fa';
 	import * as config from '$lib/config'
 	import type { PageData } from './$types';
+	import { base } from '$app/paths';
 
 	export let data: PageData;
 </script>
@@ -26,6 +27,7 @@
 </svelte:head>
 
 <div class="container h-full mx-auto flex justify-center items-center mt-6">
+	
 	<article class="w-[800px] space-y-10">
 		<header class="space-y-4 select-none">
 			<a class="flex gap-2 items-center posts" href="/posts" data-flip-id="posts">
