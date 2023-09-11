@@ -1,6 +1,6 @@
 ---
-title: Test post for my personal blog
-description: Awesome! You created an API endpoint for posts you can reuse across your app (you can even make it public for others to consume).Awesome!
+title: Test post for my personal website
+description: This is just a test markdown file for my personal website genetated by Chat-gpt.
 date: '2023-9-8'
 tags:
   - Chat-gpt

@@ -6,8 +6,11 @@
 		faInstagram,
 		faLinkedin
 	} from '@fortawesome/free-brands-svg-icons';
+	import { faCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import Fa from 'svelte-fa';
+	import Icon from '@iconify/svelte';
+import kofiIcon from '@iconify/icons-simple-icons/kofi';
 </script>
 
 <svelte:head>
@@ -42,6 +45,12 @@
 				class="hover:dark:text-tertiary-500 hover:text-tertiary-800"
 				href="https://www.instagram.com/islamzaoui__/"
 				target="_blank"><Fa icon={faInstagram} size="30" /></a
+			>
+			<a
+				class="hover:dark:text-tertiary-500 hover:text-tertiary-800"
+				href="https://ko-fi.com/islamzaoui"
+				target="_blank"
+				><Icon icon={kofiIcon} width="33" height="33" /></a
 			>
 		</span>
 	</div>
