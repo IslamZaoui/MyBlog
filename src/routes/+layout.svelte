@@ -45,7 +45,6 @@
 	import { ScrollToTop } from '$lib';
 	import LangSwitch from '$lib/Components/Switch/LangSwitch.svelte';
 	import { loadAllLocales } from '$i18n/i18n-util.sync';
-	import { Lang } from '$lib/stores/lang';
 	import { i18n } from 'typesafe-i18n';
 
 	const drawerStore = getDrawerStore();
@@ -116,7 +115,7 @@
 					<LangSwitch />
 					<a
 						class="hover:dark:text-tertiary-500 hover:text-tertiary-800 {data.url.startsWith(
-							'/search'
+							`/${data.Lang}/search`
 						)
 							? 'dark:text-tertiary-500 text-tertiary-800'
 							: ''}"
