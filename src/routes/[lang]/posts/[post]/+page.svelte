@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+	import { LL } from '$i18n/i18n-svelte';
 	import { ScrollToTop, formatDate } from '$lib';
 	import {
 		faArrowLeft,
+		faArrowRight,
 		faArrowUp,
 		faCalendarDays,
 		faClock,
@@ -10,7 +13,7 @@
 		faTags
 	} from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
-	import * as config from '$lib/config'
+	import * as config from '$lib/config';
 	import type { PageData } from './$types';
 	import { base } from '$app/paths';
 
@@ -27,12 +30,19 @@
 </svelte:head>
 
 <div class="container h-full mx-auto flex justify-center items-center mt-6">
-	
 	<article class="w-[800px] space-y-10">
-		<header class="space-y-4 select-none">
-			<a class="flex gap-2 items-center posts" href="/posts" data-flip-id="posts">
-				<Fa icon={faArrowLeft} />
-				<h3 class="h3">Posts</h3>
+		<header class="space-y-4 select-none" dir={$LL.DIR()}>
+			<a
+				class="flex gap-2 items-center posts"
+				href="/{$page.params.lang}/posts"
+				data-flip-id="posts"
+			>
+				{#if $page.params.lang === 'en'}
+					<Fa icon={faArrowLeft} />
+				{:else}
+					<Fa icon={faArrowRight} />
+				{/if}
+				<h3 class="h3">{$LL.POSTS()}</h3>
 			</a>
 			<div class="space-y-2">
 				<h2 class="postTitle h2 font-bold" data-flip-id="postTitle-{data.meta.slug}">
@@ -59,21 +69,21 @@
 				<span>•</span>
 				<div class="flex gap-2 items-center">
 					<Fa icon={faFileWord} class="text-gray-500" />
-					<span>{data.meta.words} words</span>
+					<span>{data.meta.words} {$LL.WORDS()}</span>
 				</div>
 				<span>•</span>
 				<div class="flex gap-2 items-center">
 					<Fa icon={faClock} class="text-gray-500" />
-					<span>{data.meta.readTime} min</span>
+					<span>{data.meta.readTime} {$LL.MINS()}</span>
 				</div>
 				<span>•</span>
 				<div class="flex gap-2 items-center">
 					<Fa icon={faEye} class="text-gray-500" />
-					<span>{data.meta.views} views</span>
+					<span>{data.meta.views} {$LL.VIEWS()}</span>
 				</div>
 			</footer>
 		</header>
-		<div class="prose">
+		<div class="prose" dir="auto">
 			<svelte:component this={data.content} />
 		</div>
 	</article>

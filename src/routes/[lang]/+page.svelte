@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { LL } from '$i18n/i18n-svelte';
 	import { base } from '$app/paths';
 	import {
 		faFacebook,
@@ -6,7 +7,6 @@
 		faInstagram,
 		faLinkedin
 	} from '@fortawesome/free-brands-svg-icons';
-	import { faCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import Fa from 'svelte-fa';
 	import Icon from '@iconify/svelte';
@@ -22,8 +22,8 @@ import kofiIcon from '@iconify/icons-simple-icons/kofi';
 		<Avatar src="{base}/asset/avatar.webp" width="w-[250px]" />
 		<strong class="h1">Islam Zaoui</strong>
 		<div>
-			<p class="text-[18px] text-center">Junior Multi-Platform Apps and Web Developer 💻</p>
-			<p class="text-[18px] text-center">Attended Université de M'sila 🇩🇿</p>
+			<p class="text-[18px] text-center">{$LL.DISL1()}</p>
+			<p class="text-[18px] text-center">{$LL.DISL2()}</p>
 		</div>
 		<span class="flex gap-4">
 			<a

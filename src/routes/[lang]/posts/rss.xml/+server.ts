@@ -1,8 +1,8 @@
 import { formatDate } from '$lib'
 import * as config from '$lib/config'
 
-export async function GET({ fetch }) {
-	const response = await fetch('/API/posts')
+export async function GET({ fetch, params }) {
+	const response = await fetch(`/${params.lang}/API/posts`)
 	const posts = (await response.json()).posts as Post[]
 	console.log(posts)
 	const xml = `
@@ -11,16 +11,16 @@ export async function GET({ fetch }) {
 				<title>${config.title}</title>
 				<description>${config.description}</description>
 				<link>${config.url}</link>
-				<atom:link href="${config.url}rss.xml" rel="self" type="application/rss+xml"/>
+				<atom:link href="${config.url}${params.lang}/rss.xml" rel="self" type="application/rss+xml"/>
 				${posts
 			.map(
 				(post) => `
 						<item>
 							<title>${post.title}</title>
 							<description>${post.description}</description>
-							<link>${config.url}posts/${post.slug}</link>
+							<link>${config.url}${params.lang}/posts/${post.slug}</link>
 							<tags>${post.tags}</tags>
-							<guid isPermaLink="true">${config.url}posts/${post.slug}</guid>
+							<guid isPermaLink="true">${config.url}${params.lang}/posts/${post.slug}</guid>
 							<pubDate>${formatDate(post.date)}</pubDate>
 						</item>
 					`

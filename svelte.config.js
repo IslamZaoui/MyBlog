@@ -33,7 +33,7 @@ const config = {
 			runtime: 'edge'
 		}),
 		alias: {
-			'posts': '/src/posts'
+			$i18n: 'src/i18n',
 		},
 	}
 };

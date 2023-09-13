@@ -1,5 +1,14 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { LL, setLocale } from '$i18n/i18n-svelte';
+	import { locale } from '$i18n/i18n-svelte';
+	import type { PageData } from './$types';
+	export let data: PageData;
+
+	loadAllLocales();
+	// @ts-ignore
+	i18n($locale);
+	setLocale(data.Lang);
+
 	import '../app.postcss';
 	import Fa from 'svelte-fa';
 	import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -18,14 +27,15 @@
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
-	import LightSwitch from '$lib/Components/LightSwitch/LightSwitch.svelte';
+	import LightSwitch from '$lib/Components/Switch/LightSwitch.svelte';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
-	import type { PageData } from './$types';
 	import { fade } from 'svelte/transition';
 	import { afterNavigate, beforeNavigate, goto, onNavigate } from '$app/navigation';
 
+	// @ts-ignore
 	import { gsap } from 'gsap/dist/gsap';
+	// @ts-ignore
 	import { Flip } from 'gsap/dist/Flip';
 
 	import { initializeStores } from '@skeletonlabs/skeleton';
@@ -33,6 +43,10 @@
 
 	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import { ScrollToTop } from '$lib';
+	import LangSwitch from '$lib/Components/Switch/LangSwitch.svelte';
+	import { loadAllLocales } from '$i18n/i18n-util.sync';
+	import { Lang } from '$lib/stores/lang';
+	import { i18n } from 'typesafe-i18n';
 
 	const drawerStore = getDrawerStore();
 
@@ -40,8 +54,6 @@
 		width: 'w-[100px]',
 		position: 'right'
 	};
-
-	export let data: PageData;
 
 	function getCurrentYear(): number {
 		const currentDate = new Date();
@@ -75,16 +87,19 @@
 <Drawer>
 	<nav class="flex flex-col gap-3 p-2 items-center select-none">
 		<div>
-			<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/">Home</a>
-			{#if data.url === '/'}<div
+			<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/{data.Lang}/"
+				>{$LL.HOME()}</a
+			>
+			{#if data.url === `/${data.Lang}`}<div
 					class="navA border-t-2 dark:border-white border-black"
 					data-flip-id="navA"
 				/>{/if}
 		</div>
 		<div>
-			<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/posts">Posts</a
+			<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/{data.Lang}/posts"
+				>{$LL.POSTS()}</a
 			>
-			{#if data.url.startsWith('/posts')}<div
+			{#if data.url.startsWith(`/${data.Lang}/posts`)}<div
 					class="navA border-t-2 dark:border-white border-black"
 					data-flip-id="navA"
 				/>{/if}
@@ -96,8 +111,9 @@
 		<nav class="w-full h-[60px] flex justify-center px-4 select-none" id="top">
 			<div class="h-full w-[900px] flex justify-between">
 				<div class="flex gap-3 items-center justify-center">
-					<a href="/"><strong id="SiteTitle" class="text-2xl">Islam Zaoui</strong></a>
+					<a href="/{data.Lang}"><strong id="SiteTitle" class="text-2xl">Islam Zaoui</strong></a>
 					<LightSwitch />
+					<LangSwitch />
 					<a
 						class="hover:dark:text-tertiary-500 hover:text-tertiary-800 {data.url.startsWith(
 							'/search'
@@ -113,9 +129,9 @@
 					<div>
 						<a
 							class="text-lg font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
-							href="/">Home</a
+							href="/{data.Lang}/">{$LL.HOME()}</a
 						>
-						{#if data.url === '/'}<div
+						{#if data.url === `/${data.Lang}`}<div
 								class="navA border-t-2 dark:border-white border-black"
 								data-flip-id="navA"
 							/>{/if}
@@ -123,9 +139,9 @@
 					<div>
 						<a
 							class="text-lg font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
-							href="/posts">Posts</a
+							href="/{data.Lang}/posts">{$LL.POSTS()}</a
 						>
-						{#if data.url.startsWith('/posts')}<div
+						{#if data.url.startsWith(`/${data.Lang}/posts`)}<div
 								class="navA border-t-2 dark:border-white border-black"
 								data-flip-id="navA"
 							/>{/if}
@@ -147,30 +163,30 @@
 			class="flex md:flex-row flex-col justify-center w-full text-center p-5 text-[13px] md:gap-3 select-none"
 		>
 			<div class="space-x-3">
-				<span>© {getCurrentYear()} Islam Zaoui</span>
+				<span>©{getCurrentYear()}</span>
+				<span>Islam Zaoui</span>
 				<a
 					class="underline underline-offset-4 hover:no-underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
 					href="https://creativecommons.org/licenses/by-sa/4.0/"
 					target="_blank">CC BY-SA</a
 				>
 			</div>
-			<div>
-				<span
-					>Powered by <a
-						class="underline underline-offset-4 hover:no-underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
-						href="https://kit.svelte.dev/"
-						target="_blank">Sveltekit</a
-					>
-					&
-					<a
-						class="underline underline-offset-4 hover:no-underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
-						href="https://skeleton.dev/"
-						target="_blank">Skeleton</a
-					>.
-				</span>
-			</div>
-			<span>
-				The design is inspired from
+			<span dir={$LL.DIR()}
+				>{$LL.POWERED()}
+				<a
+					class="underline underline-offset-4 hover:no-underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
+					href="https://kit.svelte.dev/"
+					target="_blank">Sveltekit</a
+				>
+				{$LL.AND()}
+				<a
+					class="underline underline-offset-4 hover:no-underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
+					href="https://skeleton.dev/"
+					target="_blank">Skeleton</a
+				>.
+			</span>
+			<span dir={$LL.DIR()}>
+				{$LL.DESIGN()}
 				<a
 					class="underline underline-offset-4 hover:no-underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
 					href="https://haseebmajid.dev/"

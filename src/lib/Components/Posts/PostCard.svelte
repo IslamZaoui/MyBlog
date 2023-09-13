@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+	import { LL } from '$i18n/i18n-svelte';
 	import { formatDate } from '$lib';
 	import { faTags, faCalendarDays, faFileWord, faClock } from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
@@ -6,8 +8,8 @@
 	export let post: Post;
 </script>
 
-<a href="/posts/{post.slug}" class="select-none"
-	><div class="card shadow-md rounded-md card-hover">
+<a href="/{$page.data.Lang}/posts/{post.slug}" class="select-none"
+	><div class="card shadow-md rounded-md card-hover" dir={$LL.DIR()}>
 		<article class="p-4 space-y-2">
 			<header class="postTitle text-2xl font-bold" data-flip-id="postTitle-{post.slug}">
 				{post.title}
@@ -24,7 +26,7 @@
 			</small>
 		</article>
 		<footer
-			class="postDetails pb-4 pl-4 text-sm flex items-center gap-3"
+			class="postDetails pb-4 pl-4 pr-4 text-sm flex items-center gap-3"
 			data-flip-id="postDetails-{post.slug}"
 		>
 			<div class="flex gap-2 items-center">
@@ -34,12 +36,12 @@
 			<span>•</span>
 			<div class="flex gap-2 items-center">
 				<Fa icon={faFileWord} class="text-gray-500" />
-				<span>{post.words} words</span>
+				<span>{post.words} {$LL.WORDS()}</span>
 			</div>
 			<span>•</span>
 			<div class="flex gap-2 items-center">
 				<Fa icon={faClock} class="text-gray-500" />
-				<span>{post.readTime} min</span>
+				<span>{post.readTime} {$LL.MINS()}</span>
 			</div>
 		</footer>
 	</div></a

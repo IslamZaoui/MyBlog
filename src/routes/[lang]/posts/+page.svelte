@@ -1,5 +1,7 @@
 <!-- YourComponent.svelte -->
 <script lang="ts">
+	import { page } from '$app/stores';
+	import { LL } from '$i18n/i18n-svelte';
 	import { ScrollToTop } from '$lib';
 	import type { PageData } from './$types';
 	import PostCard from '$lib/Components/Posts/PostCard.svelte';
@@ -9,13 +11,13 @@
 </script>
 
 <svelte:head>
-	<title>Posts | Islam Zaoui</title>
+	<title>{$LL.POSTS()} | Islam Zaoui</title>
 </svelte:head>
 
 <main class="container h-full mx-auto flex justify-center items-center mt-6 select-none relative">
 	<div class="space-y-2 w-[700px]">
-		<header class="flex flex-col gap-4 mb-8">
-			<strong class="posts text-4xl" data-flip-id="posts">Posts</strong>
+		<header class="flex flex-col gap-4 mb-8" dir={$LL.DIR()}>
+			<strong class="posts text-4xl" data-flip-id="posts">{$LL.POSTS()}</strong>
 			<a
 				href="posts/rss.xml"
 				class="text-xl underline hover:dark:text-tertiary-500 hover:text-tertiary-800 w-fit"
@@ -29,12 +31,12 @@
 		</div>
 		<div class="flex justify-between">
 			{#if data.page > 1}
-				<a class="btn btn-sm variant-filled mr-auto" href="/posts?page={data.page - 1}"
+				<a class="btn btn-sm variant-filled mr-auto" href="/{$page.params.lang}/posts?page={data.page - 1}"
 					><Fa icon={faArrowLeft} /><span>Prev</span></a
 				>
 			{/if}
 			{#if data.hasMorePosts}
-				<a class="btn btn-sm variant-filled ml-auto" href="/posts?page={data.page + 1}"
+				<a class="btn btn-sm variant-filled ml-auto" href="/{$page.params.lang}/posts?page={data.page + 1}"
 					><span>Next</span><Fa icon={faArrowRight} /></a
 				>
 			{/if}

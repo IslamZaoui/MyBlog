@@ -9,8 +9,13 @@ declare module '@fortawesome/pro-regular-svg-icons/index.es' {
 	export * from '@fortawesome/pro-regular-svg-icons';
 }
 
+import Locales from '$i18n/i18n-types'
+
 declare namespace App {
-	// interface Locals {}
+	interface Locals {
+		locale: Locales
+		LL: TranslationFunctions
+	}
 	// interface PageData {}
 	// interface Error {}
 	// interface Platform {}
