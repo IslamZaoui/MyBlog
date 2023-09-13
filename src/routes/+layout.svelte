@@ -119,7 +119,7 @@
 						)
 							? 'dark:text-tertiary-500 text-tertiary-800'
 							: ''}"
-						href="/search"
+						href="/{data.Lang}/search"
 					>
 						<Fa icon={faSearch} size="18" />
 					</a>
