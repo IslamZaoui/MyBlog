@@ -4,11 +4,11 @@
 @tailwind variants;
 
 html,
-body{
-    @apply h-full;
+body {
+	@apply h-full;
 }
 
-html{
+html {
 	@apply overflow-auto;
 }
 
@@ -22,13 +22,13 @@ html{
 	src: url('/fonts/UbuntuNerdFont-Bold.ttf');
 }
 
-.prose{
+.prose {
 	@apply max-w-full;
 }
 
 .prose h1 {
 	@apply text-tertiary-700;
-    @apply dark:text-tertiary-500;
+	@apply dark:text-tertiary-500;
 }
 
 .prose h2,
@@ -37,7 +37,7 @@ html{
 .prose h5,
 .prose h6 {
 	@apply text-primary-900;
-    @apply dark:text-primary-500;
+	@apply dark:text-primary-500;
 }
 
 /* Paragraph text colors */
@@ -50,8 +50,8 @@ html{
 }
 
 .prose th,
-.prose td{
-    @apply dark:text-white;
+.prose td {
+	@apply dark:text-white;
 	@apply text-black;
 }
 
@@ -65,17 +65,15 @@ html{
 .prose :not(pre) code:not(.codeblock-code) {
 	@apply dark:text-primary-50;
 	@apply dark:bg-surface-400;
-    @apply text-primary-200;
+	@apply text-primary-200;
 	@apply bg-surface-600;
 	@apply p-1;
 	@apply rounded;
 }
 
 .prose .codeblock pre {
-	  background-color: transparent;
+	background-color: transparent;
 }
-
-  
 
 .prose a {
 	@apply text-blue-900;

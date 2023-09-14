@@ -1,10 +1,10 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/kit/vite';
-import remarkUnwrapImages from 'remark-unwrap-images'
-import remarkToc from 'remark-toc'
-import rehypeSlug from 'rehype-slug'
-import { mdsvex, escapeSvelte } from 'mdsvex'
-import shiki from 'shiki'
+import remarkUnwrapImages from 'remark-unwrap-images';
+import remarkToc from 'remark-toc';
+import rehypeSlug from 'rehype-slug';
+import { mdsvex, escapeSvelte } from 'mdsvex';
+import shiki from 'shiki';
 
 /**@type {import(mdsvex).mdsvexOptions} */
 const mdsvexOptions = {
@@ -13,12 +13,12 @@ const mdsvexOptions = {
 	rehypePlugins: [rehypeSlug],
 	highlight: {
 		highlighter: async (code, lang = 'text') => {
-			const highlighter = await shiki.getHighlighter({ theme: 'poimandres' })
-			const html = escapeSvelte(highlighter.codeToHtml(code, { lang }))
-			return `{@html \`${html}\` }`
+			const highlighter = await shiki.getHighlighter({ theme: 'poimandres' });
+			const html = escapeSvelte(highlighter.codeToHtml(code, { lang }));
+			return `{@html \`${html}\` }`;
 		}
-	},
-}
+	}
+};
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -26,15 +26,15 @@ const config = {
 	preprocess: [mdsvex(mdsvexOptions), vitePreprocess()],
 
 	vitePlugin: {
-		inspector: true,
+		inspector: true
 	},
 	kit: {
 		adapter: adapter({
 			runtime: 'edge'
 		}),
 		alias: {
-			$i18n: 'src/i18n',
-		},
+			$i18n: 'src/i18n'
+		}
 	}
 };
 export default config;

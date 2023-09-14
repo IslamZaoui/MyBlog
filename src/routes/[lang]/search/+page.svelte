@@ -15,20 +15,26 @@
 
 	const searchStore = createSearchStore(searchPost);
 
-    const unsub = searchStore.subscribe((model) => searchHandler(model))
+	const unsub = searchStore.subscribe((model) => searchHandler(model));
 
-    onDestroy(()=>{
-        unsub();
-    })
+	onDestroy(() => {
+		unsub();
+	});
 </script>
 
 <div class="container h-full mx-auto flex justify-center items-center mt-6">
 	<div class="w-[700px] space-y-4">
-		<input type="text" class="input" placeholder="{$LL.SEARCH()}..." bind:value={$searchStore.search} dir={$LL.DIR()}/>
+		<input
+			type="text"
+			class="input"
+			placeholder="{$LL.SEARCH()}..."
+			bind:value={$searchStore.search}
+			dir={$LL.DIR()}
+		/>
 		<div class="flex flex-col gap-3" use:autoAnimate>
-            {#each $searchStore.filtered as post}
-                <PostCard {post}/>
-            {/each}
-        </div>
+			{#each $searchStore.filtered as post}
+				<PostCard {post} />
+			{/each}
+		</div>
 	</div>
 </div>

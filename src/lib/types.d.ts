@@ -1,12 +1,12 @@
 type Post = {
-    slug: string
-    title: string
-    description: string
-    date: string
-    tags: string[]
-    words: number
-    readTime: number
-    published: boolean
-    views: number
-    lang: string
-}
+	slug: string;
+	title: string;
+	description: string;
+	date: string;
+	tags: string[];
+	words: number;
+	readTime: number;
+	published: boolean;
+	views: number;
+	lang: string;
+};

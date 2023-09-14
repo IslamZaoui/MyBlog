@@ -10,7 +10,7 @@
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import Fa from 'svelte-fa';
 	import Icon from '@iconify/svelte';
-import kofiIcon from '@iconify/icons-simple-icons/kofi';
+	import kofiIcon from '@iconify/icons-simple-icons/kofi';
 </script>
 
 <svelte:head>
@@ -49,8 +49,7 @@ import kofiIcon from '@iconify/icons-simple-icons/kofi';
 			<a
 				class="hover:dark:text-tertiary-500 hover:text-tertiary-800"
 				href="https://ko-fi.com/islamzaoui"
-				target="_blank"
-				><Icon icon={kofiIcon} width="33" height="33" /></a
+				target="_blank"><Icon icon={kofiIcon} width="33" height="33" /></a
 			>
 		</span>
 	</div>

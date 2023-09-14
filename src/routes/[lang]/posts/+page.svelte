@@ -31,12 +31,16 @@
 		</div>
 		<div class="flex justify-between">
 			{#if data.page > 1}
-				<a class="btn btn-sm variant-filled mr-auto" href="/{$page.params.lang}/posts?page={data.page - 1}"
+				<a
+					class="btn btn-sm variant-filled mr-auto"
+					href="/{$page.params.lang}/posts?page={data.page - 1}"
 					><Fa icon={faArrowLeft} /><span>Prev</span></a
 				>
 			{/if}
 			{#if data.hasMorePosts}
-				<a class="btn btn-sm variant-filled ml-auto" href="/{$page.params.lang}/posts?page={data.page + 1}"
+				<a
+					class="btn btn-sm variant-filled ml-auto"
+					href="/{$page.params.lang}/posts?page={data.page + 1}"
 					><span>Next</span><Fa icon={faArrowRight} /></a
 				>
 			{/if}

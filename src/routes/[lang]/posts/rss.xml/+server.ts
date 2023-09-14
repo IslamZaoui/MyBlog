@@ -1,10 +1,10 @@
-import { formatDate } from '$lib'
-import * as config from '$lib/config'
+import { formatDate } from '$lib';
+import * as config from '$lib/config';
 
 export async function GET({ fetch, params }) {
-	const response = await fetch(`/${params.lang}/API/posts`)
-	const posts = (await response.json()).posts as Post[]
-	console.log(posts)
+	const response = await fetch(`/${params.lang}/API/posts`);
+	const posts = (await response.json()).posts as Post[];
+	console.log(posts);
 	const xml = `
 		<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
 			<channel>
@@ -13,8 +13,8 @@ export async function GET({ fetch, params }) {
 				<link>${config.url}</link>
 				<atom:link href="${config.url}${params.lang}/rss.xml" rel="self" type="application/rss+xml"/>
 				${posts
-			.map(
-				(post) => `
+					.map(
+						(post) => `
 						<item>
 							<title>${post.title}</title>
 							<description>${post.description}</description>
@@ -24,15 +24,15 @@ export async function GET({ fetch, params }) {
 							<pubDate>${formatDate(post.date)}</pubDate>
 						</item>
 					`
-			)
-			.join('')}
+					)
+					.join('')}
 			</channel>
 		</rss>
-	`.trim()
+	`.trim();
 
 	return new Response(xml, {
 		headers: {
 			'Content-Type': 'application/xml'
 		}
-	})
+	});
 }

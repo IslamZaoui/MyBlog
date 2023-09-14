@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { LL, setLocale } from '$i18n/i18n-svelte';
 	import { locale } from '$i18n/i18n-svelte';
-	import type { PageData } from './$types';
-	export let data: PageData;
+	export let data;
 
 	loadAllLocales();
 	// @ts-ignore
@@ -95,8 +94,9 @@
 				/>{/if}
 		</div>
 		<div>
-			<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/{data.Lang}/posts"
-				>{$LL.POSTS()}</a
+			<a
+				class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800"
+				href="/{data.Lang}/posts">{$LL.POSTS()}</a
 			>
 			{#if data.url.startsWith(`/${data.Lang}/posts`)}<div
 					class="navA border-t-2 dark:border-white border-black"
