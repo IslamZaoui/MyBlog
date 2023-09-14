@@ -13,8 +13,6 @@
 			duration = muxVideoEl.duration;
 			videoWidth = muxVideoEl.videoWidth;
 			videoHeight = muxVideoEl.videoHeight;
-
-			console.log('onloadedmetadata', { duration, videoWidth, videoHeight });
 		}
 	};
 </script>

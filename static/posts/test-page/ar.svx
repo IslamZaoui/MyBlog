@@ -63,7 +63,9 @@ list_files_in_directory(directory_path)
 
 توفر Python وسيلة بسيطة لسرد الملفات في دليل باستخدام وحدة الـ `os`. يُظهر مقتطف الشيفرة التالي كيفية تحقيق ذلك:
 
-<CodeBlock language="python" lineNumbers code={code}></CodeBlock>
+<div dir="auto">
+    <CodeBlock language="python" lineNumbers code={code} ></CodeBlock>
+</div>
 
 تأكد من استبدال `"/المسار/إلى/دليلك"` بالمسار الفعلي للدليل الذي ترغب في سرد محتواه. تقوم وظيفة `os.listdir()` باسترداد قائمة بجميع العناصر في الدليل المعطى. ثم نقوم بتصفية الدلائل باستخدام `os.path.isfile()` ونقوم بطباعة أسماء الملفات.
 

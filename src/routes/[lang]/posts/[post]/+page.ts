@@ -10,8 +10,6 @@ export const load = (async ({ params, fetch, url }) => {
 		meta.views = (await response.text()) as unknown as number;
 		meta.slug = params.post;
 
-		console.log(meta);
-
 		return {
 			content: post.default,
 			meta

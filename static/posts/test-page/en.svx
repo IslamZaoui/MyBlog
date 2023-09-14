@@ -63,7 +63,7 @@ Operating systems can be classified into several categories based on their desig
 
 Python provides a straightforward way to list files in a directory using the `os` module. The following code snippet demonstrates how to achieve this:
 
-<CodeBlock language="python" lineNumbers code={code}></CodeBlock>
+<CodeBlock language="python" lineNumbers code={code} ></CodeBlock>
 
 Make sure to replace `"/path/to/your/directory"` with the actual path of the directory you want to list. The `os.listdir()` function retrieves a list of all items in the given directory. We then filter out the files using `os.path.isfile()` and print the names of the files.
 

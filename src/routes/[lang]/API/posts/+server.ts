@@ -30,8 +30,6 @@ async function getPosts(pageNumber = 1, postsPerPage = 5, lang: string) {
 		(first, second) => new Date(second.date).getTime() - new Date(first.date).getTime()
 	);
 
-	console.log(posts);
-
 	const startIndex = (pageNumber - 1) * postsPerPage;
 	const endIndex = startIndex + postsPerPage;
 	const paginatedPosts = posts.slice(startIndex, endIndex);
