@@ -18,8 +18,8 @@ console.log(\`The current year is: \${currentYear}\`);`;
 		<div class="card variant-filled-surface w-full">
 			<header class="card-header">CodeBlock component</header>
 			<div class="p-2 space-y-4">
-				<CodeBlock language="html" lineNumbers pre-wrap code={`<div>This is meta</div>`} />
-				<CodeBlock language="ts" lineNumbers pre-wrap code={code1} />
+				<CodeBlock language="html" lineNumbers code={`<div>This is meta</div>`} />
+				<CodeBlock language="ts" lineNumbers code={code1} />
 			</div>
 		</div>
 	</article>
