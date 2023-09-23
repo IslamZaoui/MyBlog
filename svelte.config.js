@@ -9,21 +9,19 @@ import { mdsvex } from 'mdsvex';
 const mdsvexOptions = {
 	extensions: ['.svx'],
 	remarkPlugins: [remarkUnwrapImages, [remarkToc, { tight: true }]],
-	rehypePlugins: [rehypeSlug],
+	rehypePlugins: [rehypeSlug]
 };
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.svx'],
-	preprocess: [vitePreprocess(),mdsvex(mdsvexOptions)],
+	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 
 	vitePlugin: {
 		inspector: true
 	},
 	kit: {
-		adapter: adapter({
-			runtime: 'edge'
-		}),
+		adapter: adapter(),
 		alias: {
 			$i18n: 'src/i18n'
 		}

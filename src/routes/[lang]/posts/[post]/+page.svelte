@@ -32,10 +32,7 @@
 <div class="container h-full mx-auto flex justify-center items-center mt-6">
 	<article class="w-[800px] space-y-10">
 		<header class="space-y-4 select-none" dir={$LL.DIR()}>
-			<a
-				class="flex gap-2 items-center text-4xl"
-				href="/{$page.params.lang}/posts"
-			>
+			<a class="flex gap-2 items-center text-4xl" href="/{$page.params.lang}/posts">
 				{#if $page.params.lang === 'en'}
 					<Fa icon={faArrowLeft} />
 				{:else}
