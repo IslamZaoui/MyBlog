@@ -18,7 +18,7 @@
 	inject({ mode: dev ? 'development' : 'production' });
 
 	// Highlight JS
-	import hljs from 'highlight.js/lib/core';
+	import hljs from 'highlight.js';
 	import 'highlight.js/styles/tomorrow-night-bright.css';
 	import { AppShell, Drawer, storeHighlightJs, type DrawerSettings } from '@skeletonlabs/skeleton';
 	storeHighlightJs.set(hljs);
