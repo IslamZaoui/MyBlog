@@ -18,8 +18,8 @@
 	inject({ mode: dev ? 'development' : 'production' });
 
 	// Highlight JS
-	import hljs from 'highlight.js';
-	import 'highlight.js/styles/github-dark.css';
+	import hljs from 'highlight.js/lib/core';
+	import 'highlight.js/styles/tomorrow-night-bright.css';
 	import { AppShell, Drawer, storeHighlightJs, type DrawerSettings } from '@skeletonlabs/skeleton';
 	storeHighlightJs.set(hljs);
 
@@ -30,7 +30,7 @@
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	import { fade } from 'svelte/transition';
-	import { afterNavigate, beforeNavigate, goto, onNavigate } from '$app/navigation';
+	import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
 
 	// @ts-ignore
 	import { gsap } from 'gsap/dist/gsap';
