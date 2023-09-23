@@ -64,13 +64,13 @@
 
 	beforeNavigate(async () => {
 		ScrollToTop('instant');
-		state = await Flip.getState('.postTitle, .postTags, .postDetails, .navA, .posts');
+		state = await Flip.getState('.postTitle, .postTags, .postDetails, .navA');
 	});
 
 	afterNavigate(async () => {
 		ScrollToTop('instant');
 		await Flip.from(state, {
-			targets: '.postTitle, .postTags, .postDetails, .navA, .posts',
+			targets: '.postTitle, .postTags, .postDetails, .navA',
 			duration: 0.3,
 			scale: true,
 			ease: 'power1.easeOut'

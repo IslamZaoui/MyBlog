@@ -33,16 +33,15 @@
 	<article class="w-[800px] space-y-10">
 		<header class="space-y-4 select-none" dir={$LL.DIR()}>
 			<a
-				class="flex gap-2 items-center posts"
+				class="flex gap-2 items-center text-4xl"
 				href="/{$page.params.lang}/posts"
-				data-flip-id="posts"
 			>
 				{#if $page.params.lang === 'en'}
 					<Fa icon={faArrowLeft} />
 				{:else}
 					<Fa icon={faArrowRight} />
 				{/if}
-				<h3 class="h3">{$LL.POSTS()}</h3>
+				<strong>{$LL.POSTS()}</strong>
 			</a>
 			<div class="space-y-2">
 				<h2 class="postTitle h2 font-bold" data-flip-id="postTitle-{data.meta.slug}">
@@ -75,11 +74,6 @@
 				<div class="flex gap-2 items-center">
 					<Fa icon={faClock} class="text-gray-500" />
 					<span>{data.meta.readTime} {$LL.MINS()}</span>
-				</div>
-				<span>•</span>
-				<div class="flex gap-2 items-center">
-					<Fa icon={faEye} class="text-gray-500" />
-					<span>{data.meta.views} {$LL.VIEWS()}</span>
 				</div>
 			</footer>
 		</header>

@@ -17,7 +17,7 @@
 <main class="container h-full mx-auto flex justify-center items-center mt-6 select-none relative">
 	<div class="space-y-2 w-[700px]">
 		<header class="flex flex-col gap-4 mb-8" dir={$LL.DIR()}>
-			<strong class="posts text-4xl" data-flip-id="posts">{$LL.POSTS()}</strong>
+			<strong class="text-4xl">{$LL.POSTS()}</strong>
 			<a
 				href="posts/rss.xml"
 				class="text-xl underline hover:dark:text-tertiary-500 hover:text-tertiary-800 w-fit"

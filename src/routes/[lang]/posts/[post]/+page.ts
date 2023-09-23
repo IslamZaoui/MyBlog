@@ -1,13 +1,10 @@
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
-export const load = (async ({ params, fetch, url }) => {
+export const load = (async ({ params }) => {
 	try {
 		const post = await import(`../../../../../static/posts/${params.post}/${params.lang}.svx`);
 		const meta = post.metadata as Post;
-
-		const response = await fetch(`/${params.lang}/API/views?path=${url.pathname}`);
-		meta.views = (await response.text()) as unknown as number;
 		meta.slug = params.post;
 
 		return {
