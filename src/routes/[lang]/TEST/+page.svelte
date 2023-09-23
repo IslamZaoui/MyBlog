@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { CodeBlock } from '@skeletonlabs/skeleton';
+	import type { PageData } from './$types';
 
 	const code1 = `
 function getCurrentYear(): number {
