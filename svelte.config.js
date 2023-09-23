@@ -15,7 +15,7 @@ const mdsvexOptions = {
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.svx'],
-	preprocess: [mdsvex(mdsvexOptions), vitePreprocess()],
+	preprocess: [vitePreprocess(),mdsvex(mdsvexOptions)],
 
 	vitePlugin: {
 		inspector: true
