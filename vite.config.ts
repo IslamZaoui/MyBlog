@@ -4,7 +4,14 @@ import { defineConfig } from 'vite';
 import { imagetools } from 'vite-imagetools';
 
 export default defineConfig({
-	plugins: [sveltekit(), purgeCss(), imagetools()],
+	plugins: [
+		sveltekit(),
+		purgeCss({
+			safelist: {
+				greedy: [/^hljs-/],
+			},
+		}),
+		imagetools()],
 	server: {
 		fs: {
 			allow: ['./static']
