@@ -1,24 +1,34 @@
 <script lang="ts">
-	import Plyr from 'plyr';
+	import 'vidstack/styles/defaults.css';
+	import 'vidstack/styles/community-skin/video.css';
+	import 'vidstack/define/media-player.js';
+
+	import { defineCustomElements } from 'vidstack/elements';
+
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-		new Plyr('#player');
+		defineCustomElements();
 	});
 	export let src: string;
-	export let thumbnail: string | undefined;
+	export let poster: string | undefined;
 	export let caption: string | undefined;
+	export let chapters: string | undefined;
+	export let title: string | undefined;
+	export let description: string | undefined;
 </script>
 
-<svelte:head>
-	<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-</svelte:head>
-
-<!-- svelte-ignore a11y-media-has-caption -->
-<video id="player" playsinline controls data-poster={thumbnail}>
-	<source {src} type="video/mp4" />
-	{#if caption}
-		<track kind="captions" label="English captions" src={caption} srclang="en" default />
-	{/if}
-</video>
-
+<media-player {title} {src} {poster} thumbnails="" aspect-ratio="16/9" crossorigin>
+	<media-outlet>
+		{#if description}
+			<media-poster alt={description} />
+		{/if}
+		{#if caption}
+			<track src={caption} label="English" srclang="en-US" kind="subtitles" default />
+		{/if}
+		{#if chapters}
+			<track src={chapters} srclang="en-US" kind="chapters" default />
+		{/if}
+	</media-outlet>
+	<media-community-skin />
+</media-player>
