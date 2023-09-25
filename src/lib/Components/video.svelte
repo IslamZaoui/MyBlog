@@ -1,42 +1,24 @@
 <script lang="ts">
-	//import '@mux-elements/mux-video'
+	import Plyr from 'plyr';
+	import { onMount } from 'svelte';
 
+	onMount(() => {
+		new Plyr('#player');
+	});
 	export let src: string;
-
-	let duration;
-	let videoWidth;
-	let videoHeight;
-	let muxVideoEl: { duration: any; videoWidth: any; videoHeight: any };
-
-	const onloadedmetadata = () => {
-		if (muxVideoEl) {
-			duration = muxVideoEl.duration;
-			videoWidth = muxVideoEl.videoWidth;
-			videoHeight = muxVideoEl.videoHeight;
-		}
-	};
+	export let thumbnail: string | undefined;
+	export let caption: string | undefined;
 </script>
 
 <svelte:head>
-	<script src="https://unpkg.com/@mux-elements/mux-video@0.2.0/dist/index.js"></script>
+	<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 </svelte:head>
 
-<mux-video
-	bind:this={muxVideoEl}
-	{src}
-	controls
-	preload="metadata"
-	on:play
-	on:pause
-	on:loadedmetadata={onloadedmetadata}
-	on:ended
-	class="h-[200px]"
-/>
+<!-- svelte-ignore a11y-media-has-caption -->
+<video id="player" playsinline controls data-poster={thumbnail}>
+	<source {src} type="video/mp4" />
+	{#if caption}
+		<track kind="captions" label="English captions" src={caption} srclang="en" default />
+	{/if}
+</video>
 
-<style global>
-	mux-video {
-		width: 100%;
-		height: 100%;
-		margin: 0 auto;
-	}
-</style>

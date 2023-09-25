@@ -41,7 +41,7 @@ list_files_in_directory(directory_path)
 `
 </script>
 
-<img src="{base}/posts/test-page/images/cover.jpg"  width="60%" height="30%">
+<img src="{base}/posts/test-page/images/cover.jpg" class='w-full'>
 
 # Introduction to Operating Systems
 
