@@ -13,7 +13,7 @@ published: true
 <script lang='ts'>
 import { CodeBlock } from '@skeletonlabs/skeleton';
 import { base } from '$app/paths';
-import Video from '$lib/Components/video.svelte';
+import Video from '$lib/Components/video/video.svelte';
 
 const code = `
 import os

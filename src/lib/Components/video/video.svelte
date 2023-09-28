@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Plyr from 'plyr';
-	import 'plyr/src/sass/plyr.scss';
+	import './style.css';
 
 	onMount(() => {
 		new Plyr('.player');
