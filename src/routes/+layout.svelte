@@ -1,10 +1,4 @@
 <script lang="ts">
-	import Plyr from 'plyr';
-
-	onMount(() => {
-		new Plyr('.player');
-	});
-
 	import { LL, setLocale } from '$i18n/i18n-svelte';
 	import { locale } from '$i18n/i18n-svelte';
 	export let data;
