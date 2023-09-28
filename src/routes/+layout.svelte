@@ -1,4 +1,11 @@
 <script lang="ts">
+	import Plyr from 'plyr';
+	import '$lib/Components/video/style.css';
+
+	onMount(() => {
+		new Plyr('.player');
+	});
+
 	import { LL, setLocale } from '$i18n/i18n-svelte';
 	import { locale } from '$i18n/i18n-svelte';
 	export let data;
@@ -45,6 +52,7 @@
 	import LangSwitch from '$lib/Components/Switch/LangSwitch.svelte';
 	import { loadAllLocales } from '$i18n/i18n-util.sync';
 	import { i18n } from 'typesafe-i18n';
+	import { onMount } from 'svelte';
 
 	const drawerStore = getDrawerStore();
 
