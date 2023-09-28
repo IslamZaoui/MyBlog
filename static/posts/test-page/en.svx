@@ -69,4 +69,4 @@ Make sure to replace `"/path/to/your/directory"` with the actual path of the dir
 
 Remember that operating systems provide various functionalities, and Python's `os` module is just one way to interact with them. Each OS has its own set of system calls and APIs to access and manage resources effectively.
 
-<Video src="{base}/posts/test-page/images/dog.mp4"/>
+<Video src="{base}/posts/test-page/images/dog.mp4" type='video'/>

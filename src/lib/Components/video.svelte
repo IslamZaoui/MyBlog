@@ -1,34 +1,22 @@
 <script lang="ts">
-	import 'vidstack/styles/defaults.css';
-	import 'vidstack/styles/community-skin/video.css';
-	import 'vidstack/define/media-player.js';
-
-	import { defineCustomElements } from 'vidstack/elements';
-
 	import { onMount } from 'svelte';
+	import Plyr from 'plyr';
+	import 'plyr/src/sass/plyr.scss';
 
 	onMount(() => {
-		defineCustomElements();
+		new Plyr('.player');
 	});
+
+	export let type: 'youtube' | 'video';
 	export let src: string;
 	export let poster: string | undefined;
-	export let caption: string | undefined;
-	export let chapters: string | undefined;
-	export let title: string | undefined;
-	export let description: string | undefined;
 </script>
 
-<media-player {title} {src} {poster} thumbnails="" aspect-ratio="16/9" crossorigin>
-	<media-outlet>
-		{#if description}
-			<media-poster alt={description} />
-		{/if}
-		{#if caption}
-			<track src={caption} label="English" srclang="en-US" kind="subtitles" default />
-		{/if}
-		{#if chapters}
-			<track src={chapters} srclang="en-US" kind="chapters" default />
-		{/if}
-	</media-outlet>
-	<media-community-skin />
-</media-player>
+{#if type === 'video'}
+	<!-- svelte-ignore a11y-media-has-caption -->
+	<video class="player aspect-video" playsinline controls data-poster={poster}>
+		<source {src} />
+	</video>
+{:else if type === 'youtube'}
+	<div id="player" data-plyr-provider="youtube" data-plyr-embed-id={src} />
+{/if}

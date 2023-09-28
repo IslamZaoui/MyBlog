@@ -71,4 +71,4 @@ list_files_in_directory(directory_path)
 
 تذكر أن أنظمة التشغيل توفر وظائف متعددة، ووحدة `os` في Python هي طريقة واحدة فقط للتفاعل معها. كل نظام تشغيل لديه مجموعة خاصة من استدعاءات النظام وواجهات البرمجة للوصول وإدارة الموارد بفعالية.
 
-<Video src="{base}/posts/test-page/images/dog.mp4"/>
+<Video src="{base}/posts/test-page/images/dog.mp4" type='video'/>
