@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Plyr from 'plyr';
-	import '$lib/Components/video/style.css';
 
 	onMount(() => {
 		new Plyr('.player');
