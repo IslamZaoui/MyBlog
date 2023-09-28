@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import './style.postcss'
 
 	export let type: 'youtube' | 'video';
 	export let src: string;
