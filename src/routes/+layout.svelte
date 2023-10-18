@@ -9,6 +9,7 @@
 	setLocale(data.Lang);
 
 	import '../app.postcss';
+	import '../video.postcss'
 	import Fa from 'svelte-fa';
 	import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -19,7 +20,7 @@
 
 	// Highlight JS
 	import hljs from 'highlight.js';
-	import 'highlight.js/styles/tomorrow-night-bright.css';
+	import 'highlight.js/styles/github-dark.css';
 	import { AppShell, Drawer, storeHighlightJs, type DrawerSettings } from '@skeletonlabs/skeleton';
 	storeHighlightJs.set(hljs);
 
@@ -32,11 +33,6 @@
 	import { fade } from 'svelte/transition';
 	import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
 
-	// @ts-ignore
-	import { gsap } from 'gsap/dist/gsap';
-	// @ts-ignore
-	import { Flip } from 'gsap/dist/Flip';
-
 	import { initializeStores } from '@skeletonlabs/skeleton';
 	initializeStores();
 
@@ -45,7 +41,6 @@
 	import LangSwitch from '$lib/Components/Switch/LangSwitch.svelte';
 	import { loadAllLocales } from '$i18n/i18n-util.sync';
 	import { i18n } from 'typesafe-i18n';
-	import { onMount } from 'svelte';
 
 	const drawerStore = getDrawerStore();
 
@@ -59,7 +54,15 @@
 		return currentDate.getFullYear();
 	}
 
-	gsap.registerPlugin(Flip);
+	//@ts-ignore
+	import { gsap } from 'gsap/dist/gsap'
+	//@ts-ignore
+	import { Flip } from 'gsap/dist/Flip'
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		gsap.registerPlugin(Flip);
+	});
 
 	let state: Flip.FlipState;
 
