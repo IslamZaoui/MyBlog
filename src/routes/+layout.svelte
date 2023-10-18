@@ -9,6 +9,7 @@
 	setLocale(data.Lang);
 
 	import '../app.postcss';
+	import '../video.postcss'
 	import Fa from 'svelte-fa';
 	import { faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -54,9 +55,9 @@
 	}
 
 	//@ts-ignore
-	import { gsap } from 'gsap/dist/gsap';
+	import { gsap } from 'gsap/dist/gsap'
 	//@ts-ignore
-	import { Flip } from 'gsap/dist/Flip';
+	import { Flip } from 'gsap/dist/Flip'
 	import { onMount } from 'svelte';
 
 	onMount(() => {

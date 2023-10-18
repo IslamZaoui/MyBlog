@@ -11,12 +11,11 @@
 	export let poster: string | undefined;
 </script>
 
-<div class="w-full flex justify-center items-center">
-	{#if type === 'video'}
-		<video {src} controls>
-			<track kind="captions" />
-		</video>
-	{:else if type === 'youtube'}
-		<div id="player" data-plyr-provider="youtube" data-plyr-embed-id={src} />
-	{/if}
-</div>
+{#if type === 'video'}
+	<!-- svelte-ignore a11y-media-has-caption -->
+	<video class="player aspect-video" playsinline controls data-poster={poster}>
+		<source {src} />
+	</video>
+{:else if type === 'youtube'}
+	<div id="player" data-plyr-provider="youtube" data-plyr-embed-id={src} />
+{/if}
