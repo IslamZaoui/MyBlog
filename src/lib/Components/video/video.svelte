@@ -1,10 +1,5 @@
 <script lang="ts">
-	import Plyr from 'plyr';
 	import { onMount } from 'svelte';
-
-	onMount(() => {
-		new Plyr('.player');
-	});
 
 	export let type: 'youtube' | 'video';
 	export let src: string;
