@@ -12,3 +12,7 @@ export const ScrollToTop = (way: 'smooth' | 'instant') =>
 		block: 'start',
 		inline: 'start'
 	});
+
+export function getPostImageURL(post: string, image: string): string {
+	return `https://github.com/IslamZaoui/MyBlog/tree/main/src/posts/${post}/attachments/${image}`
+}

@@ -12,7 +12,7 @@ published: true
 
 <script lang='ts'>
 import { CodeBlock } from '@skeletonlabs/skeleton';
-import { base } from '$app/paths';
+import { getPostImageURL } from '$lib';
 import Video from '$lib/Components/video/video.svelte';
 
 const code = `
@@ -41,7 +41,7 @@ list_files_in_directory(directory_path)
 `
 </script>
 
-<img src="{base}/posts/test-page/images/cover.jpg" class='w-full'>
+<img src={getPostImageURL('test-page','cover.jpg')} class='w-full'>
 
 # مقدمة في أنظمة التشغيل
 
@@ -71,4 +71,4 @@ list_files_in_directory(directory_path)
 
 تذكر أن أنظمة التشغيل توفر وظائف متعددة، ووحدة `os` في Python هي طريقة واحدة فقط للتفاعل معها. كل نظام تشغيل لديه مجموعة خاصة من استدعاءات النظام وواجهات البرمجة للوصول وإدارة الموارد بفعالية.
 
-<Video src="{base}/posts/test-page/images/dog.mp4" type='video'/>
+<Video src={getPostImageURL('test-page','dog.mp4')} type='video'/>

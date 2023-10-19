@@ -10,8 +10,8 @@ async function getPosts(pageNumber = 1, postsPerPage = 5, lang: string) {
 	let posts: Post[] = [];
 
 	let paths;
-	if (lang === 'ar') paths = import.meta.glob(`/static/posts/**/ar.svx`, { eager: true });
-	else paths = import.meta.glob(`/static/posts/**/en.svx`, { eager: true });
+	if (lang === 'ar') paths = import.meta.glob(`/src/posts/**/ar.svx`, { eager: true });
+	else paths = import.meta.glob(`/src/posts/**/en.svx`, { eager: true });
 
 	for (const path in paths) {
 		const file = paths[path];
