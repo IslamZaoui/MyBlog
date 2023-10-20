@@ -1,0 +1,23 @@
+---
+title: Introducing my blog
+description: First Post in this Blog
+date: '2023-10-20'
+tags:
+  - Introduction
+words: 64
+readTime: 1
+published: true
+---
+
+# Introducing my blog
+
+Hello this Islam Zaoui a Computer Sieance student in univercity of msila in Algeria.
+I created this site with sveltekit and Skeleton UI library and alot of awoeme libaries that ths community of svelte and js provided.
+
+## My Goals
+
+I will start sharing tutorials about things that i learned from coding..etc in and document stuff to help people.
+
+## What I will attchive from this
+
+Ongoing charity
