@@ -3,7 +3,7 @@ import type { PageLoad } from './$types';
 
 export const load = (async ({ params }) => {
 	try {
-		const url = `./../../../../../src/posts/${params.post}/${params.lang}.svx`
+		const url = `./../../../../posts/${params.post}/${params.lang}.svx`
 		const post = await import(url);
 		const meta = post.metadata as Post;
 		meta.slug = params.post;
