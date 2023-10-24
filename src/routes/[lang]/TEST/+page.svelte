@@ -10,7 +10,7 @@ const currentYear = getCurrentYear();
 console.log(\`The current year is: \${currentYear}\`);`;
 </script>
 
-<div class="container h-full mx-auto gap-4 flex flex-col justify-center items-center mt-6">
+<div class="container h-full mx-auto gap-4 flex flex-col justify-center items-center">
 	<header class="flex flex-col gap-2 items-center">
 		<h2 class="h2 font-bold underline underline-offset-2">Just a test page</h2>
 	</header>

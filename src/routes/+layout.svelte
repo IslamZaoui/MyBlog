@@ -45,7 +45,6 @@
 	import LangSwitch from '$lib/Components/Switch/LangSwitch.svelte';
 	import { loadAllLocales } from '$i18n/i18n-util.sync';
 	import { i18n } from 'typesafe-i18n';
-	import { onMount } from 'svelte';
 
 	const drawerStore = getDrawerStore();
 
@@ -86,7 +85,7 @@
 <Drawer>
 	<nav class="flex flex-col gap-3 p-2 items-center select-none">
 		<div>
-			<a class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/{data.Lang}/"
+			<a class="text-lg font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800" href="/{data.Lang}/"
 				>{$LL.HOME()}</a
 			>
 			{#if data.url === `/${data.Lang}`}<div
@@ -96,7 +95,7 @@
 		</div>
 		<div>
 			<a
-				class="text-lg hover:dark:text-tertiary-500 hover:text-tertiary-800"
+				class="text-lg font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
 				href="/{data.Lang}/posts">{$LL.POSTS()}</a
 			>
 			{#if data.url.startsWith(`/${data.Lang}/posts`)}<div
@@ -108,14 +107,14 @@
 </Drawer>
 <AppShell>
 	<svelte:fragment slot="pageHeader">
-		<nav class="w-full h-[60px] flex justify-center px-4 select-none" id="top">
+		<nav class="w-full h-[60px] flex justify-center px-4 mb-5 select-none" id="top">
 			<div class="h-full w-[900px] flex justify-between">
-				<div class="flex gap-3 items-center justify-center">
+				<div class="flex gap-4 items-center justify-center">
 					<a href="/{data.Lang}"><strong id="SiteTitle" class="text-2xl">Islam Zaoui</strong></a>
 					<LightSwitch />
 					<LangSwitch />
 					<a
-						class="hover:dark:text-tertiary-500 hover:text-tertiary-800 {data.url.startsWith(
+						class="mybtn {data.url.startsWith(
 							`/${data.Lang}/search`
 						)
 							? 'dark:text-tertiary-500 text-tertiary-800'
@@ -125,10 +124,10 @@
 						<Fa icon={faSearch} size="18" />
 					</a>
 				</div>
-				<div class="md:flex hidden gap-2 items-center">
+				<div class="md:flex hidden gap-4 items-center">
 					<div>
 						<a
-							class="text-lg font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
+							class="text-lg font-bold mybtn"
 							href="/{data.Lang}/">{$LL.HOME()}</a
 						>
 						{#if data.url === `/${data.Lang}`}<div
@@ -138,7 +137,7 @@
 					</div>
 					<div>
 						<a
-							class="text-lg font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
+							class="text-lg font-bold mybtn"
 							href="/{data.Lang}/posts">{$LL.POSTS()}</a
 						>
 						{#if data.url.startsWith(`/${data.Lang}/posts`)}<div
@@ -154,19 +153,19 @@
 		</nav>
 	</svelte:fragment>
 	{#key data.url}
-		<div in:fade class="px-4">
+		<div in:fade class="px-4 h-full">
 			<slot />
 		</div>
 	{/key}
 	<svelte:fragment slot="pageFooter">
 		<nav
-			class="flex md:flex-row flex-col justify-center w-full text-center p-5 text-[13px] md:gap-3 select-none"
+			class="flex md:flex-row flex-col justify-center w-full text-center p-5 text-[10px] md:gap-3 select-none mt-5"
 		>
 			<div class="space-x-3">
 				<span>©{getCurrentYear()}</span>
 				<span>Islam Zaoui</span>
 				<a
-					class="underline underline-offset-4 hover:no-underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
+					class="myanchor"
 					href="https://creativecommons.org/licenses/by-sa/4.0/"
 					target="_blank">CC BY-SA</a
 				>
@@ -174,13 +173,13 @@
 			<span dir={$LL.DIR()}
 				>{$LL.POWERED()}
 				<a
-					class="underline underline-offset-4 hover:no-underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
+					class="myanchor"
 					href="https://kit.svelte.dev/"
 					target="_blank">Sveltekit</a
 				>
 				{$LL.AND()}
 				<a
-					class="underline underline-offset-4 hover:no-underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
+					class="myanchor"
 					href="https://skeleton.dev/"
 					target="_blank">Skeleton</a
 				>.
@@ -188,7 +187,7 @@
 			<span dir={$LL.DIR()}>
 				{$LL.DESIGN()}
 				<a
-					class="underline underline-offset-4 hover:no-underline font-bold hover:dark:text-tertiary-500 hover:text-tertiary-800"
+					class="myanchor"
 					href="https://haseebmajid.dev/"
 					target="_blank">Haseeb Majids</a
 				>

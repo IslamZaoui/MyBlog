@@ -67,9 +67,13 @@ type RootTranslation = {
 	 */
 	DISL1: string
 	/**
-	 * A​t​t​e​n​d​e​d​ ​U​n​i​v​e​r​s​i​t​é​ ​d​e​ ​M​s​i​l​a​ ​�​�​�​�
+	 * A​t​t​e​n​d​e​d​ ​U​n​i​v​e​r​s​i​t​y​ ​o​f​ ​M​s​i​l​a​ ​�​�​�​�
 	 */
 	DISL2: string
+	/**
+	 * T​a​b​l​e​ ​o​f​ ​C​o​n​t​e​n​t​s
+	 */
+	toc: string
 }
 
 export type TranslationFunctions = {
@@ -126,9 +130,13 @@ export type TranslationFunctions = {
 	 */
 	DISL1: () => LocalizedString
 	/**
-	 * Attended Université de Msila 🇩🇿
+	 * Attended University of Msila 🇩🇿
 	 */
 	DISL2: () => LocalizedString
+	/**
+	 * Table of Contents
+	 */
+	toc: () => LocalizedString
 }
 
 export type Formatters = {}

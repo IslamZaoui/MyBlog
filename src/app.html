@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="alternate" type="application/atom+xml" href="/posts/rss.xml" />
-		<link
-			rel="icon"
-			href="/asset/favicon.png"
-		/>
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="/pak/style.css">
-		%sveltekit.head%
-	</head>
 
-	<body data-sveltekit-preload-data="hover" data-theme="MyTheme">
-		<div style="display: contents">%sveltekit.body%</div>
-	</body>
+<head>
+	<meta charset="utf-8" />
+	<link rel="alternate" type="application/atom+xml" href="/posts/rss.xml" />
+	<link rel="icon" href="/asset/favicon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="/css/style.css">
+	%sveltekit.head%
+</head>
+
+<body data-sveltekit-preload-data="hover" data-theme="MyTheme">
+	<div style="display: contents">%sveltekit.body%</div>
+</body>
+
 </html>

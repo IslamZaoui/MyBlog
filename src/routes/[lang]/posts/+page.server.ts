@@ -6,7 +6,7 @@ export const load = (async ({ fetch, url, depends, params }) => {
 	const page = +(url.searchParams.get('page') ?? 1);
 	const perPage = +(url.searchParams.get('perPage') ?? 5);
 
-	const response = await fetch(`/${params.lang}/API/posts?page=${page}&perPage=${perPage}`);
+	const response = await fetch(`/${params.lang}/API/getPosts?page=${page}&perPage=${perPage}`);
 
 	const { posts, hasMorePosts } = await response.json();
 

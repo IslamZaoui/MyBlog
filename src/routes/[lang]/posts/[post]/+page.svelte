@@ -8,14 +8,14 @@
 		faArrowUp,
 		faCalendarDays,
 		faClock,
-		faEye,
 		faFileWord,
 		faTags
 	} from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
 	import * as config from '$lib/config';
 	import type { PageData } from './$types';
-	import { base } from '$app/paths';
+	import { tocCrawler } from '@skeletonlabs/skeleton';
+	import TableofContents from '$lib/Components/Posts/TableofContents.svelte';
 
 	export let data: PageData;
 </script>
@@ -29,8 +29,8 @@
 	<meta property="article:tags" content={data.meta.tags.toString()} />
 </svelte:head>
 
-<div class="container h-full mx-auto flex justify-center items-center mt-6">
-	<article class="w-[800px] space-y-10">
+<div class="container h-full mx-auto flex justify-center items-center">
+	<div class="w-[800px] space-y-10">
 		<header class="space-y-4 select-none" dir={$LL.DIR()}>
 			<a class="flex gap-2 items-center text-4xl" href="/{$page.params.lang}/posts">
 				{#if $page.params.lang === 'en'}
@@ -60,7 +60,7 @@
 			>
 				<div class="flex gap-2 items-center">
 					<Fa icon={faCalendarDays} class="text-gray-500" />
-					<span>{formatDate(data.meta.date)}</span>
+					<span>{formatDate(data.meta.date,$page.params.lang)}</span>
 				</div>
 				<span>•</span>
 				<div class="flex gap-2 items-center">
@@ -73,11 +73,12 @@
 					<span>{data.meta.readTime} {$LL.MINS()}</span>
 				</div>
 			</footer>
+			<TableofContents/>
 		</header>
-		<div class="prose" dir="auto">
+		<article class="prose" dir="auto" use:tocCrawler={{ mode: 'generate' }}>
 			<svelte:component this={data.content} />
-		</div>
-	</article>
+		</article>
+	</div>
 	<button
 		class="variant-filled btn-icon fixed bottom-10 right-4 z-50"
 		on:click={() => ScrollToTop('smooth')}><Fa icon={faArrowUp} /></button

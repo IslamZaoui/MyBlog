@@ -14,7 +14,7 @@
 	<title>{$LL.POSTS()} | Islam Zaoui</title>
 </svelte:head>
 
-<main class="container h-full mx-auto flex justify-center items-center mt-6 select-none relative">
+<main class="container h-full mx-auto flex justify-center items-centerselect-none relative">
 	<div class="space-y-2 w-[700px]">
 		<header class="flex flex-col gap-4 mb-8" dir={$LL.DIR()}>
 			<strong class="text-4xl">{$LL.POSTS()}</strong>

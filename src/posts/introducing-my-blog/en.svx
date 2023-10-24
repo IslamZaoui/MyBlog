@@ -8,8 +8,7 @@ words: 64
 readTime: 1
 published: true
 ---
-
-# Introducing my blog
+## Introduction
 
 Hello this Islam Zaoui a Computer Sieance student in univercity of msila in Algeria.
 I created this site with sveltekit and Skeleton UI library and alot of awoeme libaries that ths community of svelte and js provided.

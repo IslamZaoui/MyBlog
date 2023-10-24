@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { LL } from '$i18n/i18n-svelte';
-	import { createSearchStore, searchHandler } from '$lib/stores/search';
 	import { onDestroy } from 'svelte';
 	import type { PageData } from './$types';
 	import autoAnimate from '@formkit/auto-animate';
@@ -8,31 +8,38 @@
 
 	export let data: PageData;
 
-	const searchPost = data.posts.map((post) => ({
-		...post,
-		searchTerm: `${post.title} ${post.tags} ${post.description}`
-	}));
+	let Posts = data.posts;
 
-	const searchStore = createSearchStore(searchPost);
+	let searchTerm = '';
 
-	const unsub = searchStore.subscribe((model) => searchHandler(model));
-
-	onDestroy(() => {
-		unsub();
-	});
+	async function Search() {
+		const url = `/${$page.params.lang}/API/getPosts?search=true&filter=${searchTerm}`;
+		console.log('fetch url: ' + url);
+		const response = await fetch(url);
+		const data = (await response.json()) as {
+			posts: Post[];
+			hasMorePosts: boolean;
+		};
+		Posts = data.posts;
+	}
 </script>
 
-<div class="container h-full mx-auto flex justify-center items-center mt-6">
+<div class="container h-full mx-auto flex justify-center">
 	<div class="w-[700px] space-y-4">
-		<input
-			type="text"
-			class="input"
-			placeholder="{$LL.SEARCH()}..."
-			bind:value={$searchStore.search}
-			dir={$LL.DIR()}
-		/>
+		<div class="flex">
+			<input
+				type="text"
+				class="input rounded-r-none"
+				placeholder="{$LL.SEARCH()}..."
+				dir={$LL.DIR()}
+				bind:value={searchTerm}
+			/>
+			<button class="btn h-full variant-filled-tertiary rounded-l-none" on:click={Search}
+				>{$LL.SEARCH()}</button
+			>
+		</div>
 		<div class="flex flex-col gap-3" use:autoAnimate>
-			{#each $searchStore.filtered as post}
+			{#each Posts as post}
 				<PostCard {post} />
 			{/each}
 		</div>

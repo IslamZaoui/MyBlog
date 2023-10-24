@@ -6,7 +6,7 @@ export const config: Config = {
 	runtime: 'nodejs18.x'
 };
 
-async function getPosts(pageNumber = 1, postsPerPage = 5, lang: string) {
+async function getPosts(pageNumber = 1, postsPerPage = 5, lang = "en") {
 	let posts: Post[] = [];
 
 	let paths;
@@ -40,10 +40,29 @@ async function getPosts(pageNumber = 1, postsPerPage = 5, lang: string) {
 	};
 }
 
+async function searchPosts(searchString: string, posts: Post[]) {
+	const normalizedSearchString = searchString.toLowerCase();
+
+	return normalizedSearchString.length > 0 ? posts.filter((post) => {
+		return (
+			post.title.toLowerCase().includes(normalizedSearchString) ||
+			post.description.toLowerCase().includes(normalizedSearchString) ||
+			post.tags.some((tag) => tag.toLowerCase().includes(normalizedSearchString))
+		);
+	}) : [];
+}
+
+
 export const GET: RequestHandler = async ({ url, params }) => {
 	const page = +(url.searchParams.get('page') ?? 1);
 	const perPage = +(url.searchParams.get('perPage') ?? 5);
-	const posts = await getPosts(page, perPage, params.lang);
+	const search = url.searchParams.get('search') === 'true'
+	const filter: string = url.searchParams.get('filter') ?? ''
+	const posts = await getPosts(page, perPage, params.lang ?? undefined);
+	if (search) {
+		posts.posts = await searchPosts(filter, posts.posts)
+		posts.hasMorePosts = false;
+	}
 	return new Response(JSON.stringify(posts), {
 		headers: {
 			'content-Type': 'application/json'

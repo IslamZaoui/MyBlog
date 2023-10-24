@@ -1,15 +1,13 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import remarkUnwrapImages from 'remark-unwrap-images';
-import remarkToc from 'remark-toc';
-import rehypeSlug from 'rehype-slug';
 import { mdsvex } from 'mdsvex';
 
 /**@type {import(mdsvex).mdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.svx'],
-	remarkPlugins: [remarkUnwrapImages, [remarkToc, { tight: true }]],
-	rehypePlugins: [rehypeSlug]
+	remarkPlugins: [remarkUnwrapImages],
+	rehypePlugins: [],
 };
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -23,7 +21,8 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			$i18n: 'src/i18n'
+			$i18n: 'src/i18n',
+			$posts: 'src/posts'
 		}
 	}
 };
