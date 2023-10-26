@@ -1,6 +1,6 @@
-import type { RequestHandler } from './$types';
 import * as p from 'path';
 import type { Config } from '@sveltejs/adapter-vercel';
+import type { RequestHandler } from './$types';
 
 export const config: Config = {
 	runtime: 'nodejs18.x'

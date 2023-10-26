@@ -1,8 +1,6 @@
 import type { RequestHandler } from './$types';
 import * as config from '$lib/config'
 
-export const prerender = true
-
 export const GET: RequestHandler = async ({ fetch }) => {
     const posts = (await (await fetch(`/en/API/getPosts?page=${1}&perPage=${100}`)).json()).posts as Post[];
 
