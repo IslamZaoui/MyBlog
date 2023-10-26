@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /TEST
+Sitemap: https://islamzaoui.vercel.app/sitemap.xml
