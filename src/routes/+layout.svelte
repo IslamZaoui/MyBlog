@@ -159,7 +159,7 @@
 	{/key}
 	<svelte:fragment slot="pageFooter">
 		<nav
-			class="flex md:flex-row flex-col justify-center w-full text-center p-5 text-[10px] md:gap-3 select-none mt-5"
+			class="flex md:flex-row flex-col justify-center w-full text-center p-5 text-[12px] md:gap-3 select-none mt-5"
 		>
 			<div class="space-x-3">
 				<span>©{getCurrentYear()}</span>

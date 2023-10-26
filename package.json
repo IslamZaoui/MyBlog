@@ -51,10 +51,12 @@
 		"@fortawesome/free-regular-svg-icons": "^6.4.2",
 		"@fortawesome/free-solid-svg-icons": "^6.4.2",
 		"@vercel/analytics": "^1.0.2",
+		"@vercel/og": "^0.5.20",
 		"gsap": "^3.12.2",
 		"highlight.js": "^11.8.0",
 		"plyr": "^3.7.8",
 		"remark-unwrap-images": "^3.0.1",
+		"satori-html": "^0.3.2",
 		"svelte-fa": "^3.0.4",
 		"typesafe-i18n": "^5.26.2",
 		"vite-imagetools": "^5.0.8"

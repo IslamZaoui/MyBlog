@@ -22,11 +22,20 @@
 
 <svelte:head>
 	<title>{data.meta.title}</title>
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content="{data.meta.title} | Islam Zaoui" />
-	<meta property="og:url" content="{config.url}posts/{data.meta.slug}" />
-	<meta property="article:published_time" content={data.meta.date} />
-	<meta property="article:tags" content={data.meta.tags.toString()} />
+
+	<meta content={data.meta.description} name="description" />
+
+	<meta content={data.meta.title} property="og:title" />
+	<meta content="{config.url}en/API/OG/{data.meta.title.replace(/ /g, '%20')}" property="og:image" />
+	<meta content={config.url} property="og:url" />
+	<meta content={data.meta.description} property="og:description" />
+	<meta content={config.url} property="og:site_name" />
+
+	<!--<meta content={config.twitterHandle} name="twitter:creator" />-->
+	<meta content="summary_large_image" name="twitter:card" />
+	<meta content={data.meta.title} name="twitter:title" />
+	<meta content={data.meta.description} name="twitter:description" />
+	<meta content="{config.url}en/API/OG/{data.meta.title.replace(/ /g, '%20')}" name="twitter:image" />
 </svelte:head>
 
 <div class="container h-full mx-auto flex justify-center items-center">
@@ -60,7 +69,7 @@
 			>
 				<div class="flex gap-2 items-center">
 					<Fa icon={faCalendarDays} class="text-gray-500" />
-					<span>{formatDate(data.meta.date,$page.params.lang)}</span>
+					<span>{formatDate(data.meta.date, $page.params.lang)}</span>
 				</div>
 				<span>•</span>
 				<div class="flex gap-2 items-center">
@@ -73,7 +82,7 @@
 					<span>{data.meta.readTime} {$LL.MINS()}</span>
 				</div>
 			</footer>
-			<TableofContents/>
+			<TableofContents />
 		</header>
 		<article class="prose" dir="auto" use:tocCrawler={{ mode: 'generate' }}>
 			<svelte:component this={data.content} />

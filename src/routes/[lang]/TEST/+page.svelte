@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { CodeBlock } from '@skeletonlabs/skeleton';
+	import Og from '$lib/OG/OG.svelte';
+import { CodeBlock } from '@skeletonlabs/skeleton';
 
 	const code1 = `
 function getCurrentYear(): number {
@@ -14,7 +15,13 @@ console.log(\`The current year is: \${currentYear}\`);`;
 	<header class="flex flex-col gap-2 items-center">
 		<h2 class="h2 font-bold underline underline-offset-2">Just a test page</h2>
 	</header>
-	<article class="flex flex-col gap-2 items-center w-[750px]">
+	<article class="flex flex-col gap-2 items-center">
+		<div class="card variant-filled-surface w-full">
+			<header class="card-header">OG component</header>
+			<div class="p-2 space-y-4">
+				<Og text="Hello world 🔥"/>
+			</div>
+		</div>
 		<div class="card variant-filled-surface w-full">
 			<header class="card-header">CodeBlock component</header>
 			<div class="p-2 space-y-4">
