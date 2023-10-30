@@ -7,11 +7,24 @@
 	import PostCard from '$lib/Components/Posts/PostCard.svelte';
 	import Fa from 'svelte-fa';
 	import { faArrowLeft, faArrowRight, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+	import * as config from '$lib/config'
 	export let data: PageData;
 </script>
 
 <svelte:head>
-	<title>{$LL.POSTS()} | Islam Zaoui</title>
+	<title>{$LL.POSTS()} | {config.title}</title>
+
+	<meta content="{$LL.POSTS()} | {config.title}" property="og:title" />
+	<meta content={config.siteImage} property="og:image" />
+	<meta content={config.url} property="og:url" />
+	<meta content={config.description} property="og:description" />
+	<meta content="{$LL.POSTS()} | {config.title}" property="og:site_name" />
+
+	<!-- <meta content={config.twitterHandle} name="twitter:creator" /> -->
+	<meta content="summary_large_image" name="twitter:card" />
+	<meta content="{$LL.POSTS()} | {config.title}" name="twitter:title" />
+	<meta content={config.description} name="twitter:description" />
+	<meta content={config.siteImage} name="twitter:image" />
 </svelte:head>
 
 <main class="container h-full mx-auto flex justify-center items-centerselect-none relative">
