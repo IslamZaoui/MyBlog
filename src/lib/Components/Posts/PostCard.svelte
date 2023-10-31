@@ -26,7 +26,7 @@
 			</small>
 		</article>
 		<footer
-			class="postDetails pb-4 pl-4 pr-4 text-sm flex flex-wrap items-center gap-3"
+			class="postDetails pb-4 pl-4 pr-4 text-[12px] flex flex-wrap items-center gap-3"
 			data-flip-id="postDetails-{post.slug}"
 		>
 			<div class="flex gap-2 items-center">
