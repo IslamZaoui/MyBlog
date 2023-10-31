@@ -26,7 +26,10 @@
 	<meta content={data.meta.description} name="description" />
 
 	<meta content={data.meta.title} property="og:title" />
-	<meta content="{config.url}en/API/OG/{data.meta.title.replace(/ /g, '%20')}" property="og:image" />
+	<meta
+		content="{config.url}en/API/OG/{data.meta.title.replace(/ /g, '%20')}"
+		property="og:image"
+	/>
 	<meta content={config.url} property="og:url" />
 	<meta content={data.meta.description} property="og:description" />
 	<meta content={config.url} property="og:site_name" />
@@ -35,7 +38,10 @@
 	<meta content="summary_large_image" name="twitter:card" />
 	<meta content={data.meta.title} name="twitter:title" />
 	<meta content={data.meta.description} name="twitter:description" />
-	<meta content="{config.url}en/API/OG/{data.meta.title.replace(/ /g, '%20')}" name="twitter:image" />
+	<meta
+		content="{config.url}en/API/OG/{data.meta.title.replace(/ /g, '%20')}"
+		name="twitter:image"
+	/>
 </svelte:head>
 
 <div class="container h-full mx-auto flex justify-center items-center">
@@ -89,6 +95,7 @@
 		</article>
 	</div>
 	<button
+		name="scroll"
 		class="variant-filled btn-icon fixed bottom-10 right-4 z-50"
 		on:click={() => ScrollToTop('smooth')}><Fa icon={faArrowUp} /></button
 	>

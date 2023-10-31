@@ -72,8 +72,8 @@
 
 <AppShell>
 	<svelte:fragment slot="pageHeader">
-		<nav class="w-full h-[60px] flex justify-center px-4 mb-5 select-none" id="top">
-			<div class="h-full w-[900px] flex md:justify-between md:flex-row gap-2 flex-col md:mt-0 mt-2">
+		<nav class="w-full p-2 flex justify-center px-4 mb-5 select-none" id="top">
+			<div class="h-full w-[900px] flex md:justify-between md:flex-row gap-2 flex-col">
 				<div class="flex gap-4 items-center">
 					<a href="/{data.Lang}"><strong id="SiteTitle" class="text-2xl">Islam Zaoui</strong></a>
 					<LightSwitch />

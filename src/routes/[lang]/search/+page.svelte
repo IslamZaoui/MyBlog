@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { LL } from '$i18n/i18n-svelte';
-	import { onDestroy } from 'svelte';
 	import type { PageData } from './$types';
 	import autoAnimate from '@formkit/auto-animate';
 	import PostCard from '$lib/Components/Posts/PostCard.svelte';
@@ -34,7 +33,7 @@
 				dir={$LL.DIR()}
 				bind:value={searchTerm}
 			/>
-			<button class="btn h-full variant-filled-tertiary rounded-l-none" on:click={Search}
+			<button name="search" class="btn h-full variant-filled rounded-l-none" on:click={Search}
 				>{$LL.SEARCH()}</button
 			>
 		</div>

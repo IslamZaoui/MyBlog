@@ -28,7 +28,7 @@
 	{@html `<\u{73}cript nonce="%sveltekit.nonce%">(${setInitialClassState.toString()})();</script>`}
 </svelte:head>
 
-<button class="hover:dark:text-tertiary-500 hover:text-tertiary-800" on:click={onToggleHandler}>
+<button name="lightSwitch" class="hover:dark:text-tertiary-500 hover:text-tertiary-800" on:click={onToggleHandler}>
 	{#key $modeCurrent}
 		<div in:fade>
 			{#if $modeCurrent}

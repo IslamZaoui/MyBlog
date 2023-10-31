@@ -59,7 +59,7 @@
 			{/if}
 		</div>
 	</div>
-	<button
+	<button name='scroll'
 		class="variant-filled btn-icon fixed bottom-10 right-4 z-50"
 		on:click={() => ScrollToTop('smooth')}><Fa icon={faArrowUp} /></button
 	>
