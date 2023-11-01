@@ -52,17 +52,13 @@
 		"@fortawesome/free-solid-svg-icons": "^6.4.2",
 		"@vercel/analytics": "^1.1.1",
 		"@vercel/og": "^0.5.20",
-		"@vite-pwa/sveltekit": "^0.2.7",
 		"gsap": "^3.12.2",
 		"highlight.js": "^11.9.0",
-		"kolorist": "^1.8.0",
 		"plyr": "^3.7.8",
 		"remark-unwrap-images": "^4.0.0",
 		"satori-html": "^0.3.2",
 		"svelte-fa": "^3.0.4",
 		"typesafe-i18n": "^5.26.2",
-		"vite-imagetools": "^6.2.1",
-		"workbox-precaching": "^7.0.0",
-		"workbox-routing": "^7.0.0"
+		"vite-imagetools": "^6.2.1"
 	}
 }
