@@ -5,7 +5,10 @@
 		faFacebook,
 		faGithub,
 		faInstagram,
-		faLinkedin
+		faLinkedin,
+
+		faYoutube
+
 	} from '@fortawesome/free-brands-svg-icons';
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import Fa from 'svelte-fa';
@@ -53,8 +56,8 @@
 			>
 			<a
 				class="text-[30px] mybtn"
-				href="https://www.facebook.com/IslamZaouii/"
-				target="_blank"><Fa icon={faFacebook} size="30" /></a
+				href="https://www.youtube.com/@IslamZaoui_"
+				target="_blank"><Fa icon={faYoutube} size="30" /></a
 			>
 			<a
 				class="text-[30px] mybtn"
