@@ -14,16 +14,18 @@
 <svelte:head>
 	<title>{$LL.POSTS()} | {config.title}</title>
 
+	<meta content={config.Postdescription} name="description" />
+
 	<meta content="{$LL.POSTS()} | {config.title}" property="og:title" />
 	<meta content={config.siteImage} property="og:image" />
 	<meta content={config.url} property="og:url" />
-	<meta content={config.description} property="og:description" />
+	<meta content={config.Postdescription} property="og:description" />
 	<meta content="{$LL.POSTS()} | {config.title}" property="og:site_name" />
 
 	<!-- <meta content={config.twitterHandle} name="twitter:creator" /> -->
 	<meta content="summary_large_image" name="twitter:card" />
 	<meta content="{$LL.POSTS()} | {config.title}" name="twitter:title" />
-	<meta content={config.description} name="twitter:description" />
+	<meta content={config.Postdescription} name="twitter:description" />
 	<meta content={config.siteImage} name="twitter:image" />
 </svelte:head>
 
