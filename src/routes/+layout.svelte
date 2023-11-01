@@ -68,7 +68,38 @@
 			ease: 'power1.easeOut'
 		});
 	});
+
+	import { onMount } from 'svelte';
+	// @ts-ignore
+	import { pwaInfo } from 'virtual:pwa-info';
+
+	onMount(async () => {
+		if (pwaInfo) {
+			// @ts-ignore
+			const { registerSW } = await import('virtual:pwa-register');
+			registerSW({
+				immediate: true,
+				onRegistered(r: any) {
+					r &&
+						setInterval(() => {
+							console.log('Checking for sw update');
+							r.update();
+						}, 20000);
+					console.log(`SW Registered: ${r}`);
+				},
+				onRegisterError(error: any) {
+					console.log('SW registration error', error);
+				}
+			});
+		}
+	});
+
+	$: webManifest = pwaInfo ? pwaInfo.webManifest.linkTag : '';
 </script>
+
+<svelte:head>
+	{@html webManifest}
+</svelte:head>
 
 <AppShell>
 	<svelte:fragment slot="pageHeader">
