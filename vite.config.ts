@@ -8,21 +8,9 @@ export default defineConfig({
 	plugins: [
 		sveltekit(),
 		SvelteKitPWA({
-			srcDir: './src',
-			mode: 'production',
 			strategies: 'injectManifest',
-			filename: 'sw.ts',
-			scope: '/',
-			base: '/en',
-			injectManifest: {
-				globPatterns: ['client/**/*.{js,css,ico,png,svg,webp,woff,woff2}']
-			},
-			devOptions: {
-				enabled: true,
-				type: 'module',
-				navigateFallback: '/'
-			},
-			kit: {}
+			srcDir: 'src',
+			filename: 'sw.js',
 		}),
 		purgeCss({
 			safelist: {
