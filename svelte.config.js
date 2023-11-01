@@ -23,14 +23,7 @@ const config = {
 		alias: {
 			$i18n: 'src/i18n',
 			$posts: 'src/posts'
-		},
-		files: {
-			serviceWorker: 'src/sw.js',
-		},
-		serviceWorker: {
-			register: false
 		}
-	},
-
+	}
 };
 export default config;
