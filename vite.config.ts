@@ -12,4 +12,9 @@ export default defineConfig({
 			},
 		}),
 		imagetools()],
+	server: {
+		fs: {
+			allow: ['./static']
+		}
+	}
 });
