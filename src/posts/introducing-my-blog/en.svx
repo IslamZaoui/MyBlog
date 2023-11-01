@@ -10,13 +10,12 @@ published: true
 ---
 ## Introduction
 
-Hello this Islam Zaoui a Computer Sieance student in univercity of msila in Algeria.
-I created this site with sveltekit and Skeleton UI library and alot of awoeme libaries that ths community of svelte and js provided.
+Hello, my name is Islam Zaoui and I am a Computer Science student at the University of Manila in Algeria. I built this website using Sveltekit, the Skeleton UI library, and several other amazing libraries that were provided by the Svelte and JS community. 
 
 ## My Goals
 
-I will start sharing tutorials about things that i learned from coding..etc in and document stuff to help people.
+I am passionate about programming and want to share my knowledge and experiences with others. To that end, I will be creating tutorials on various programming topics that I have learned and will also be documenting various tips and tricks that can help people.
 
-## What I will attchive from this
+## What I Will Achieve From This
 
-Ongoing charity
+I hope to provide ongoing support to those who are interested in programming and help them to achieve their goals.
