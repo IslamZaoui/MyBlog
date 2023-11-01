@@ -2,7 +2,7 @@
 	"name": "Islam Zaoui",
 	"short_name": "Islam Zaoui",
 	"description": "Islam Zaoui's personal blog.",
-	"start_url": "/",
+	"start_url": "/en",
 	"icons": [
 		{
 			"src": "/asset/icon-192x192.png",
