@@ -4,6 +4,7 @@
 	import type { PageData } from './$types';
 	import autoAnimate from '@formkit/auto-animate';
 	import PostCard from '$lib/Components/Posts/PostCard.svelte';
+	import * as config from '$lib/config'
 
 	export let data: PageData;
 
@@ -22,6 +23,10 @@
 		Posts = data.posts;
 	}
 </script>
+
+<svelte:head>
+	<title>{$LL.SEARCH()} | {config.title}</title>
+</svelte:head>
 
 <div class="container h-full mx-auto flex justify-center">
 	<div class="w-[700px] space-y-4">
