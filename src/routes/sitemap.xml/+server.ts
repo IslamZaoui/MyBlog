@@ -2,15 +2,19 @@ import type { RequestHandler } from './$types';
 import * as config from '$lib/config'
 
 export const GET: RequestHandler = async ({ fetch }) => {
-    const posts = (await (await fetch(`/en/API/getPosts?page=${1}&perPage=${100}`)).json()).posts as Post[];
+    const ENposts = (await (await fetch(`/en/API/getPosts?page=${1}&perPage=${100}`)).json()).posts as Post[];
+	const ARposts = (await (await fetch(`/ar/API/getPosts?page=${1}&perPage=${100}`)).json()).posts as Post[];
 
 
     const headers = { 'Content-Type': 'application/xml' }
 
     const pages = [
-        '',
-        'posts',
-        ...posts.map((post) => "posts/"+post.slug),
+        'en',
+        'ar',
+        'en/posts',
+        'ar/posts',
+        ...ENposts.map((post) => "en/posts/"+post.slug),
+		...ARposts.map((post) => "ar/posts/"+post.slug),
     ]
 
     const sitemap = `
@@ -27,11 +31,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
             .map((page) => {
                 return `
 	          <url>
-	            <loc>${config.url}en/${page}</loc>
-	            <lastmod>${new Date().toISOString()}</lastmod>
-	          </url>
-              <url>
-	            <loc>${config.url}ar/${page}</loc>
+	            <loc>${config.url}${page}</loc>
 	            <lastmod>${new Date().toISOString()}</lastmod>
 	          </url>
 	        `
