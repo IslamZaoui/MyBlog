@@ -51,9 +51,9 @@
 	{#key $locale}
 		<div in:fade>
 			{#if $locale === 'ar'}
-				<a href={replaceLocaleInUrl($page.url, 'en')}>EN</a>
+				<a href={replaceLocaleInUrl($page.url, 'en')} rel="canonical">EN</a>
 			{:else}
-				<a href={replaceLocaleInUrl($page.url, 'ar')}>AR</a>
+				<a href={replaceLocaleInUrl($page.url, 'ar')} rel="canonical">AR</a>
 			{/if}
 		</div>
 	{/key}
