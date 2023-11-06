@@ -22,10 +22,10 @@
 </script>
 
 <svelte:head>
-	<title>{data.meta.title} | {config.title}</title>
+	<title>{data.meta.title} | {data.Lang === 'en'? config.title : config.titleAR}</title>
 	<meta content={data.meta.description} name="description" />
 
-	<meta content="{data.meta.title} | {config.title}" property="og:title" />
+	<meta content="{data.meta.title} | {data.Lang === 'en'? config.title : config.titleAR}" property="og:title" />
 	<meta
 		content="{config.url}en/API/OG/{data.meta.title.replace(/ /g, '%20')}"
 		property="og:image"
@@ -37,7 +37,7 @@
 
 	<!--<meta content="{config.twitterHandle}" name="twitter:creator" />-->
 	<meta content="summary_large_image" name="twitter:card" />
-	<meta content="{data.meta.title} | {config.title}" name="twitter:title" />
+	<meta content="{data.meta.title} | {data.Lang === 'en'? config.title : config.titleAR}" name="twitter:title" />
 	<meta content={data.meta.description} name="twitter:description" />
 	<meta
 		content="{config.url}en/API/OG/{data.meta.title.replace(/ /g, '%20')}"

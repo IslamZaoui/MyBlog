@@ -14,7 +14,6 @@ const routes = ['en','ar','OG','sitemap.xml']
 export const handle: Handle = async ({ event, resolve }) => {
 	// read language slug
 	const [, lang] = getPathnameWithoutBase(event.url).split('/');
-	console.log(lang)
 
 	// redirect to base locale if no locale slug was found
 	if (!routes.includes(lang)) {
