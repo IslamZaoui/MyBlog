@@ -18,4 +18,6 @@
 	<meta content={config.title} name="twitter:title" />
 	<meta content={config.Sitedescription} name="twitter:description" />
 	<meta content={config.siteImage} name="twitter:image" />
+
+	<link rel="canonical" href="https://islamzaoui.vercel.app/" />
 </svelte:head>

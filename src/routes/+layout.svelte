@@ -132,6 +132,7 @@
 				{$LL.DESIGN()}
 				<a class="myanchor" href="https://haseebmajid.dev/" target="_blank">Haseeb Majids</a>
 			</span>
+			<link rel=“canonical” href=“https://example.com/sample-page/” />
 		</nav>
 	</svelte:fragment>
 </AppShell>
