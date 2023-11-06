@@ -56,9 +56,9 @@
 				<strong>{$LL.POSTS()}</strong>
 			</a>
 			<div class="space-y-2">
-				<h2 class="postTitle h2 font-bold" data-flip-id="postTitle-{data.meta.slug}">
+				<h1 class="postTitle h2 font-bold" data-flip-id="postTitle-{data.meta.slug}">
 					{data.meta.title}
-				</h2>
+				</h1>
 				<small
 					class="postTags flex gap-2 items-center dark:text-gray-400 text-gray-800"
 					data-flip-id="postTags-{data.meta.slug}"

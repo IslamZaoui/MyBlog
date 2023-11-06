@@ -38,7 +38,7 @@
 <div class="container h-full mx-auto flex justify-center items-center select-none">
 	<div class="flex flex-col gap-5 items-center">
 		<Avatar src="{base}/asset/avatar.webp" width="w-[250px]" />
-		<strong class="h1">Islam Zaoui</strong>
+		<h1><strong class="h1">Islam Zaoui</strong></h1>
 		<div>
 			<p class="text-[18px] text-center">{$LL.DISL1()}</p>
 			<p class="text-[18px] text-center">{$LL.DISL2()}</p>

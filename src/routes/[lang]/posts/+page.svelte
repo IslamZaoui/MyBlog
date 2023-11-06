@@ -32,7 +32,7 @@
 <main class="container h-full mx-auto flex justify-center items-centerselect-none relative">
 	<div class="space-y-2 w-[700px]">
 		<header class="flex flex-col gap-4 mb-8" dir={$LL.DIR()}>
-			<strong class="text-4xl">{$LL.POSTS()}</strong>
+			<h1><strong class="text-4xl">{$LL.POSTS()}</strong></h1>
 			<a
 				href="posts/rss.xml"
 				class="text-xl underline hover:dark:text-tertiary-500 hover:text-tertiary-800 w-fit"
