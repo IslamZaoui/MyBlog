@@ -14,7 +14,7 @@
 <svelte:head>
     <title>{$LL.POSTS()} | {data.Lang === 'en'? config.title : config.titleAR}</title>
 
-    <meta content={config.Postdescription} name="description" />
+    <meta content={data.Lang === 'en'? config.Postdescription : config.PostdescriptionAR} name="description" />
 
     <meta content="{$LL.POSTS()} | {data.Lang === 'en'? config.title : config.titleAR}" property="og:title" />
     <meta content="{config.siteImage}" property="og:image" />

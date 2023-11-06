@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as config from '$lib/config'
+	import * as config from '$lib/config';
 
 	import { LL, setLocale } from '$i18n/i18n-svelte';
 	import { locale } from '$i18n/i18n-svelte';
@@ -73,7 +73,7 @@
 </script>
 
 <svelte:head>
-	<link rel="canonical" href="{config.url}{data.url.replace('/','')}" />
+	<link rel="canonical" href="{config.url}{data.url.replace('/', '')}" />
 </svelte:head>
 
 <AppShell>
@@ -124,19 +124,27 @@
 			<div class="space-x-3">
 				<span>©{getCurrentYear()}</span>
 				<span>Islam Zaoui</span>
-				<a class="myanchor" href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank"
-					>CC BY-SA</a
+				<a
+					class="myanchor"
+					href="https://creativecommons.org/licenses/by-sa/4.0/"
+					rel="license"
+					target="_blank">CC BY-SA</a
 				>
 			</div>
 			<span dir={$LL.DIR()}
 				>{$LL.POWERED()}
-				<a class="myanchor" href="https://kit.svelte.dev/" target="_blank" rel="external">Sveltekit</a>
+				<a class="myanchor" href="https://kit.svelte.dev/" target="_blank" rel="external"
+					>Sveltekit</a
+				>
 				{$LL.AND()}
-				<a class="myanchor" href="https://skeleton.dev/" target="_blank" rel="external">Skeleton</a>.
+				<a class="myanchor" href="https://skeleton.dev/" target="_blank" rel="external">Skeleton</a
+				>.
 			</span>
 			<span dir={$LL.DIR()}>
 				{$LL.DESIGN()}
-				<a class="myanchor" href="https://haseebmajid.dev/" target="_blank" rel="external">Haseeb Majids</a>
+				<a class="myanchor" href="https://haseebmajid.dev/" target="_blank" rel="external"
+					>Haseeb Majids</a
+				>
 			</span>
 		</nav>
 	</svelte:fragment>
