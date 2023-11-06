@@ -1,4 +1,6 @@
 <script lang="ts">
+	import * as config from '$lib/config'
+
 	import { LL, setLocale } from '$i18n/i18n-svelte';
 	import { locale } from '$i18n/i18n-svelte';
 	export let data;
@@ -69,6 +71,10 @@
 		});
 	});
 </script>
+
+<svelte:head>
+	<link rel="canonical" href="{config.url}{data.url.replace('/','')}" />
+</svelte:head>
 
 <AppShell>
 	<svelte:fragment slot="pageHeader">

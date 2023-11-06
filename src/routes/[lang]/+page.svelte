@@ -27,10 +27,6 @@
 	<meta content={config.title} name="twitter:title" />
 	<meta content={config.Sitedescription} name="twitter:description" />
 	<meta content={config.siteImage} name="twitter:image" />
-
-	{#if data.Lang === 'en'}
-		<link rel="canonical" href="https://islamzaoui.vercel.app/" />
-	{/if}
 </svelte:head>
 
 <div class="container h-full mx-auto flex justify-center items-center select-none">
