@@ -19,14 +19,6 @@ export function PostData(meta: any, lang: string) {
             "@type": "ImageObject",
             "url": `${config.url}en/API/OG/${meta.title.replace(/ /g, '%20')}`,
         },
-        "publisher": {
-            "@type": "Organization",
-            "name": config.name,
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://islamzaoui.top/logo.png"
-            }
-        },
         "datePublished": meta.date,
         "dateModified": meta.date,
         "author": {
