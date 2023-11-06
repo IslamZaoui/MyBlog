@@ -17,7 +17,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	if (!lang) {
 		const locale = getPreferredLocale(event);
 
-		throw redirect(307, `${base}/${locale}`);
+		throw redirect(301, `${base}/${locale}`);
 	}
 
 	// if slug is not a locale, use base locale (e.g. api endpoints)
