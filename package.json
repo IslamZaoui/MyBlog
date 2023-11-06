@@ -57,6 +57,7 @@
 		"plyr": "^3.7.8",
 		"remark-unwrap-images": "^4.0.0",
 		"satori-html": "^0.3.2",
+		"schema-dts": "^1.1.2",
 		"svelte-fa": "^3.0.4",
 		"typesafe-i18n": "^5.26.2",
 		"vite-imagetools": "^6.2.1"

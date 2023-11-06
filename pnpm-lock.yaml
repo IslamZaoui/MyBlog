@@ -41,6 +41,9 @@ dependencies:
   satori-html:
     specifier: ^0.3.2
     version: 0.3.2
+  schema-dts:
+    specifier: ^1.1.2
+    version: 1.1.2(typescript@5.2.2)
   svelte-fa:
     specifier: ^3.0.4
     version: 3.0.4
@@ -3182,6 +3185,14 @@ packages:
       parse-css-color: 0.2.1
       postcss-value-parser: 4.2.0
       yoga-wasm-web: 0.3.3
+    dev: false
+
+  /schema-dts@1.1.2(typescript@5.2.2):
+    resolution: {integrity: sha512-MpNwH0dZJHinVxk9bT8XUdjKTxMYrA5bLtrrGmFA6PTLwlOKnhi67XoRd6/ty+Djt6ZC0slR57qFhZDNMI6DhQ==}
+    peerDependencies:
+      typescript: '>=4.1.0'
+    dependencies:
+      typescript: 5.2.2
     dev: false
 
   /semver@5.7.2:

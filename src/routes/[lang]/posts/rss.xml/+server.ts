@@ -1,4 +1,3 @@
-import { formatDate } from '$lib';
 import * as config from '$lib/config';
 
 export async function GET({ fetch, params }) {
@@ -18,9 +17,8 @@ export async function GET({ fetch, params }) {
 							<title>${post.title}</title>
 							<description>${post.description}</description>
 							<link>${config.url}${params.lang}/posts/${post.slug}</link>
-							<tags>${post.tags}</tags>
 							<guid isPermaLink="true">${config.url}${params.lang}/posts/${post.slug}</guid>
-							<pubDate>${formatDate(post.date)}</pubDate>
+							<pubDate>${post.date}</pubDate>
 						</item>
 					`
 					)

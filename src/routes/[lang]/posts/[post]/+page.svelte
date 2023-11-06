@@ -16,26 +16,35 @@
 	import type { PageData } from './$types';
 	import { tocCrawler } from '@skeletonlabs/skeleton';
 	import TableofContents from '$lib/Components/Posts/TableofContents.svelte';
+	import { PostData, serializeSchema } from '$lib/SD';
 
 	export let data: PageData;
 </script>
 
 <svelte:head>
 	<title>{data.meta.title} | {config.title}</title>
-	<meta content="{data.meta.description}" name="description" />
+	<meta content={data.meta.description} name="description" />
 
 	<meta content="{data.meta.title} | {config.title}" property="og:title" />
-	<meta content="{config.url}en/API/OG/{data.meta.title.replace(/ /g, '%20')}" property="og:image" />
+	<meta
+		content="{config.url}en/API/OG/{data.meta.title.replace(/ /g, '%20')}"
+		property="og:image"
+	/>
 	<meta content="{config.url}{data.url.replace('/', '')}" property="og:url" />
-	<meta content="{data.meta.description}" property="og:description" />
-	<meta content="{config.title}" property="og:site_name" />
+	<meta content={data.meta.description} property="og:description" />
+	<meta content={config.name} property="og:site_name" />
 	<meta content="article" property="og:type" />
 
 	<!--<meta content="{config.twitterHandle}" name="twitter:creator" />-->
 	<meta content="summary_large_image" name="twitter:card" />
 	<meta content="{data.meta.title} | {config.title}" name="twitter:title" />
-	<meta content="{data.meta.description}" name="twitter:description" />
-	<meta content="{config.url}en/API/OG/{data.meta.title.replace(/ /g, '%20')}" name="twitter:image" />
+	<meta content={data.meta.description} name="twitter:description" />
+	<meta
+		content="{config.url}en/API/OG/{data.meta.title.replace(/ /g, '%20')}"
+		name="twitter:image"
+	/>
+
+	{@html serializeSchema(PostData(data.meta,data.Lang))}
 </svelte:head>
 
 <div class="container h-full mx-auto flex justify-center items-center">

@@ -11,7 +11,7 @@
     <meta content="{config.siteImage}" property="og:image" />
     <meta content="{config.url}" property="og:url" />
     <meta content="{config.Sitedescription}" property="og:description" />
-    <meta content="{config.title}" property="og:site_name" />
+    <meta content="{config.name}" property="og:site_name" />
     <meta content="website" property="og:type" />
 
     <!-- <meta content="{config.twitterHandle}" name="twitter:creator" -->
