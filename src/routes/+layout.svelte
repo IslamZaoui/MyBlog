@@ -124,21 +124,20 @@
 			<div class="space-x-3">
 				<span>©{getCurrentYear()}</span>
 				<span>Islam Zaoui</span>
-				<a class="myanchor" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank"
+				<a class="myanchor" href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank"
 					>CC BY-SA</a
 				>
 			</div>
 			<span dir={$LL.DIR()}
 				>{$LL.POWERED()}
-				<a class="myanchor" href="https://kit.svelte.dev/" target="_blank">Sveltekit</a>
+				<a class="myanchor" href="https://kit.svelte.dev/" target="_blank" rel="external">Sveltekit</a>
 				{$LL.AND()}
-				<a class="myanchor" href="https://skeleton.dev/" target="_blank">Skeleton</a>.
+				<a class="myanchor" href="https://skeleton.dev/" target="_blank" rel="external">Skeleton</a>.
 			</span>
 			<span dir={$LL.DIR()}>
 				{$LL.DESIGN()}
-				<a class="myanchor" href="https://haseebmajid.dev/" target="_blank">Haseeb Majids</a>
+				<a class="myanchor" href="https://haseebmajid.dev/" target="_blank" rel="external">Haseeb Majids</a>
 			</span>
-			<link rel=“canonical” href=“https://example.com/sample-page/” />
 		</nav>
 	</svelte:fragment>
 </AppShell>

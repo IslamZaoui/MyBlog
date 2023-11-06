@@ -30,9 +30,9 @@
 		content="{config.url}en/API/OG/{data.meta.title.replace(/ /g, '%20')}"
 		property="og:image"
 	/>
-	<meta content={config.url} property="og:url" />
+	<meta content="{config.url}{data.url.replace('/','')}" property="og:url" />
 	<meta content={data.meta.description} property="og:description" />
-	<meta content={config.url} property="og:site_name" />
+	<meta content="{config.url}{data.url.replace('/','')}" property="og:site_name" />
 
 	<!--<meta content={config.twitterHandle} name="twitter:creator" />-->
 	<meta content="summary_large_image" name="twitter:card" />

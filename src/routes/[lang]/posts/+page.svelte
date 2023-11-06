@@ -18,7 +18,7 @@
 
 	<meta content="{$LL.POSTS()} | {config.title}" property="og:title" />
 	<meta content={config.siteImage} property="og:image" />
-	<meta content={config.url} property="og:url" />
+	<meta content="{config.url}{data.url.replace('/','')}" property="og:url" />
 	<meta content={config.Postdescription} property="og:description" />
 	<meta content="{$LL.POSTS()} | {config.title}" property="og:site_name" />
 

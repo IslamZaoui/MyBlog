@@ -8,7 +8,7 @@
 	export let post: Post;
 </script>
 
-<a href="/{$page.data.Lang}/posts/{post.slug}" class="select-none"
+<a href="/{$page.data.Lang}/posts/{post.slug}"  class="select-none"
 	><div class="card shadow-md rounded-md card-hover" dir={$LL.DIR()}>
 		<article class="p-4 space-y-2">
 			<header class="postTitle text-2xl font-bold" data-flip-id="postTitle-{post.slug}">

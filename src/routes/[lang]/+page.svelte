@@ -18,7 +18,7 @@
 
 	<meta content={config.title} property="og:title" />
 	<meta content={config.siteImage} property="og:image" />
-	<meta content={config.url} property="og:url" />
+	<meta content="{config.url}{data.url.replace('/','')}" property="og:url" />
 	<meta content={config.Sitedescription} property="og:description" />
 	<meta content={config.title} property="og:site_name" />
 
@@ -38,19 +38,19 @@
 			<p class="text-[18px] text-center">{$LL.DISL2()}</p>
 		</div>
 		<span class="flex gap-4">
-			<a class="text-[30px] mybtn" href="https://github.com/IslamZaoui" target="_blank"
+			<a class="text-[30px] mybtn" href="https://github.com/IslamZaoui" rel="external" target="_blank"
 				><Fa icon={faGithub} size="30" /></a
 			>
-			<a class="text-[30px] mybtn" href="https://www.linkedin.com/in/zaouiislam/" target="_blank"
+			<a class="text-[30px] mybtn" href="https://www.linkedin.com/in/zaouiislam/" rel="external" target="_blank"
 				><Fa icon={faLinkedin} size="30" /></a
 			>
-			<a class="text-[30px] mybtn" href="https://www.youtube.com/@IslamZaoui_" target="_blank"
+			<a class="text-[30px] mybtn" href="https://www.youtube.com/@IslamZaoui_" rel="external" target="_blank"
 				><Fa icon={faYoutube} size="30" /></a
 			>
-			<a class="text-[30px] mybtn" href="https://www.instagram.com/islamzaoui__/" target="_blank"
+			<a class="text-[30px] mybtn" href="https://www.instagram.com/islamzaoui__/" rel="external" target="_blank"
 				><Fa icon={faInstagram} /></a
 			>
-			<a class="mybtn" href="https://ko-fi.com/islamzaoui" target="_blank"
+			<a class="mybtn" href="https://ko-fi.com/islamzaoui" rel="external" target="_blank"
 				><Icon icon={kofiIcon} width="33" height="33" /></a
 			>
 		</span>
