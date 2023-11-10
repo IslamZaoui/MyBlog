@@ -37,7 +37,7 @@
 			<h1><strong class="text-4xl">{$LL.POSTS()}</strong></h1>
 			<a
 				href="posts/rss.xml"
-				class="text-xl underline hover:dark:text-tertiary-500 hover:text-tertiary-800 w-fit"
+				class="text-xl myanchor w-fit"
 				data-sveltekit-preload-data="off">RSS</a
 			>
 		</header>
