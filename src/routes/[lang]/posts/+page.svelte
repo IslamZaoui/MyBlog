@@ -12,11 +12,11 @@
 </script>
 
 <svelte:head>
-    <title>{$LL.POSTS()} | {data.Lang === 'en'? config.title : config.titleAR}</title>
+    <title>{$LL.POSTS()} | {config.name}</title>
 
     <meta content={data.Lang === 'en'? config.Postdescription : config.PostdescriptionAR} name="description" />
 
-    <meta content="{$LL.POSTS()} | {data.Lang === 'en'? config.title : config.titleAR}" property="og:title" />
+    <meta content="{$LL.POSTS()} | {config.name}" property="og:title" />
     <meta content="{config.siteImage}" property="og:image" />
     <meta content="{config.url}{data.url.replace('/','')}" property="og:url" />
     <meta content={data.Lang === 'en'? config.Postdescription : config.PostdescriptionAR} property="og:description" />
@@ -25,7 +25,7 @@
 
     <!-- <meta content={config.twitterHandle} name="twitter:creator" -->
     <meta content="summary_large_image" name="twitter:card" />
-    <meta content="{$LL.POSTS()} | {data.Lang === 'en'? config.title : config.titleAR}" name="twitter:title" />
+    <meta content="{$LL.POSTS()} | {config.name}" name="twitter:title" />
     <meta content={data.Lang === 'en'? config.Postdescription : config.PostdescriptionAR} name="twitter:description" />
     <meta content="{config.siteImage}" name="twitter:image" />
 </svelte:head>
