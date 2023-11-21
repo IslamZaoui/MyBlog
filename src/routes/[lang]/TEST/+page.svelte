@@ -1,7 +1,4 @@
 <script lang="ts">
-	import Video from '$lib/Components/video/video.svelte';
-	import dog from '$posts/TEST-MDSVEX/attachments/dog.mp4';
-	import Og from '$lib/OG/OG.svelte';
 	import { CodeBlock } from '@skeletonlabs/skeleton';
 
 	const code1 = `
@@ -18,18 +15,6 @@ console.log(\`The current year is: \${currentYear}\`);`;
 		<h2 class="h2 font-bold underline underline-offset-2">Just a test page</h2>
 	</header>
 	<article class="flex flex-col gap-2 items-center">
-		<div class="card variant-filled-surface w-full">
-			<header class="card-header">Video</header>
-			<div class="p-2 space-y-4">
-				<Video src={dog} type="video" poster={undefined} />
-			</div>
-		</div>
-		<div class="card variant-filled-surface w-full">
-			<header class="card-header">Youtube</header>
-			<div class="p-2 space-y-4">
-				<Video src='https://www.youtube.com/embed/WE9NIZShfZY' type="youtube" poster={undefined} />
-			</div>
-		</div>
 		<div class="card variant-filled-surface w-full">
 			<header class="card-header">CodeBlock component</header>
 			<div class="p-2 space-y-4">
