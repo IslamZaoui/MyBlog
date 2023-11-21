@@ -1,6 +1,8 @@
 <script lang="ts">
+	import Video from '$lib/Components/video/video.svelte';
+	import dog from '$posts/TEST-MDSVEX/attachments/dog.mp4';
 	import Og from '$lib/OG/OG.svelte';
-import { CodeBlock } from '@skeletonlabs/skeleton';
+	import { CodeBlock } from '@skeletonlabs/skeleton';
 
 	const code1 = `
 function getCurrentYear(): number {
@@ -12,14 +14,20 @@ console.log(\`The current year is: \${currentYear}\`);`;
 </script>
 
 <div class="container h-full mx-auto gap-4 flex flex-col justify-center items-center">
-	<header class="flex flex-col gap-2 items-center">
+	<header class="flex flex-col gap-2 items-centerf">
 		<h2 class="h2 font-bold underline underline-offset-2">Just a test page</h2>
 	</header>
 	<article class="flex flex-col gap-2 items-center">
 		<div class="card variant-filled-surface w-full">
-			<header class="card-header">OG component</header>
+			<header class="card-header">Video</header>
 			<div class="p-2 space-y-4">
-				<Og text="Hello world 🔥"/>
+				<Video src={dog} type="video" poster={undefined} />
+			</div>
+		</div>
+		<div class="card variant-filled-surface w-full">
+			<header class="card-header">Youtube</header>
+			<div class="p-2 space-y-4">
+				<Video src='https://www.youtube.com/embed/WE9NIZShfZY' type="youtube" poster={undefined} />
 			</div>
 		</div>
 		<div class="card variant-filled-surface w-full">

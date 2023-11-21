@@ -2,8 +2,10 @@
 	import Plyr from 'plyr';
 	import { onMount } from 'svelte';
 
+	let element: HTMLElement;
+
 	onMount(() => {
-		new Plyr('.player');
+		new Plyr(element);
 	});
 
 	export let type: 'youtube' | 'video';
@@ -11,11 +13,15 @@
 	export let poster: string | undefined;
 </script>
 
-{#if type === 'video'}
-	<!-- svelte-ignore a11y-media-has-caption -->
-	<video class="player aspect-video" playsinline controls data-poster={poster}>
-		<source {src} />
-	</video>
-{:else if type === 'youtube'}
-	<div id="player" data-plyr-provider="youtube" data-plyr-embed-id={src} />
-{/if}
+<div class="py-4">
+	{#if type === 'video'}
+		<!-- svelte-ignore a11y-media-has-caption -->
+		<video bind:this={element} class="aspect-video" playsinline controls data-poster={poster}>
+			<source {src} />
+		</video>
+	{:else if type === 'youtube'}
+		<div class="plyr__video-embed" bind:this={element}>
+			<iframe title='video player' {src} allowfullscreen allowtransparency allow="autoplay"></iframe>
+		</div>
+	{/if}
+</div>
