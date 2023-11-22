@@ -31,6 +31,7 @@ const MyRemarkPlugin = () => {
 						alt = `{image${count}}`
 					}
 					if (child.url.startsWith('$posts/') || child.url.startsWith('$lib/')) {
+						count++
 						imageImports.push(`import video${count} from '${src}?format=avif';`);
 						child.type = 'html';
 						child.value = `<Video src={video${count}} type="video" poster=${alt} />`;
