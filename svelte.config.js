@@ -19,8 +19,7 @@ const isYouTubeURL = (url) => {
 const MyRemarkPlugin = () => {
 	return (tree) => {
 		const imageImports = [];
-		let count = 0
-		tree.children.forEach((child) => {
+		tree.children.forEach((child, count) => {
 			if (child.type === 'image') {
 				if (isVideoURL(child.url)) {
 					const src = child.url;
@@ -75,7 +74,7 @@ const mdsvexOptions = {
 	extensions: ['.svx'],
 	remarkPlugins: [
 		remarkUnwrapImages,
-		MyRemarkPlugin
+		MyRemarkPlugin,
 	],
 	rehypePlugins: [],
 	highlight: { highlighter }
