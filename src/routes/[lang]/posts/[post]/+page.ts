@@ -9,7 +9,7 @@ export const load = (async ({ params }) => {
 
 		return {
 			content: post.default,
-			meta,
+			meta
 		};
 	} catch (e) {
 		console.log(e);

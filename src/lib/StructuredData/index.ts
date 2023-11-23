@@ -11,7 +11,7 @@ export function PostData(meta: any, lang: string) {
         "@type": "BlogPosting",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `"${config.url}${lang}/posts/${meta.slug}"`
+            "@id": `"${meta.slug}"`
         },
         "headline": meta.title,
         "description": meta.description,

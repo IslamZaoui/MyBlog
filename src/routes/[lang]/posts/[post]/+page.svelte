@@ -8,6 +8,7 @@
 		faArrowUp,
 		faCalendarDays,
 		faClock,
+		faEye,
 		faFileWord,
 		faTags
 	} from '@fortawesome/free-solid-svg-icons';
@@ -16,7 +17,7 @@
 	import type { PageData } from './$types';
 	import { tocCrawler } from '@skeletonlabs/skeleton';
 	import TableofContents from '$lib/Components/Posts/TableofContents.svelte';
-	import { PostData, serializeSchema } from '$lib/SD';
+	import { PostData, serializeSchema } from '$lib/StructuredData';
 
 	export let data: PageData;
 </script>

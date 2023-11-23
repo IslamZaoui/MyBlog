@@ -7,4 +7,5 @@ type Post = {
 	words: number;
 	readTime: number;
 	published: boolean;
+	views: string;
 };
