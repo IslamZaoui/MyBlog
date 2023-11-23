@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Analytics from './../lib/Components/others/analytics.svelte';
 	import * as config from '$lib/config';
 
 	import { LL, setLocale } from '$i18n/i18n-svelte';
@@ -75,6 +76,8 @@
 <svelte:head>
 	<link rel="canonical" href="{config.url}{data.url.replace('/', '')}" />
 </svelte:head>
+
+<Analytics />
 
 <AppShell>
 	<svelte:fragment slot="pageHeader">
