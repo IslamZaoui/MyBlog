@@ -7,7 +7,7 @@ const en = {
 	HOME: 'Home',
 	POWERED: 'Powered by',
 	AND: '&',
-	DESIGN: 'The design is inspired from',
+	CONTACTEMAIL: 'Contact Email:',
 	SEARCH: 'search',
 	ERRORBTN: 'Go back to homepage',
 	ERROR: 'Error',

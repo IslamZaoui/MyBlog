@@ -7,7 +7,7 @@ const ar = {
 	HOME: 'الصفحة الرئيسية',
 	POWERED: 'مشغل بواسطة',
 	AND: 'و',
-	DESIGN: 'التصميم مستوحى من',
+	CONTACTEMAIL: 'تواصل بالإيمايل:',
 	SEARCH: 'بحث',
 	ERRORBTN: 'العودة الي الصفحة الرئيسية',
 	ERROR: 'خطأ',

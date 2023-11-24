@@ -91,6 +91,11 @@
 					<Fa icon={faClock} class="text-gray-500" />
 					<span>{data.meta.readTime} {$LL.MINS()}</span>
 				</div>
+				<span>•</span>
+				<div class="flex gap-2 items-center">
+					<Fa icon={faEye} class="text-gray-500" />
+					<span>{data.meta.views} {$LL.VIEWS()}</span>
+				</div>
 			</footer>
 			<TableofContents />
 		</header>

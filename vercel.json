@@ -1,0 +1,9 @@
+{
+	"redirects": [
+		{
+			"source": "/stats",
+			"destination": "https://islamzaoui-blog.goatcounter.com",
+			"permanent": true
+		}
+	]
+}

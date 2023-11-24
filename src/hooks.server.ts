@@ -9,7 +9,7 @@ import { getPathnameWithoutBase } from './util.js';
 loadAllLocales();
 const L = i18n();
 
-const routes = ['en','ar','OG','sitemap.xml']
+const routes = ['en','ar','OG','sitemap.xml','stats']
 
 export const handle: Handle = async ({ event, resolve }) => {
 	// read language slug

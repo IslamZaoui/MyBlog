@@ -35,9 +35,9 @@ type RootTranslation = {
 	 */
 	AND: string
 	/**
-	 * T​h​e​ ​d​e​s​i​g​n​ ​i​s​ ​i​n​s​p​i​r​e​d​ ​f​r​o​m
+	 * C​o​n​t​a​c​t​ ​E​m​a​i​l​:
 	 */
-	DESIGN: string
+	CONTACTEMAIL: string
 	/**
 	 * s​e​a​r​c​h
 	 */
@@ -98,9 +98,9 @@ export type TranslationFunctions = {
 	 */
 	AND: () => LocalizedString
 	/**
-	 * The design is inspired from
+	 * Contact Email:
 	 */
-	DESIGN: () => LocalizedString
+	CONTACTEMAIL: () => LocalizedString
 	/**
 	 * search
 	 */

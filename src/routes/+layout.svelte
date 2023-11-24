@@ -144,9 +144,9 @@
 				>.
 			</span>
 			<span dir={$LL.DIR()}>
-				{$LL.DESIGN()}
-				<a class="myanchor" href="https://haseebmajid.dev/" target="_blank" rel="external"
-					>Haseeb Majids</a
+				{$LL.CONTACTEMAIL()}
+				<a class="myanchor" href="mailto:contact@islamzaoui.top"
+					>contact@islamzaoui.top</a
 				>
 			</span>
 		</nav>
