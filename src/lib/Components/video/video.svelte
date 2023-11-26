@@ -13,7 +13,7 @@
 	export let poster: string | undefined;
 </script>
 
-<div class="py-4">
+<div class="py-2">
 	{#if type === 'video'}
 		<!-- svelte-ignore a11y-media-has-caption -->
 		<video bind:this={element} class="aspect-video" playsinline controls data-poster={poster}>

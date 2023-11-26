@@ -15,7 +15,6 @@ export const load = (async ({ fetch, url }) => {
             const hit = (await response.json()).hits.filter((hit: any) => hit.path === url.pathname)
             if (hit.length === 1) {
                 views = hit[0].count
-                console.log("views: " + views)
             }
         }
     }

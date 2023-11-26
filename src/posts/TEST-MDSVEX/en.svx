@@ -53,7 +53,7 @@ And this is another paragraph.
 | Cell 3   | Cell 4   |
 
 ```python
-# Fenced code blocks support syntax highlighting
+# test code
 def hello_world():
     print("Hello, World!")
 ```
@@ -70,3 +70,7 @@ Term 2
 
 - [x] Task List Item 1
 - [ ] Task List Item 2
+
+![testimage]($posts/TEST-MDSVEX/attachments/testimage.jpg)
+
+![$posts/TEST-MDSVEX/attachments/thumbnail.png]($posts/TEST-MDSVEX/attachments/dog.mp4)
