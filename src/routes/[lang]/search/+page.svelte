@@ -4,7 +4,7 @@
 	import type { PageData } from './$types';
 	import autoAnimate from '@formkit/auto-animate';
 	import PostCard from '$lib/Components/Posts/PostCard.svelte';
-	import * as config from '$lib/config'
+	import config from '$lib/config'
 
 	export let data: PageData;
 

@@ -1,4 +1,4 @@
-import * as config from '$lib/config';
+import config from '$lib/config';
 
 export async function GET({ fetch, params }) {
 	const response = await fetch(`/${params.lang}/API/getPosts?page=${1}&perPage=${25}`);

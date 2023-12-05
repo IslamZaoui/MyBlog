@@ -13,7 +13,7 @@
 		faTags
 	} from '@fortawesome/free-solid-svg-icons';
 	import Fa from 'svelte-fa';
-	import * as config from '$lib/config';
+	import config from '$lib/config';
 	import type { PageData } from './$types';
 	import { tocCrawler } from '@skeletonlabs/skeleton';
 	import TableofContents from '$lib/Components/Posts/TableofContents.svelte';
@@ -36,7 +36,7 @@
 	<meta content={config.name} property="og:site_name" />
 	<meta content="article" property="og:type" />
 
-	<!--<meta content="{config.twitterHandle}" name="twitter:creator" />-->
+	<meta content={config.xHandle} name="twitter:creator" />
 	<meta content="summary_large_image" name="twitter:card" />
 	<meta content="{data.meta.title} | {config.name}" name="twitter:title" />
 	<meta content={data.meta.description} name="twitter:description" />

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Analytics from './../lib/Components/others/analytics.svelte';
-	import * as config from '$lib/config';
+	import config from '$lib/config';
 
 	import { LL, setLocale } from '$i18n/i18n-svelte';
 	import { locale } from '$i18n/i18n-svelte';

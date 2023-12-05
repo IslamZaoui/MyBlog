@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { LL } from '$i18n/i18n-svelte';
 	import { page } from '$app/stores';
-	import * as config from '$lib/config'
+	import config from '$lib/config'
 </script>
 
 <svelte:head>

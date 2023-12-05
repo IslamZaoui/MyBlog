@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as config from '$lib/config';
+	import config from '$lib/config';
 </script>
 
 <svelte:head>
@@ -14,7 +14,7 @@
     <meta content="{config.name}" property="og:site_name" />
     <meta content="website" property="og:type" />
 
-    <!-- <meta content="{config.twitterHandle}" name="twitter:creator" -->
+    <meta content="{config.xHandle}" name="twitter:creator"/>
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="{config.title}" name="twitter:title" />
     <meta content="{config.Sitedescription}" name="twitter:description" />

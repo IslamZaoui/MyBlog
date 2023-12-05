@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { html } from "satori-html";
 import {ImageResponse as IR} from "@vercel/og"
 import type {SvelteComponent} from "svelte";

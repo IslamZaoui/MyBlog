@@ -1,4 +1,4 @@
-import * as config from '$lib/config'
+import config from '$lib/config'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export function serializeSchema(thing: any) {
     return `<script type="application/ld+json">${JSON.stringify(thing)}</script>`
@@ -11,22 +11,24 @@ export function PostData(meta: any, lang: string) {
         "@type": "BlogPosting",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `"${meta.slug}"`
+            "@id": `${config.url}${lang}/posts/${meta.slug}`
         },
         "headline": meta.title,
         "description": meta.description,
         "image": {
             "@type": "ImageObject",
-            "url": `${config.url}en/API/OG/${meta.title.replace(/ /g, '%20')}`,
+            "url": `${config.url}en/API/OG/${encodeURIComponent(meta.title)}`
         },
-        "datePublished": meta.date,
-        "dateModified": meta.date,
+        "datePublished": new Date(meta.date).toISOString(),
+        "dateModified": new Date(meta.date).toISOString(),
         "author": {
             "@type": "Person",
-            "name": config.name
+            "name": config.name,
+            // Add additional author properties if available
         },
-        "keywords": meta.tags,
+        "keywords": Array.isArray(meta.tags) ? meta.tags : [meta.tags],
         "url": `${config.url}${lang}/posts/${meta.slug}`
     };
     return Schema;
 }
+

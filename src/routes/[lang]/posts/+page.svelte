@@ -7,7 +7,7 @@
 	import PostCard from '$lib/Components/Posts/PostCard.svelte';
 	import Fa from 'svelte-fa';
 	import { faArrowLeft, faArrowRight, faArrowUp } from '@fortawesome/free-solid-svg-icons';
-	import * as config from '$lib/config'
+	import config from '$lib/config'
 	export let data: PageData;
 </script>
 
@@ -23,7 +23,7 @@
     <meta content="{config.name}" property="og:site_name" />
     <meta content="website" property="og:type" />
 
-    <!-- <meta content={config.twitterHandle} name="twitter:creator" -->
+    <meta content={config.xHandle} name="twitter:creator"/>
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="{$LL.POSTS()} | {config.name}" name="twitter:title" />
     <meta content={data.Lang === 'en'? config.Postdescription : config.PostdescriptionAR} name="twitter:description" />

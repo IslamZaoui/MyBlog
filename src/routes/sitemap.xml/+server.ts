@@ -1,5 +1,5 @@
 import type { RequestHandler } from './$types';
-import * as config from '$lib/config'
+import config from '$lib/config'
 
 export const GET: RequestHandler = async ({ fetch }) => {
     const ENposts = (await (await fetch(`/en/API/getPosts?page=${1}&perPage=${100}`)).json()).posts as Post[];
