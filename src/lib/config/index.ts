@@ -27,6 +27,8 @@ const ProfileURL = {
 
 const xHandle = "@IslamZaoui_"
 
+const contactEmail = "contact@islamzaoui.top"
+
 export default {
     title,
     titleAR,
@@ -39,5 +41,6 @@ export default {
     siteImage,
     StatsUrl,
     ProfileURL,
-    xHandle
+    xHandle,
+    contactEmail
 }

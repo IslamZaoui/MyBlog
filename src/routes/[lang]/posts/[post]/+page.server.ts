@@ -1,3 +1,4 @@
+import { dev } from '$app/environment';
 import { env } from '$env/dynamic/private';
 import config from '$lib/config';
 import type { PageServerLoad } from './$types';
@@ -13,14 +14,14 @@ export const load = (async ({ fetch, url }) => {
         })
         if (response.ok) {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const hit = (await response.json()).hits.filter((hit:any) => hit.path === url.pathname)
+            const hit = (await response.json()).hits.filter((hit: any) => hit.path === url.pathname)
             if (hit.length === 1) {
                 views = hit[0].count
             }
         }
     }
     catch (err) {
-        console.log('views fetch error:', err)
+        dev ? console.log('views fetch error:', err) : undefined;
     }
     return {
         views

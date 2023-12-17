@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Analytics from './../lib/Components/others/analytics.svelte';
 	import config from '$lib/config';
 
 	import { LL, setLocale } from '$i18n/i18n-svelte';
@@ -77,8 +76,6 @@
 	<link rel="canonical" href="{config.url}{data.url.replace('/', '')}" />
 </svelte:head>
 
-<Analytics />
-
 <AppShell>
 	<svelte:fragment slot="pageHeader">
 		<nav class="w-full p-2 flex justify-center px-4 mb-5 select-none" id="top">
@@ -145,9 +142,7 @@
 			</span>
 			<span dir={$LL.DIR()}>
 				{$LL.CONTACTEMAIL()}
-				<a class="myanchor" href="mailto:contact@islamzaoui.top"
-					>contact@islamzaoui.top</a
-				>
+				<a class="myanchor" href="mailto:{config.contactEmail}">{config.contactEmail}</a>
 			</span>
 		</nav>
 	</svelte:fragment>

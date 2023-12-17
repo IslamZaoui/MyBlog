@@ -14,6 +14,6 @@ export const load = (async ({ params, data }) => {
 		};
 	} catch (e) {
 		console.log(e);
-		throw error(404, `Could not find ${params.post}`);
+		error(404, `Could not find ${params.post}`);
 	}
 }) satisfies PageLoad;
