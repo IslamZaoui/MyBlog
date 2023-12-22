@@ -53,6 +53,7 @@
 		"@fortawesome/free-solid-svg-icons": "^6.5.1",
 		"@vercel/analytics": "^1.1.1",
 		"@vercel/og": "^0.5.20",
+		"@vercel/speed-insights": "^1.0.2",
 		"gsap": "^3.12.4",
 		"highlight.js": "^11.9.0",
 		"plyr": "^3.7.8",
