@@ -1,5 +1,9 @@
 import type { RequestHandler } from './$types';
 import nodeHtmlToImage from 'node-html-to-image'
+import type { Config } from '@sveltejs/adapter-vercel';
+export const config: Config = {
+  runtime: 'nodejs18.x'
+};
 
 const OG = `
 <html>
@@ -37,16 +41,16 @@ const OG = `
 
 export const GET: RequestHandler = async ({ params }) => {
 
-    const image = await nodeHtmlToImage({
-        html: OG,
-        content: { text: params.text },
-        quality: 100,
-        type: 'jpeg'
-    })
+  const image = await nodeHtmlToImage({
+    html: OG,
+    content: { text: params.text },
+    quality: 100,
+    type: 'jpeg'
+  })
 
-    return new Response(image as Buffer, {
-        headers: {
-            'content-type': 'image/jpeg'
-        }
-    });
+  return new Response(image as Buffer, {
+    headers: {
+      'content-type': 'image/jpeg'
+    }
+  });
 };

@@ -22,7 +22,7 @@
 	// Highlight JS
 	import hljs from 'highlight.js';
 	import 'highlight.js/styles/tomorrow-night-bright.css';
-	import { AppShell, Modal, storeHighlightJs } from '@skeletonlabs/skeleton';
+	import { Modal, storeHighlightJs } from '@skeletonlabs/skeleton';
 	storeHighlightJs.set(hljs);
 
 	// Floating UI for Popups
