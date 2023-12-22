@@ -12,3 +12,8 @@ export const ScrollToTop = (way: 'smooth' | 'instant') =>
 		block: 'start',
 		inline: 'start'
 	});
+
+export function getCurrentYear(): number {
+	const currentDate = new Date();
+	return currentDate.getFullYear();
+}

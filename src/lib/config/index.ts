@@ -1,8 +1,5 @@
 import { dev } from '$app/environment';
 
-const title = 'Islam Zaoui - Navigating the Digital Landscape';
-const titleAR = 'Islam Zaoui - تصفح المشهد الرقمي';
-
 const name = 'Islam Zaoui';
 
 const Sitedescription = "Discover a digital park filled with valuable resources for developers at Islam Zaoui's website. Explore now for useful tools and insights!";
@@ -30,8 +27,6 @@ const xHandle = "@IslamZaoui_"
 const contactEmail = "contact@islamzaoui.top"
 
 export default {
-    title,
-    titleAR,
     name,
     Sitedescription,
     SitedescriptionAR,

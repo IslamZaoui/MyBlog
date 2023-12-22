@@ -25,7 +25,7 @@
 </script>
 
 <svelte:head>
-	<title>{$LL.SEARCH()} | {config.title}</title>
+	<title>{$LL.SEARCH()} | {config.name}</title>
 </svelte:head>
 
 <div class="container h-full mx-auto flex justify-center">

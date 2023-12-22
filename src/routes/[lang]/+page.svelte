@@ -1,12 +1,7 @@
 <script lang="ts">
 	import { LL } from '$i18n/i18n-svelte';
 	import { base } from '$app/paths';
-	import {
-		faGithub,
-		faLinkedin,
-		faXTwitter,
-		faYoutube
-	} from '@fortawesome/free-brands-svg-icons';
+	import { faGithub, faLinkedin, faXTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import Fa from 'svelte-fa';
 	import Icon from '@iconify/svelte';
@@ -17,13 +12,13 @@
 </script>
 
 <svelte:head>
-	<title>{data.Lang === 'en' ? config.title : config.titleAR}</title>
+	<title>{data.Lang === 'en' ? config.name : config.name}</title>
 
 	<meta
 		content={data.Lang === 'en' ? config.Sitedescription : config.SitedescriptionAR}
 		name="description"
 	/>
-	<meta content={data.Lang === 'en' ? config.title : config.titleAR} property="og:title" />
+	<meta content={data.Lang === 'en' ? config.name : config.name} property="og:title" />
 	<meta content={config.siteImage} property="og:image" />
 	<meta content="{config.url}{data.url.replace('/', '')}" property="og:url" />
 	<meta
@@ -35,7 +30,7 @@
 
 	<meta content={config.xHandle} name="twitter:creator" />
 	<meta content="summary_large_image" name="twitter:card" />
-	<meta content={data.Lang === 'en' ? config.title : config.titleAR} name="twitter:title" />
+	<meta content={data.Lang === 'en' ? config.name : config.name} name="twitter:title" />
 	<meta
 		content={data.Lang === 'en' ? config.Sitedescription : config.SitedescriptionAR}
 		name="twitter:description"
@@ -53,13 +48,13 @@
 		</div>
 		<span class="flex gap-4">
 			<a class="text-[30px] mybtn" href={config.ProfileURL.github} rel="external" target="_blank"
-				><Fa icon={faGithub} size="30" /></a
+				><Fa icon={faGithub} /></a
 			>
 			<a class="text-[30px] mybtn" href={config.ProfileURL.linkedin} rel="external" target="_blank"
-				><Fa icon={faLinkedin} size="30" /></a
+				><Fa icon={faLinkedin} /></a
 			>
 			<a class="text-[30px] mybtn" href={config.ProfileURL.youtube} rel="external" target="_blank"
-				><Fa icon={faYoutube} size="30" /></a
+				><Fa icon={faYoutube} /></a
 			>
 			<a class="text-[30px] mybtn" href={config.ProfileURL.x} rel="external" target="_blank"
 				><Fa icon={faXTwitter} /></a
