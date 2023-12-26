@@ -7,7 +7,10 @@
 	import { fade } from 'svelte/transition';
 	import config from '$lib/config';
 	import LightSwitch from '$lib/Components/Switch/LightSwitch.svelte';
-	import { getCurrentYear } from '$lib';
+	import { onShallow, getCurrentYear } from '$lib';
+	import { getModalStore } from '@skeletonlabs/skeleton';
+	const modalStore = getModalStore();
+	import searchPage from '../[lang]/search/+page.svelte';
 
 	export let data;
 </script>
@@ -25,6 +28,7 @@
 							? 'dark:text-tertiary-500 text-tertiary-800'
 							: ''}"
 						href="/{data.Lang}/search"
+						on:click={(e) => onShallow(e, modalStore, searchPage)}
 					>
 						<Fa icon={faSearch} size="18" />
 					</a>

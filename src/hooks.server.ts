@@ -18,7 +18,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	// redirect to base locale if no locale slug was found
 	if (!routes.includes(lang)) {
 		const locale = getPreferredLocale(event);
-		redirect(301, `${base}/${locale}`);
+		redirect(302, `${base}/${locale}`);
 	}
 
 	// if slug is not a locale, use base locale (e.g. api endpoints)
