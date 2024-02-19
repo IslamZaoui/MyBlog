@@ -29,9 +29,15 @@ dependencies:
   highlight.js:
     specifier: ^11.9.0
     version: 11.9.0
+  just-camel-case:
+    specifier: ^6.2.0
+    version: 6.2.0
   lucide-svelte:
     specifier: ^0.331.0
     version: 0.331.0(svelte@4.2.11)
+  mdsvex-relative-images:
+    specifier: ^1.0.3
+    version: 1.0.3
   plyr:
     specifier: ^3.7.8
     version: 3.7.8
@@ -47,13 +53,16 @@ dependencies:
   typesafe-i18n:
     specifier: ^5.26.2
     version: 5.26.2(typescript@5.3.3)
+  unist-util-visit:
+    specifier: ^5.0.0
+    version: 5.0.0
   vite-imagetools:
     specifier: ^6.2.9
     version: 6.2.9
 
 devDependencies:
   '@skeletonlabs/skeleton':
-    specifier: 2.4.0
+    specifier: ^2.4.0
     version: 2.4.0(svelte@4.2.11)
   '@skeletonlabs/tw-plugin':
     specifier: 0.2.3
@@ -121,6 +130,9 @@ devDependencies:
   svelte-check:
     specifier: ^3.6.4
     version: 3.6.4(postcss@8.4.31)(sass@1.71.0)(svelte@4.2.11)
+  svelte-youtube-embed:
+    specifier: ^0.2.3
+    version: 0.2.3
   tailwindcss:
     specifier: 3.3.5
     version: 3.3.5
@@ -1147,7 +1159,6 @@ packages:
 
   /@types/unist@2.0.10:
     resolution: {integrity: sha512-IfYcSBWE3hLpBg8+X2SEa8LVkJdJEkT2Ese2aaLs3ptGdVtABxndrMaxuFlQ1qdFf9Q5rDvDpxI3WwgvKFAsQA==}
-    dev: true
 
   /@types/unist@3.0.2:
     resolution: {integrity: sha512-dqId9J8K/vGi5Zr7oo212BGii5m3q5Hxlkwy3WpYuKPklmBEvsbMYYyLxAQpSffdLl/gdW0XUpKWFvYmyoWCoQ==}
@@ -2856,6 +2867,14 @@ packages:
       graceful-fs: 4.2.11
     dev: true
 
+  /just-camel-case@4.0.2:
+    resolution: {integrity: sha512-df6QI/EIq+6uHe/wtaa9Qq7/pp4wr4pJC/r1+7XhVL6m5j03G6h9u9/rIZr8rDASX7CxwDPQnZjffCo2e6PRLw==}
+    dev: false
+
+  /just-camel-case@6.2.0:
+    resolution: {integrity: sha512-ICenRLXwkQYLk3UyvLQZ+uKuwFVJ3JHFYFn7F2782G2Mv2hW8WPePqgdhpnjGaqkYtSVWnyCESZhGXUmY3/bEg==}
+    dev: false
+
   /keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
     dependencies:
@@ -2999,6 +3018,13 @@ packages:
       - typescript
       - vite
     dev: true
+
+  /mdsvex-relative-images@1.0.3:
+    resolution: {integrity: sha512-3XvpnaguRAhC5gchpqCH+A5Yl28xG9WDPylVla0+k90c5LT+QqSM+hwHd1v5C7gB2cAT0AIhuMsY/g6aCw+WDg==}
+    dependencies:
+      just-camel-case: 4.0.2
+      unist-util-visit: 3.1.0
+    dev: false
 
   /mdsvex@0.11.0(svelte@4.2.11):
     resolution: {integrity: sha512-gJF1s0N2nCmdxcKn8HDn0LKrN8poStqAicp6bBcsKFd/zkUBGLP5e7vnxu+g0pjBbDFOscUyI1mtHz+YK2TCDw==}
@@ -4195,6 +4221,10 @@ packages:
       typescript: 5.3.3
     dev: true
 
+  /svelte-youtube-embed@0.2.3:
+    resolution: {integrity: sha512-+HYK224eJ5tSEM6chZgODuSOuaXqv/l5Xj6tvvjqQfrQzdG33jyjYVNzREXIVTerdWSvyqbm5A2BpL8tdwNhQw==}
+    dev: true
+
   /svelte@4.2.11:
     resolution: {integrity: sha512-YIQk3J4X89wOLhjsqIW8tqY3JHPuBdtdOIkASP2PZeAMcSW9RsIjQzMesCrxOF3gdWYC0mKknlKF7OqmLM+Zqg==}
     engines: {node: '>=16'}
@@ -4406,6 +4436,12 @@ packages:
       tiny-inflate: 1.0.3
     dev: false
 
+  /unist-util-is@5.2.1:
+    resolution: {integrity: sha512-u9njyyfEh43npf1M+yGKDGVPbY/JWEemg5nH05ncKPfi+kBbKBJoTdsogMu33uhytuLlv9y0O7GH7fEdwLdLQw==}
+    dependencies:
+      '@types/unist': 2.0.10
+    dev: false
+
   /unist-util-is@6.0.0:
     resolution: {integrity: sha512-2qCTHimwdxLfz+YzdGfkqNlH0tLi9xjTnHddPmJwtIG9MGsdbutfTc4P+haPD7l7Cjxf/WZj+we5qfVPvvxfYw==}
     dependencies:
@@ -4417,11 +4453,26 @@ packages:
       '@types/unist': 2.0.10
     dev: true
 
+  /unist-util-visit-parents@4.1.1:
+    resolution: {integrity: sha512-1xAFJXAKpnnJl8G7K5KgU7FY55y3GcLIXqkzUj5QF/QVP7biUm0K0O2oqVkYsdjzJKifYeWn9+o6piAK2hGSHw==}
+    dependencies:
+      '@types/unist': 2.0.10
+      unist-util-is: 5.2.1
+    dev: false
+
   /unist-util-visit-parents@6.0.1:
     resolution: {integrity: sha512-L/PqWzfTP9lzzEa6CKs0k2nARxTdZduw3zyh8d2NVBnsyvHjSX4TWse388YrrQKbvI8w20fGjGlhgT96WwKykw==}
     dependencies:
       '@types/unist': 3.0.2
       unist-util-is: 6.0.0
+
+  /unist-util-visit@3.1.0:
+    resolution: {integrity: sha512-Szoh+R/Ll68QWAyQyZZpQzZQm2UPbxibDvaY8Xc9SUtYgPsDzx5AWSk++UUt2hJuow8mvwR+rG+LQLw+KsuAKA==}
+    dependencies:
+      '@types/unist': 2.0.10
+      unist-util-is: 5.2.1
+      unist-util-visit-parents: 4.1.1
+    dev: false
 
   /unist-util-visit@5.0.0:
     resolution: {integrity: sha512-MR04uvD+07cwl/yhVuVWAtw+3GOR/knlL55Nd/wAdblk27GCVt3lqpTivy/tkJcZoNPzTwS1Y+KMojlLDhoTzg==}

@@ -12,9 +12,10 @@ export const load = (async ({ params, data }) => {
 			content: post.default,
 			meta
 		};
-	} catch (e) {	
+	} catch (e) {
 		error(404, {
 			message: `Could not find ${params.post}`,
+			details: (e as Error).message
 		});
 	}
 }) satisfies PageLoad;
