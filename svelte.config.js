@@ -1,6 +1,7 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import remarkUnwrapImages from 'remark-unwrap-images';
+import readingTime from 'mdsvex-reading-time';
 import { mdsvex } from 'mdsvex';
 
 function isVideoURL(url) {
@@ -12,7 +13,8 @@ function isVideoURL(url) {
 }
 
 const isYouTubeURL = (url) => {
-	const regex = /^https?:\/\/(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+	const regex =
+		/^https?:\/\/(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
 	return regex.test(url);
 };
 
@@ -25,12 +27,12 @@ const MyRemarkPlugin = () => {
 					const src = child.url;
 					let alt = child.alt;
 					if (alt.startsWith('$posts/') || alt.startsWith('$lib/')) {
-						count++
+						count++;
 						imageImports.push(`import image${count} from '${alt}?format=avif';`);
-						alt = `{image${count}}`
+						alt = `{image${count}}`;
 					}
 					if (child.url.startsWith('$posts/') || child.url.startsWith('$lib/')) {
-						count++
+						count++;
 						imageImports.push(`import video${count} from '${src}?format=avif';`);
 						child.type = 'html';
 						child.value = `<Video src={video${count}} type="video" poster=${alt} />`;
@@ -38,28 +40,26 @@ const MyRemarkPlugin = () => {
 						child.type = 'html';
 						child.value = `<Video src="${src}" type="video" poster=${alt} />`;
 					}
-
-				} else
-					if (child.url.startsWith('$posts/') || child.url.startsWith('$lib/')) {
-						count++;
-						const imageSrc = child.url;
-						imageImports.push(`import image${count} from '${imageSrc}?format=avif';`);
-						child.url = `{image${count}}`
-						child.data = {
-							hProperties: {
-								class: 'mx-auto block',
-							},
-						};
-					} else if (isYouTubeURL(child.url)) {
-						const src = child.url;
-						child.type = 'html';
-						child.value = `<Video src="${src}" type="youtube" poster={undefined} />`;
-					}
+				} else if (child.url.startsWith('$posts/') || child.url.startsWith('$lib/')) {
+					count++;
+					const imageSrc = child.url;
+					imageImports.push(`import image${count} from '${imageSrc}?format=avif';`);
+					child.url = `{image${count}}`;
+					child.data = {
+						hProperties: {
+							class: 'mx-auto block'
+						}
+					};
+				} else if (isYouTubeURL(child.url)) {
+					const src = child.url;
+					child.type = 'html';
+					child.value = `<Video src="${src}" type="youtube" poster={undefined} />`;
+				}
 			}
 		});
 		const scriptNode = {
 			type: 'html',
-			value: `<script lang='ts'>\nimport { CodeBlock } from '@skeletonlabs/skeleton';\nimport Video from '$lib/Components/video/video.svelte'\n${imageImports.join('\n')}</script>`,
+			value: `<script lang='ts'>\nimport { CodeBlock } from '@skeletonlabs/skeleton';\nimport Video from '$lib/Components/video/video.svelte'\n${imageImports.join('\n')}</script>`
 		};
 		tree.children.unshift(scriptNode);
 	};
@@ -72,10 +72,7 @@ function highlighter(code, lang) {
 /**@type {import(mdsvex).mdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.svx'],
-	remarkPlugins: [
-		remarkUnwrapImages,
-		MyRemarkPlugin,
-	],
+	remarkPlugins: [remarkUnwrapImages, MyRemarkPlugin, readingTime],
 	rehypePlugins: [],
 	highlight: { highlighter }
 };

@@ -4,7 +4,7 @@ export const MyTheme: CustomThemeConfig = {
 	name: 'MyTheme',
 	properties: {
 		// =~= Theme Properties =~=
-		'--theme-font-family-base': `sans-serif`,
+		'--theme-font-family-base':  `sans-serif`,
 		'--theme-font-family-heading': `sans-serif`,
 		'--theme-font-color-base': '0 0 0',
 		'--theme-font-color-dark': '255 255 255',

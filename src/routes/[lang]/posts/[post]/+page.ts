@@ -5,15 +5,16 @@ export const load = (async ({ params, data }) => {
 	try {
 		const post = await import(`./../../../../posts/${params.post}/${params.lang}.svx`);
 		const meta = post.metadata as Post;
-		meta.views = data.views;
+		meta.views = data.views.toLocaleString();
 		meta.slug = params.post;
 
 		return {
 			content: post.default,
 			meta
 		};
-	} catch (e) {
-		console.log(e);
-		error(404, `Could not find ${params.post}`);
+	} catch (e) {	
+		error(404, {
+			message: `Could not find ${params.post}`,
+		});
 	}
 }) satisfies PageLoad;

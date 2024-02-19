@@ -40,21 +40,24 @@
 	import { initializeStores } from '@skeletonlabs/skeleton';
 	initializeStores();
 
-	import { ScrollToTop } from '$lib';
 	import { loadAllLocales } from '$i18n/i18n-util.sync';
 	import { i18n } from 'typesafe-i18n';
+	import type { AfterNavigate } from '@sveltejs/kit';
 
 	gsap.registerPlugin(Flip);
 
 	let state: Flip.FlipState;
 
 	beforeNavigate(async () => {
-		ScrollToTop('instant');
 		state = await Flip.getState('.postTitle, .postTags, .postDetails, .navA');
 	});
 
-	afterNavigate(async () => {
-		ScrollToTop('instant');
+	afterNavigate(async (params: AfterNavigate) => {
+		const isNewPage = params.from?.url.pathname !== params.to?.url.pathname;
+		const elemPage = document.querySelector('#page');
+		if (isNewPage && elemPage !== null) {
+			elemPage.scrollTop = 0;
+		}
 		await Flip.from(state, {
 			targets: '.postTitle, .postTags, .postDetails, .navA',
 			duration: 0.3,

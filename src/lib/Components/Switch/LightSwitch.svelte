@@ -8,8 +8,8 @@
 		setModeUserPrefers,
 		setModeCurrent
 	} from '@skeletonlabs/skeleton';
-	import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-	import Fa from 'svelte-fa';
+	import Sun from 'lucide-svelte/icons/sun';
+	import Moon from 'lucide-svelte/icons/moon';
 
 	function onToggleHandler(): void {
 		$modeCurrent = !$modeCurrent;
@@ -28,13 +28,17 @@
 	{@html `<\u{73}cript nonce="%sveltekit.nonce%">(${setInitialClassState.toString()})();</script>`}
 </svelte:head>
 
-<button name="lightSwitch" class="hover:dark:text-tertiary-500 hover:text-tertiary-800" on:click={onToggleHandler}>
+<button
+	name="lightSwitch"
+	class="hover:dark:text-tertiary-500 hover:text-tertiary-800"
+	on:click={onToggleHandler}
+>
 	{#key $modeCurrent}
 		<div in:fade>
 			{#if $modeCurrent}
-				<Fa icon={faMoon} size="18" />
+				<Sun size="24" />
 			{:else}
-				<Fa icon={faSun} size="18" />
+				<Moon size="24" />
 			{/if}
 		</div>
 	{/key}

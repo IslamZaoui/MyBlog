@@ -1,18 +1,24 @@
 <script lang="ts">
 	import { LL } from '$i18n/i18n-svelte';
 	import { page } from '$app/stores';
-	import config from '$lib/config'
+	import config from '$lib/config';
 </script>
 
 <svelte:head>
 	<title>{config.name} | {$LL.ERROR()} {$page.status}</title>
 </svelte:head>
 
-<div class="flex flex-col justify-center h-full items-center">
-	<span class="text-6xl font-bold text-primary-500 mb-4">{$LL.ERROR()} {$page.status}</span>
-	<span class="text-lg text-gray-600 md:text-gray-400 mb-8">{$page.error?.message}</span>
+<div class="flex flex-col justify-center h-full items-center gap-4">
+	<span class="text-6xl font-bold text-primary-500">{$LL.ERROR()} {$page.status}</span>
 
-	<a href="/" class="px-4 py-2 rounded-md bg-primary-500 text-white hover:bg-primary-600">
+	{#if $page.error?.message}
+		<span class="text-2xl text-gray-600">{$page.error?.message}</span>
+	{/if}
+	{#if $page.error?.details}
+		<span class="text-gray-600">{$page.error?.details}</span>
+	{/if}
+
+	<a href="/" class="btn variant-filled-primary">
 		{$LL.ERRORBTN()}
 	</a>
 </div>

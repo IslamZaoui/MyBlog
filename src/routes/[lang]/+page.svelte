@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { LL } from '$i18n/i18n-svelte';
 	import { base } from '$app/paths';
-	import { faGithub, faLinkedin, faXTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+	import Github from 'lucide-svelte/icons/github';
+	import Linkedin from 'lucide-svelte/icons/linkedin';
+	import Twitter from 'lucide-svelte/icons/twitter';
+	import Youtube from 'lucide-svelte/icons/youtube';
+	import Coffee from 'lucide-svelte/icons/Coffee';
 	import { Avatar } from '@skeletonlabs/skeleton';
-	import Fa from 'svelte-fa';
-	import Icon from '@iconify/svelte';
-	import kofiIcon from '@iconify/icons-simple-icons/kofi';
 	import config from '$lib/config';
 
 	export let data;
@@ -47,20 +48,20 @@
 			<p class="text-[18px] text-center">{$LL.DISL2()}</p>
 		</div>
 		<span class="flex gap-4">
-			<a class="text-[30px] mybtn" href={config.ProfileURL.github} rel="external" target="_blank"
-				><Fa icon={faGithub} /></a
+			<a class="mybtn" href={config.ProfileURL.github} rel="external" target="_blank"
+				><Github size={40} /></a
 			>
-			<a class="text-[30px] mybtn" href={config.ProfileURL.linkedin} rel="external" target="_blank"
-				><Fa icon={faLinkedin} /></a
+			<a class="mybtn" href={config.ProfileURL.linkedin} rel="external" target="_blank"
+				><Linkedin size={40} /></a
 			>
-			<a class="text-[30px] mybtn" href={config.ProfileURL.youtube} rel="external" target="_blank"
-				><Fa icon={faYoutube} /></a
+			<a class="mybtn" href={config.ProfileURL.youtube} rel="external" target="_blank"
+				><Youtube size={40} /></a
 			>
-			<a class="text-[30px] mybtn" href={config.ProfileURL.x} rel="external" target="_blank"
-				><Fa icon={faXTwitter} /></a
+			<a class="mybtn" href={config.ProfileURL.x} rel="external" target="_blank"
+				><Twitter size={40} /></a
 			>
 			<a class="mybtn" href={config.ProfileURL.kofi} rel="external" target="_blank"
-				><Icon icon={kofiIcon} width="33" height="33" /></a
+				><Coffee size={40} /></a
 			>
 		</span>
 	</div>

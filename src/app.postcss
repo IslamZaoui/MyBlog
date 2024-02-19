@@ -3,6 +3,18 @@
 @tailwind utilities;
 @tailwind variants;
 
+/*Font*/
+
+@font-face {
+	font-family: 'Geist';
+	src: url('/fonts/geist/Geist-Regular.woff2');
+}
+
+:root [data-theme='MyTheme'] {
+	--theme-font-family-base: 'Geist', sans-serif;
+	--theme-font-family-heading: 'Geist', sans-serif;
+}
+
 /*page style*/
 
 html,

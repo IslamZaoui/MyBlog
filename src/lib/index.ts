@@ -1,5 +1,8 @@
 import { preloadData, pushState, goto } from '$app/navigation';
+import type { ComponentEvents } from 'svelte';
 import ShallowModal from './Components/Modals/shallowModal.svelte';
+import type { AppShell } from '@skeletonlabs/skeleton';
+import appScroll from './stores/appscroll';
 
 type DateStyle = Intl.DateTimeFormatOptions['dateStyle'];
 
@@ -34,7 +37,6 @@ export async function onShallow(e: MouseEvent & { currentTarget: HTMLAnchorEleme
 		pushState(href, { selected: result.data });
 		modalStore.trigger({
 			type: 'component',
-			//response: () => history.back(),
 			component: {
 				ref: ShallowModal,
 				props: { data: result.data, component: component }
@@ -43,4 +45,8 @@ export async function onShallow(e: MouseEvent & { currentTarget: HTMLAnchorEleme
 	} else {
 		goto(href);
 	}
+}
+
+export function scrollHandler(event: ComponentEvents<AppShell>['scroll']) {
+	appScroll.update(value => value = event.currentTarget.scrollTop)
 }

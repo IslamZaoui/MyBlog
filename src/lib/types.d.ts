@@ -4,8 +4,7 @@ type Post = {
 	description: string;
 	date: string;
 	tags: string[];
-	words: number;
-	readTime: number;
+	readingTime: { minutes: number, words: number }
 	published: boolean;
 	views: string;
 };

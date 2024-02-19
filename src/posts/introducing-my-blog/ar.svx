@@ -4,8 +4,6 @@ description: اول منشور في المدونة
 date: '2023-10-20'
 tags:
   - مقدمة
-words: 64
-readTime: 1
 published: true
 ---
 ## مقدمة

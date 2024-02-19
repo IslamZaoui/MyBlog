@@ -11,8 +11,13 @@ declare global {
 			locale: Locales;
 			LL: TranslationFunctions;
 		}
-		// interface PageData {}
-		// interface Error {}
+		interface PageData {
+			url: string
+			Lang: Locales
+		}
+		interface Error {
+			details?: string
+		}
 		// interface Platform {}
 	}
 
@@ -24,4 +29,4 @@ declare global {
 	}
 }
 
-export {};
+export { };

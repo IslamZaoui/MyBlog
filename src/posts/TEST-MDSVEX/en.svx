@@ -4,8 +4,6 @@ description: Just a test post
 date: '2100-01-01'
 tags:
   - TEST
-words: 0
-readTime: 0
 published: false
 ---
 # Heading 1

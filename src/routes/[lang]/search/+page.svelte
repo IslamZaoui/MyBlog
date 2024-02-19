@@ -4,7 +4,7 @@
 	import type { PageData } from './$types';
 	import autoAnimate from '@formkit/auto-animate';
 	import PostCard from '$lib/Components/Posts/PostCard.svelte';
-	import config from '$lib/config'
+	import config from '$lib/config';
 
 	export let data: PageData;
 
@@ -14,7 +14,6 @@
 
 	async function Search() {
 		const url = `/${$page.params.lang}/API/getPosts?search=true&filter=${searchTerm}`;
-		console.log('fetch url: ' + url);
 		const response = await fetch(url);
 		const data = (await response.json()) as {
 			posts: Post[];
@@ -42,7 +41,10 @@
 				>{$LL.SEARCH()}</button
 			>
 		</div>
-		<div class="flex flex-col gap-3" use:autoAnimate>
+		<div
+			class="flex flex-col gap-3 overflow-y-scroll overflow-x-visible px-3 h-[500px]"
+			use:autoAnimate
+		>
 			{#each Posts as post}
 				<PostCard {post} />
 			{/each}

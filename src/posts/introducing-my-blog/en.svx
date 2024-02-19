@@ -4,8 +4,6 @@ description: First Post in this Blog
 date: '2023-10-20'
 tags:
   - Introduction
-words: 64
-readTime: 1
 published: true
 ---
 ## Introduction

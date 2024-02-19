@@ -2,13 +2,15 @@
 	import { page } from '$app/stores';
 	import { LL } from '$i18n/i18n-svelte';
 	import { formatDate } from '$lib';
-	import { faTags, faCalendarDays, faFileWord, faClock } from '@fortawesome/free-solid-svg-icons';
-	import Fa from 'svelte-fa';
+	import Tags from 'lucide-svelte/icons/tags';
+	import Calendar from 'lucide-svelte/icons/calendar-days';
+	import FileBar from 'lucide-svelte/icons/file-bar-chart-2';
+	import Clock from 'lucide-svelte/icons/clock';
 
 	export let post: Post;
 </script>
 
-<a href="/{$page.data.Lang}/posts/{post.slug}"  class="select-none"
+<a href="/{$page.data.Lang}/posts/{post.slug}" class="select-none"
 	><div class="card shadow-md rounded-md card-hover" dir={$LL.DIR()}>
 		<article class="p-4 space-y-2">
 			<header class="postTitle text-2xl font-bold" data-flip-id="postTitle-{post.slug}">
@@ -19,7 +21,7 @@
 				class="postTags flex gap-2 items-center dark:text-gray-400 text-gray-800"
 				data-flip-id="postTags-{post.slug}"
 			>
-				<Fa icon={faTags} class="text-gray-500" />
+				<Tags size="18" class="text-gray-500" />
 				{#each post.tags as tag, i (i)}
 					<span>{tag}{i !== post.tags.length - 1 ? ',' : ''}</span>
 				{/each}
@@ -30,18 +32,18 @@
 			data-flip-id="postDetails-{post.slug}"
 		>
 			<div class="flex gap-2 items-center">
-				<Fa icon={faCalendarDays} class="text-gray-500" />
+				<Calendar size="18" class="text-gray-500" />
 				<span>{formatDate(post.date)}</span>
 			</div>
 			<span>•</span>
 			<div class="flex gap-2 items-center">
-				<Fa icon={faFileWord} class="text-gray-500" />
-				<span>{post.words} {$LL.WORDS()}</span>
+				<FileBar size="18" class="text-gray-500" />
+				<span>{post.readingTime.words} {$LL.WORDS()}</span>
 			</div>
 			<span>•</span>
 			<div class="flex gap-2 items-center">
-				<Fa icon={faClock} class="text-gray-500" />
-				<span>{post.readTime} {$LL.MINS()}</span>
+				<Clock size="18" class="text-gray-500" />
+				<span>{post.readingTime.minutes.toFixed()} {$LL.MINS()}</span>
 			</div>
 		</footer>
 	</div></a

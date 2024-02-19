@@ -1,23 +1,21 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
 	import { page } from '$app/stores';
 	import { LL } from '$i18n/i18n-svelte';
 	import { ScrollToTop, formatDate } from '$lib';
-	import {
-		faArrowLeft,
-		faArrowRight,
-		faArrowUp,
-		faCalendarDays,
-		faClock,
-		faEye,
-		faFileWord,
-		faTags
-	} from '@fortawesome/free-solid-svg-icons';
-	import Fa from 'svelte-fa';
+	import Tags from 'lucide-svelte/icons/tags';
+	import Calendar from 'lucide-svelte/icons/calendar-days';
+	import FileBar from 'lucide-svelte/icons/file-bar-chart-2';
+	import Clock from 'lucide-svelte/icons/clock';
+	import ArrowLeft from 'lucide-svelte/icons/arrow-left';
+	import ArrowRight from 'lucide-svelte/icons/arrow-right';
+	import ArrowUp from 'lucide-svelte/icons/arrow-up';
+	import Eye from 'lucide-svelte/icons/eye';
 	import config from '$lib/config';
 	import type { PageData } from './$types';
 	import { tocCrawler } from '@skeletonlabs/skeleton';
+	import appScroll from '$lib/stores/appscroll';
 	import TableofContents from '$lib/Components/Posts/TableofContents.svelte';
-	import { PostData, serializeSchema } from '$lib/StructuredData';
 
 	export let data: PageData;
 </script>
@@ -44,8 +42,6 @@
 		content="{config.url}en/API/OG/{data.meta.title.replace(/ /g, '%20')}"
 		name="twitter:image"
 	/>
-
-	{@html serializeSchema(PostData(data.meta, data.Lang))}
 </svelte:head>
 
 <div class="container h-full mx-auto flex justify-center items-center">
@@ -53,9 +49,9 @@
 		<header class="space-y-4 select-none" dir={$LL.DIR()}>
 			<a class="flex gap-2 items-center text-4xl" href="/{$page.params.lang}/posts">
 				{#if $page.params.lang === 'en'}
-					<Fa icon={faArrowLeft} />
+					<ArrowLeft size="36" />
 				{:else}
-					<Fa icon={faArrowRight} />
+					<ArrowRight />
 				{/if}
 				<strong>{$LL.POSTS()}</strong>
 			</a>
@@ -67,7 +63,7 @@
 					class="postTags flex gap-2 items-center dark:text-gray-400 text-gray-800"
 					data-flip-id="postTags-{data.meta.slug}"
 				>
-					<Fa icon={faTags} class="text-gray-500" />
+					<Tags size="18" class="text-gray-500" />
 					{#each data.meta.tags as tag, i (i)}
 						<span>{tag}{i !== data.meta.tags.length - 1 ? ',' : ''}</span>
 					{/each}
@@ -78,22 +74,22 @@
 				data-flip-id="postDetails-{data.meta.slug}"
 			>
 				<div class="flex gap-2 items-center">
-					<Fa icon={faCalendarDays} class="text-gray-500" />
+					<Calendar size="18" class="text-gray-500" />
 					<span>{formatDate(data.meta.date, $page.params.lang)}</span>
 				</div>
 				<span>•</span>
 				<div class="flex gap-2 items-center">
-					<Fa icon={faFileWord} class="text-gray-500" />
-					<span>{data.meta.words} {$LL.WORDS()}</span>
+					<FileBar size="18" class="text-gray-500" />
+					<span>{data.meta.readingTime.words} {$LL.WORDS()}</span>
 				</div>
 				<span>•</span>
 				<div class="flex gap-2 items-center">
-					<Fa icon={faClock} class="text-gray-500" />
-					<span>{data.meta.readTime} {$LL.MINS()}</span>
+					<Clock size="18" class="text-gray-500" />
+					<span>{data.meta.readingTime.minutes.toFixed()} {$LL.MINS()}</span>
 				</div>
 				<span>•</span>
 				<div class="flex gap-2 items-center">
-					<Fa icon={faEye} class="text-gray-500" />
+					<Eye size="18" class="text-gray-500" />
 					<span>{data.meta.views} {$LL.VIEWS()}</span>
 				</div>
 			</footer>
@@ -103,9 +99,13 @@
 			<svelte:component this={data.content} />
 		</article>
 	</div>
-	<button
-		name="scroll"
-		class="variant-filled btn-icon fixed bottom-10 right-4 z-50"
-		on:click={() => ScrollToTop('smooth')}><Fa icon={faArrowUp} /></button
-	>
+	{#if $appScroll > 20}
+		<button
+			in:fade
+			out:fade
+			name="scroll"
+			class="variant-filled btn-icon fixed bottom-10 right-4 z-50"
+			on:click={() => ScrollToTop('smooth')}><ArrowUp size="28" /></button
+		>
+	{/if}
 </div>
