@@ -3,6 +3,7 @@ import type { ComponentEvents } from 'svelte';
 import ShallowModal from './Components/Modals/shallowModal.svelte';
 import type { AppShell } from '@skeletonlabs/skeleton';
 import appScroll from './stores/appscroll';
+import type { Locales } from '$i18n/i18n-types';
 
 type DateStyle = Intl.DateTimeFormatOptions['dateStyle'];
 
@@ -49,4 +50,12 @@ export async function onShallow(e: MouseEvent & { currentTarget: HTMLAnchorEleme
 
 export function scrollHandler(event: ComponentEvents<AppShell>['scroll']) {
 	appScroll.update(value => value = event.currentTarget.scrollTop)
+}
+
+export async function getPostViews(slug: string, lang: Locales) {
+	let views = 0
+	try {
+		views = (await (await fetch(`/${lang}/API/views/${slug}`, { method: 'get' })).json())
+	} catch (_) { }
+	return views
 }

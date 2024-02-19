@@ -19,6 +19,10 @@ type RootTranslation = {
 	 */
 	DIR: string
 	/**
+	 * L​o​a​d​i​n​g​.​.​.
+	 */
+	LOADING: string
+	/**
 	 * P​o​s​t​s
 	 */
 	POSTS: string
@@ -81,6 +85,10 @@ export type TranslationFunctions = {
 	 * ltr
 	 */
 	DIR: () => LocalizedString
+	/**
+	 * Loading...
+	 */
+	LOADING: () => LocalizedString
 	/**
 	 * Posts
 	 */

@@ -10,6 +10,7 @@ declare global {
 		interface Locals {
 			locale: Locales;
 			LL: TranslationFunctions;
+			userID: string
 		}
 		interface PageData {
 			url: string

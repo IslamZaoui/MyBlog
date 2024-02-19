@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { LL } from '$i18n/i18n-svelte';
-	import { formatDate } from '$lib';
+	import { formatDate, getPostViews } from '$lib';
 	import Tags from 'lucide-svelte/icons/tags';
 	import Calendar from 'lucide-svelte/icons/calendar-days';
 	import FileBar from 'lucide-svelte/icons/file-bar-chart-2';
 	import Clock from 'lucide-svelte/icons/clock';
+	import Eye from 'lucide-svelte/icons/eye';
 
 	export let post: Post;
 </script>
@@ -44,6 +45,17 @@
 			<div class="flex gap-2 items-center">
 				<Clock size="18" class="text-gray-500" />
 				<span>{post.readingTime.minutes.toFixed()} {$LL.MINS()}</span>
+			</div>
+			<span>•</span>
+			<div class="flex gap-2 items-center">
+				<Eye size="18" class="text-gray-500" />
+				<span>
+					{#await getPostViews(post.slug, $page.data.Lang)}
+						{$LL.LOADING()}
+					{:then views}
+						{views} {$LL.VIEWS()}
+					{/await}
+				</span>
 			</div>
 		</footer>
 	</div></a
