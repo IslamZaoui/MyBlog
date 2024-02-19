@@ -5,7 +5,7 @@
 	import Linkedin from 'lucide-svelte/icons/linkedin';
 	import Twitter from 'lucide-svelte/icons/twitter';
 	import Youtube from 'lucide-svelte/icons/youtube';
-	import Coffee from 'lucide-svelte/icons/Coffee';
+	import Coffee from 'lucide-svelte/icons/coffee';
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import config from '$lib/config';
 
