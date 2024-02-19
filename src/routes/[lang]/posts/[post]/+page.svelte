@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import { page } from '$app/stores';
 	import { LL } from '$i18n/i18n-svelte';
-	import { ScrollToTop, formatDate } from '$lib';
+	import { ScrollToTop, formatDate, increasePostViews } from '$lib';
 	import Tags from 'lucide-svelte/icons/tags';
 	import Calendar from 'lucide-svelte/icons/calendar-days';
 	import FileBar from 'lucide-svelte/icons/file-bar-chart-2';
@@ -16,8 +16,13 @@
 	import { tocCrawler } from '@skeletonlabs/skeleton';
 	import appScroll from '$lib/stores/appscroll';
 	import TableofContents from '$lib/Components/Posts/TableofContents.svelte';
+	import { onMount } from 'svelte';
 
 	export let data: PageData;
+
+	onMount(async () => {
+		await increasePostViews(data.meta.slug, $page.params.lang);
+	});
 </script>
 
 <svelte:head>

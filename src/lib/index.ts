@@ -59,3 +59,9 @@ export async function getPostViews(slug: string, lang: Locales) {
 	} catch (_) { }
 	return views
 }
+
+export async function increasePostViews(slug: string, lang: string) {
+	try {
+		await fetch(`/${lang}/API/views/${slug}`, { method: 'post' })
+	} catch (_) { }
+}
