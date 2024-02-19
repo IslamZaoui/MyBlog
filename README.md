@@ -27,4 +27,6 @@ You can support my work by [Donating here](https://ko-fi.com/islamzaoui), starti
 
 - I use [@vercel/og](https://vercel.com/docs/functions/edge-functions/og-image-generation) to create dynamic social share images
 
+- [Supabase](https://supabase.com/) for tracking posts views
+
 and a lot of other amazing libraries provided by Svelte and JS communities.
