@@ -22,12 +22,13 @@
 			<LightSwitch />
 			<LangSwitch />
 			<a
-				class="mybtn"
+				class="mybtn flex gap-2 rounded p-2 md:variant-soft md:hover:variant-soft-primary"
 				href="/{data.Lang}/search"
 				aria-label="Search"
 				on:click={async (e) => await utils.onShallowSearch(e, modalStore)}
 			>
 				<Search size="24" />
+				<small class="hidden md:inline-block"><kbd class="kbd">Ctrl</kbd> + <kbd class="kbd">K</kbd></small>
 			</a>
 		</div>
 		<div class="flex gap-4 items-center">

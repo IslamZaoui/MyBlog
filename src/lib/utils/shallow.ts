@@ -36,7 +36,7 @@ export async function onShallowSearchSC(modalStore: any, lang: string) {
 			type: 'component',
 			component: {
 				ref: Modal.ShallowSearch,
-				props: { searchPosts: result.data }
+				props: { data: result.data }
 			}
 		});
 	} else {
