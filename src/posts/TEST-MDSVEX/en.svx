@@ -73,3 +73,5 @@ Term 2
 ![test](http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4)
 
 ![test2](https://www.youtube.com/watch?v=vi1VTiqtZTU)
+
+![test2](./testimage.jpg)
