@@ -1,7 +1,6 @@
 import type { BaseTranslation } from '../i18n-types';
 
 const en = {
-	// TODO: your translations go here
 	DIR: 'ltr',
 	LOADING: 'Loading...',
 	POSTS: 'Posts',
@@ -19,7 +18,10 @@ const en = {
 	DISL2: 'Attended University of Msila 🇩🇿',
 	toc: 'Table of Contents',
 	PREV: 'Prev',
-	NEXT: 'Next'
+	NEXT: 'Next',
+	CLOSE: 'to close',
+	NAV: 'to navigate',
+	SELECT: 'to select'
 } satisfies BaseTranslation;
 
 export default en;

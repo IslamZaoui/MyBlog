@@ -86,6 +86,18 @@ type RootTranslation = {
 	 * N​e​x​t
 	 */
 	NEXT: string
+	/**
+	 * t​o​ ​c​l​o​s​e
+	 */
+	CLOSE: string
+	/**
+	 * t​o​ ​n​a​v​i​g​a​t​e
+	 */
+	NAV: string
+	/**
+	 * t​o​ ​s​e​l​e​c​t
+	 */
+	SELECT: string
 }
 
 export type TranslationFunctions = {
@@ -161,6 +173,18 @@ export type TranslationFunctions = {
 	 * Next
 	 */
 	NEXT: () => LocalizedString
+	/**
+	 * to close
+	 */
+	CLOSE: () => LocalizedString
+	/**
+	 * to navigate
+	 */
+	NAV: () => LocalizedString
+	/**
+	 * to select
+	 */
+	SELECT: () => LocalizedString
 }
 
 export type Formatters = {}
