@@ -10,7 +10,7 @@ import { sequence } from '@sveltejs/kit/hooks';
 loadAllLocales();
 const L = i18n();
 
-const routes = ['en', 'ar', 'OG', 'sitemap.xml', 'API'];
+const routes = ['en', 'ar', 'OG', 'sitemap.xml', 'API', 'src'];
 
 const getPreferredLocale = ({ request }: RequestEvent) => {
 	// detect the preferred language the user has configured in his browser
