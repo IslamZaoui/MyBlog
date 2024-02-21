@@ -51,9 +51,19 @@
 	{#key $locale}
 		<div in:fade>
 			{#if $locale === 'ar'}
-				<a href={replaceLocaleInUrl($page.url, 'en')} rel="canonical">EN</a>
+				<a
+					aria-label="English route"
+					href={replaceLocaleInUrl($page.url, 'en')}
+					rel="alternate"
+					hreflang="en">EN</a
+				>
 			{:else}
-				<a href={replaceLocaleInUrl($page.url, 'ar')} rel="canonical">AR</a>
+				<a
+					aria-label="Arabic route"
+					href={replaceLocaleInUrl($page.url, 'ar')}
+					rel="alternate"
+					hreflang="ar">AR</a
+				>
 			{/if}
 		</div>
 	{/key}

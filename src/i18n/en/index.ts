@@ -17,7 +17,9 @@ const en = {
 	VIEWS: 'views',
 	DISL1: 'Junior Multi-Platform and Web Application Developer 💻',
 	DISL2: 'Attended University of Msila 🇩🇿',
-	toc:'Table of Contents'
+	toc: 'Table of Contents',
+	PREV: 'Prev',
+	NEXT: 'Next'
 } satisfies BaseTranslation;
 
 export default en;

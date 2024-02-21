@@ -20,7 +20,7 @@ function isYoutubeUrl(url) {
 export default function videosPlugin() {
 	return function transformer(tree) {
 		visit(tree, 'image', (node) => {
-			if (isVideoURL(node.url ?? node.src)) {
+			if (isVideoURL(node.url)) {
 				node.type = 'html';
 				node.value = `<Video src="${node.url}" />`;
 			} else {

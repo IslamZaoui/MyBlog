@@ -29,7 +29,8 @@
 </svelte:head>
 
 <button
-	name="lightSwitch"
+	aria-label="light switch"
+	type="button"
 	class="hover:dark:text-tertiary-500 hover:text-tertiary-800"
 	on:click={onToggleHandler}
 >

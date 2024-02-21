@@ -5,12 +5,12 @@ import { loadAllLocales } from '$i18n/i18n-util.sync';
 import { redirect, type Handle, type RequestEvent } from '@sveltejs/kit';
 import { initAcceptLanguageHeaderDetector } from 'typesafe-i18n/detectors';
 import { getPathnameWithoutBase } from './util.js';
-import { sequence } from '@sveltejs/kit/hooks'
+import { sequence } from '@sveltejs/kit/hooks';
 
 loadAllLocales();
 const L = i18n();
 
-const routes = ['en', 'ar', 'OG', 'sitemap.xml', 'stats']
+const routes = ['en', 'ar', 'OG', 'sitemap.xml', 'API'];
 
 const getPreferredLocale = ({ request }: RequestEvent) => {
 	// detect the preferred language the user has configured in his browser
@@ -43,17 +43,21 @@ const LocalisationHook: Handle = async ({ event, resolve }) => {
 };
 
 const UserSessionHook: Handle = async ({ event, resolve }) => {
-	let userID = event.cookies.get('userID')
+	let userID = event.cookies.get('userID');
 
-	if (!userID)
-		userID = crypto.randomUUID()
+	if (!userID) userID = crypto.randomUUID();
 
-	event.locals.userID = userID
-	event.cookies.set('userID', userID, { secure: true, path: '/', sameSite: 'strict', expires: new Date("2025-01-01") })
+	event.locals.userID = userID;
+	event.cookies.set('userID', userID, {
+		secure: true,
+		path: '/',
+		sameSite: 'strict',
+		expires: new Date('2025-01-01')
+	});
 
-	const response = await resolve(event)
+	const response = await resolve(event);
 
-	return response
-}
+	return response;
+};
 
-export const handle: Handle = sequence(LocalisationHook, UserSessionHook)
+export const handle: Handle = sequence(LocalisationHook, UserSessionHook);

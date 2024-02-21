@@ -1,17 +1,18 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { afterNavigate } from '$app/navigation';
+	import Paginator from './../../../lib/Components/Posts/Paginator.svelte';
 	import { LL } from '$i18n/i18n-svelte';
-	import { ScrollToTop } from '$lib';
 	import type { PageData } from './$types';
-	import ArrowLeft from 'lucide-svelte/icons/arrow-left';
-	import ArrowRight from 'lucide-svelte/icons/arrow-right';
-	import ArrowUp from 'lucide-svelte/icons/arrow-up';
 	import PostCard from '$lib/Components/Posts/PostCard.svelte';
 	import config from '$lib/config';
-	import appScroll from '$lib/stores/appscroll';
-	import { fade } from 'svelte/transition';
+	import Button from '$lib/Components/Button';
+	import utils from '$lib/utils';
 
 	export let data: PageData;
+
+	afterNavigate(() => {
+		utils.ScrollToTop('smooth');
+	});
 </script>
 
 <svelte:head>
@@ -55,30 +56,7 @@
 				<PostCard {post} />
 			{/each}
 		</div>
-		<div class="flex justify-between">
-			{#if data.page > 1}
-				<a
-					class="btn btn-sm variant-filled mr-auto"
-					href="/{$page.params.lang}/posts?page={data.page - 1}"
-					><ArrowLeft size="24" /><span>Prev</span></a
-				>
-			{/if}
-			{#if data.hasMorePosts}
-				<a
-					class="btn btn-sm variant-filled ml-auto"
-					href="/{$page.params.lang}/posts?page={data.page + 1}"
-					><span>Next</span><ArrowRight size="24" /></a
-				>
-			{/if}
-		</div>
+		<Paginator currentPage={data.page} hasMorePosts={data.hasMorePosts} />
 	</div>
-	{#if $appScroll > 20}
-		<button
-			in:fade
-			out:fade
-			name="scroll"
-			class="variant-filled btn-icon fixed bottom-10 right-4 z-50"
-			on:click={() => ScrollToTop('smooth')}><ArrowUp size="28" /></button
-		>
-	{/if}
+	<Button.ScrollToTop />
 </main>

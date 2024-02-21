@@ -1,12 +1,11 @@
 <script lang="ts">
 	import LL from '$i18n/i18n-svelte';
 	import type { Locales } from '$i18n/i18n-types';
-	import { onShallow } from '$lib';
 	import LightSwitch from '../Switch/LightSwitch.svelte';
 	import { Search } from 'lucide-svelte';
 	import LangSwitch from '../Switch/LangSwitch.svelte';
 	import { getModalStore } from '@skeletonlabs/skeleton';
-	import searchPage from '../../../routes/[lang]/search/+page.svelte';
+	import utils from '$lib/utils';
 
 	const modalStore = getModalStore();
 
@@ -23,11 +22,10 @@
 			<LightSwitch />
 			<LangSwitch />
 			<a
-				class="mybtn {data.url.startsWith(`/${data.Lang}/search`)
-					? 'dark:text-tertiary-500 text-tertiary-800'
-					: ''}"
+				class="mybtn"
 				href="/{data.Lang}/search"
-				on:click={(e) => onShallow(e, modalStore, searchPage)}
+				aria-label="Search"
+				on:click={async (e) => await utils.onShallowSearch(e, modalStore)}
 			>
 				<Search size="24" />
 			</a>

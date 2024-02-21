@@ -1,23 +1,24 @@
 import type { RequestHandler } from './$types';
-import config from '$lib/config'
+import config from '$lib/config';
 
 export const GET: RequestHandler = async ({ fetch }) => {
-    const ENposts = (await (await fetch(`/en/API/getPosts?page=${1}&perPage=${100}`)).json()).posts as Post[];
-	const ARposts = (await (await fetch(`/ar/API/getPosts?page=${1}&perPage=${100}`)).json()).posts as Post[];
+	const ENposts = (await (await fetch(`/API/getPosts?isAllPosts=true&lang=en`)).json())
+		.posts as Post[];
+	const ARposts = (await (await fetch(`/API/getPosts?isAllPosts=true&lang=ar`)).json())
+		.posts as Post[];
 
+	const headers = { 'Content-Type': 'application/xml' };
 
-    const headers = { 'Content-Type': 'application/xml' }
+	const pages = [
+		'en',
+		'ar',
+		'en/posts',
+		'ar/posts',
+		...ENposts.map((post) => 'en/posts/' + post.slug),
+		...ARposts.map((post) => 'ar/posts/' + post.slug)
+	];
 
-    const pages = [
-        'en',
-        'ar',
-        'en/posts',
-        'ar/posts',
-        ...ENposts.map((post) => "en/posts/"+post.slug),
-		...ARposts.map((post) => "ar/posts/"+post.slug),
-    ]
-
-    const sitemap = `
+	const sitemap = `
 	  <?xml version="1.0" encoding="UTF-8" ?>
 	  <urlset
 	    xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
@@ -28,16 +29,16 @@ export const GET: RequestHandler = async ({ fetch }) => {
 	    xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 	  >
 	    ${pages
-            .map((page) => {
-                return `
+				.map((page) => {
+					return `
 	          <url>
 	            <loc>${config.url}${page}</loc>
 	            <lastmod>${new Date().toISOString()}</lastmod>
 	          </url>
-	        `
-            })
-            .join('')}
+	        `;
+				})
+				.join('')}
 	  </urlset>
-	`.trim()
-    return new Response(sitemap, { headers })
-}
+	`.trim();
+	return new Response(sitemap, { headers });
+};

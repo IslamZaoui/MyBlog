@@ -10,14 +10,14 @@ declare global {
 		interface Locals {
 			locale: Locales;
 			LL: TranslationFunctions;
-			userID: string
+			userID: string;
 		}
 		interface PageData {
-			url: string
-			Lang: Locales
+			url: string;
+			Lang: Locales;
 		}
 		interface Error {
-			details?: string
+			details?: string;
 		}
 		// interface Platform {}
 	}
@@ -30,4 +30,4 @@ declare global {
 	}
 }
 
-export { };
+export {};

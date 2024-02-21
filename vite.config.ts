@@ -8,8 +8,9 @@ export default defineConfig({
 		sveltekit(),
 		purgeCss({
 			safelist: {
-				greedy: [/^hljs-/],
-			},
+				greedy: [/^hljs-/]
+			}
 		}),
-		imagetools()]
+		imagetools()
+	]
 });

@@ -1,1 +1,1 @@
-export { componentToImageResponse, ImageResponse, type ImageResponseOptions } from "./apis"
+export { componentToImageResponse, ImageResponse, type ImageResponseOptions } from './apis';

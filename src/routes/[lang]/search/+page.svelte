@@ -1,51 +1,50 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { searchHandler } from '$lib/stores/search';
+	import { createSearchStore } from '$lib/stores/search';
 	import { LL } from '$i18n/i18n-svelte';
 	import type { PageData } from './$types';
 	import autoAnimate from '@formkit/auto-animate';
 	import PostCard from '$lib/Components/Posts/PostCard.svelte';
 	import config from '$lib/config';
+	import { onDestroy } from 'svelte';
 
 	export let data: PageData;
 
-	let Posts = data.posts;
+	const searchPosts = data.posts.map((post) => ({
+		...post,
+		searchTerms:
+			`${post.title} ${post.description} ${post.tags.join(' ')} ${post.slug}`.toLowerCase()
+	}));
 
-	let searchTerm = '';
+	const searchStore = createSearchStore(searchPosts);
 
-	async function Search() {
-		const url = `/${$page.params.lang}/API/getPosts?search=true&filter=${searchTerm}`;
-		const response = await fetch(url);
-		const data = (await response.json()) as {
-			posts: Post[];
-			hasMorePosts: boolean;
-		};
-		Posts = data.posts;
-	}
+	const unsubscribe = searchStore.subscribe((model) => searchHandler(model));
+
+	onDestroy(() => {
+		unsubscribe();
+	});
 </script>
 
 <svelte:head>
 	<title>{$LL.SEARCH()} | {config.name}</title>
 </svelte:head>
 
-<div class="container h-full mx-auto flex justify-center">
-	<div class="w-[700px] space-y-4">
+<div class="h-full mx-auto flex max-w-[800px] justify-center">
+	<div class="w-full space-y-4">
 		<div class="flex">
 			<input
-				type="text"
+				type="search"
 				class="input rounded-r-none"
 				placeholder="{$LL.SEARCH()}..."
 				dir={$LL.DIR()}
-				bind:value={searchTerm}
+				bind:value={$searchStore.search}
 			/>
-			<button name="search" class="btn h-full variant-filled rounded-l-none" on:click={Search}
-				>{$LL.SEARCH()}</button
-			>
 		</div>
 		<div
-			class="flex flex-col gap-3 overflow-y-scroll overflow-x-visible px-3 h-[500px]"
+			class="max-h-[480px] hide-scrollbar flex gap-3 flex-col overflow-x-auto p-1"
 			use:autoAnimate
 		>
-			{#each Posts as post}
+			{#each $searchStore.filtered as post}
 				<PostCard {post} />
 			{/each}
 		</div>

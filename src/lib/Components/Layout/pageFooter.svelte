@@ -1,6 +1,6 @@
 <script lang="ts">
 	import config from '$lib/config';
-	import { getCurrentYear } from '$lib';
+	import utils from '$lib/utils';
 	import LL from '$i18n/i18n-svelte';
 </script>
 
@@ -8,7 +8,7 @@
 	class="flex md:flex-row flex-col justify-center w-full text-center p-6 text-[12px] md:gap-3 select-none mt-5"
 >
 	<div class="space-x-2">
-		<span>© {getCurrentYear()} Islam Zaoui</span>
+		<span>© {utils.getCurrentYear()} Islam Zaoui</span>
 		<a
 			class="myanchor"
 			href="https://creativecommons.org/licenses/by-sa/4.0/"

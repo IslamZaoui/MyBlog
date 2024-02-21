@@ -7,14 +7,6 @@ tags:
 published: false
 ---
 
-![test](http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4)
-
-![dog](./attachments/dog.mp4)
-
-![dog](https://www.youtube.com/watch?v=vi1VTiqtZTU)
-
-![testimage](./attachments/testimage.jpg)
-
 # Heading 1
 
 ## Heading 2
@@ -77,3 +69,11 @@ Term 2
 
 - [x] Task List Item 1
 - [ ] Task List Item 2
+
+![test](http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4)
+
+![dog](/src/posts/TEST-MDSVEX/attachments/dog.mp4)
+
+![dog](https://www.youtube.com/watch?v=vi1VTiqtZTU)
+
+![testimage](./attachments/testimage.jpg)

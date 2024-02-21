@@ -1,5 +1,5 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
-const appScroll = writable(0)
+const appScroll = writable(0);
 
-export default appScroll
+export default appScroll;

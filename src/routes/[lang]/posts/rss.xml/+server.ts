@@ -1,7 +1,7 @@
 import config from '$lib/config';
 
 export async function GET({ fetch, params }) {
-	const response = await fetch(`/${params.lang}/API/getPosts?page=${1}&perPage=${25}`);
+	const response = await fetch(`/API/getPosts?lang=${params.lang}&isAllPosts=true`);
 	const posts = (await response.json()).posts as Post[];
 	const xml = `
 		<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">

@@ -10,7 +10,6 @@ Discover a digital park filled with valuable resources for developers at [Islam 
 
 ## ▶️ YouTube ![YouTube Subscribers](https://img.shields.io/youtube/channel/subscribers/UCIFxtpdlatULASQ8Sv3RFfA)
 
-
 You can find my videos on [YouTube](https://www.youtube.com/@IslamZaoui_).
 
 ## 🙏 Support
