@@ -5,8 +5,8 @@ export async function getPosts(lang: Locales = 'en'): Promise<Post[]> {
 	let posts: Post[] = [];
 
 	let paths;
-	if (lang === 'ar') paths = import.meta.glob(`/src/posts/**/ar.svx`, { eager: true });
-	else paths = import.meta.glob(`/src/posts/**/en.svx`, { eager: true });
+	if (lang === 'ar') paths = import.meta.glob(`/src/posts/**/ar.md`, { eager: true });
+	else paths = import.meta.glob(`/src/posts/**/en.md`, { eager: true });
 
 	for (const path in paths) {
 		const file = paths[path];
@@ -34,5 +34,5 @@ export function postsPaginator(posts: Post[], page: number, perPage: number): [P
 }
 
 export function getGithubPostURL(slug: string, lang: Locales) {
-	return `https://github.com/IslamZaoui/MyBlog/blob/main/src/posts/${slug}/${lang}.svx` as const
+	return `https://github.com/IslamZaoui/MyBlog/blob/main/src/posts/${slug}/${lang}.md` as const
 }
