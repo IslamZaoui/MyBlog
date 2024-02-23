@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import Layout from '$lib/Components/Layout';
-	import { AppShell } from '@skeletonlabs/skeleton';import { getModalStore } from '@skeletonlabs/skeleton';
+	import { AppShell } from '@skeletonlabs/skeleton';
+	import { getModalStore } from '@skeletonlabs/skeleton';
 	import utils from '$lib/utils';
 
 	const modalStore = getModalStore();
@@ -8,6 +10,11 @@
 	export let data;
 
 	async function onWindowKeydown(e: KeyboardEvent) {
+		if (data.url.includes('search')) return;
+		if (innerWidth < 640) {
+			goto(`/${data.Lang}/search`);
+			return;
+		}
 		if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
 			e.preventDefault();
 			$modalStore.length
@@ -19,7 +26,12 @@
 
 <svelte:window on:keydown|stopPropagation={async (e) => await onWindowKeydown(e)} />
 
-<AppShell on:scroll={utils.scrollHandler}>
+<AppShell
+	on:scroll={utils.scrollHandler}
+	regionPage="relative"
+	slotPageHeader="sticky top-0 z-10"
+	scrollbarGutter="stable both-edges"
+>
 	<svelte:fragment slot="pageHeader">
 		<Layout.pageHeader {data} />
 	</svelte:fragment>

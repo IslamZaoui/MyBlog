@@ -10,12 +10,20 @@ export function formatDate(date: string, locales = 'en', dateStyle: DateStyle = 
 	return dateFormatter.format(dateToFormat);
 }
 
-export const ScrollToTop = (way: 'smooth' | 'instant') =>
-	document.getElementById('top')?.scrollIntoView({
-		behavior: way,
-		block: 'start',
-		inline: 'start'
-	});
+export const ScrollToTop = (way: 'smooth' | 'instant') => {
+	const elemPage = document.querySelector('#page');
+	if (elemPage !== null) {
+		if (way === 'smooth') {
+			elemPage.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+		} else {
+			elemPage.scrollTo(0, 0);
+		}
+	}
+}
+
 
 export function getCurrentYear(): number {
 	const currentDate = new Date();

@@ -3,10 +3,13 @@ import Modal from '../Components/Modal';
 
 export async function onShallowSearch(
 	e: MouseEvent & { currentTarget: HTMLAnchorElement },
-	modalStore: any
+	modalStore: any,
+	url: string
 ) {
-	if (e.metaKey || e.ctrlKey) return;
+	if (e.metaKey || e.ctrlKey || innerWidth < 640) return;
 	e.preventDefault();
+
+	if (url.includes('search')) return;
 
 	const { href } = e.currentTarget;
 
