@@ -22,6 +22,7 @@ published: false
 Paragraphs are created by leaving a blank line between lines of text.
 
 This is a paragraph.
+
 And this is another paragraph.
 
 ---
@@ -59,18 +60,12 @@ def hello_world():
 
 ---
 
-Term 1
-: Definition 1
-
-Term 2
-: Definition 2
-
 ~~Strikethrough~~
 
 - [x] Task List Item 1
 - [ ] Task List Item 2
 
-![test](http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4)
+![test](https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4)
 
 ![test2](https://www.youtube.com/watch?v=vi1VTiqtZTU)
 

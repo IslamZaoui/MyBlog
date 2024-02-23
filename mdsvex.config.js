@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import remarkUnwrapImages from 'remark-unwrap-images';
 import readingTime from 'mdsvex-reading-time';
 import relativeImages from 'mdsvex-relative-images';
+import remarkGfm from 'remark-gfm';
 import videosPlugin from './mdsvex/videoPlugin.js';
 
 const imports = [
@@ -22,12 +23,19 @@ const customImports = () => {
 };
 
 function highlighter(code, lang) {
-	return `<CodeBlock language="${lang}" code={\`${code}\`}></CodeBlock>`;
+	return `<CodeBlock language="${lang}" code={\`${code}\`} lineNumbers ></CodeBlock>`;
 }
 
 export const mdsvexConfig = defineConfig({
 	extensions: ['.svx', '.md'],
-	remarkPlugins: [remarkUnwrapImages, customImports, relativeImages, videosPlugin, readingTime],
+	remarkPlugins: [
+		remarkUnwrapImages,
+		remarkGfm,
+		customImports,
+		relativeImages,
+		videosPlugin,
+		readingTime
+	],
 	rehypePlugins: [],
 	highlight: { highlighter }
 });
