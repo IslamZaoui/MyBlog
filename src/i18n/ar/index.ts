@@ -22,7 +22,10 @@ const ar = {
 	NEXT: 'تالي',
 	CLOSE: 'للغلق',
 	NAV: 'للتنقل',
-	SELECT: 'للتحديد'
+	SELECT: 'للتحديد',
+	EDITTITLE: 'يوجد خطأ؟',
+	EDITDESC: 'كل منشور عبارة عن ملف Markdown، لذا فإن المساهمة بسيطة مثل اتباع الرابط أدناه والضغط على أيقونة القلم الرصاص داخل GitHub لتعديله.',
+	EDITLINK:'تعديل على GitHub',
 } satisfies Translation;
 
 export default ar;

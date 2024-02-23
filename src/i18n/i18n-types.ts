@@ -98,6 +98,18 @@ type RootTranslation = {
 	 * t​o​ ​s​e​l​e​c​t
 	 */
 	SELECT: string
+	/**
+	 * F​o​u​n​d​ ​a​ ​m​i​s​t​a​k​e​?
+	 */
+	EDITTITLE: string
+	/**
+	 * E​v​e​r​y​ ​p​o​s​t​ ​i​s​ ​a​ ​M​a​r​k​d​o​w​n​ ​f​i​l​e​ ​s​o​ ​c​o​n​t​r​i​b​u​t​i​n​g​ ​i​s​ ​s​i​m​p​l​e​ ​a​s​ ​f​o​l​l​o​w​i​n​g​ ​t​h​e​ ​l​i​n​k​ ​b​e​l​o​w​ ​a​n​d​ ​p​r​e​s​s​i​n​g​ ​t​h​e​ ​p​e​n​c​i​l​ ​i​c​o​n​ ​i​n​s​i​d​e​ ​G​i​t​H​u​b​ ​t​o​ ​e​d​i​t​ ​i​t​.
+	 */
+	EDITDESC: string
+	/**
+	 * E​d​i​t​ ​o​n​ ​G​i​t​H​u​b
+	 */
+	EDITLINK: string
 }
 
 export type TranslationFunctions = {
@@ -185,6 +197,18 @@ export type TranslationFunctions = {
 	 * to select
 	 */
 	SELECT: () => LocalizedString
+	/**
+	 * Found a mistake?
+	 */
+	EDITTITLE: () => LocalizedString
+	/**
+	 * Every post is a Markdown file so contributing is simple as following the link below and pressing the pencil icon inside GitHub to edit it.
+	 */
+	EDITDESC: () => LocalizedString
+	/**
+	 * Edit on GitHub
+	 */
+	EDITLINK: () => LocalizedString
 }
 
 export type Formatters = {}

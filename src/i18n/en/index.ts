@@ -21,7 +21,10 @@ const en = {
 	NEXT: 'Next',
 	CLOSE: 'to close',
 	NAV: 'to navigate',
-	SELECT: 'to select'
+	SELECT: 'to select',
+	EDITTITLE: 'Found a mistake?',
+	EDITDESC: 'Every post is a Markdown file so contributing is simple as following the link below and pressing the pencil icon inside GitHub to edit it.',
+	EDITLINK: 'Edit on GitHub',
 } satisfies BaseTranslation;
 
 export default en;

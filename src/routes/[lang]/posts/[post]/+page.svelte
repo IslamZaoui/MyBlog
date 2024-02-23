@@ -21,6 +21,8 @@
 	<div class="w-[800px] space-y-10">
 		<Post.Header post={data.meta} />
 		<Post.Article content={data.content} />
+		<hr class="!border-t-2" />
+		<Post.Footer slug={data.meta.slug} Lang={data.Lang} />
 	</div>
 	<Button.ScrollToTop />
 </div>
