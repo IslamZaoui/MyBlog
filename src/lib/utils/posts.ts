@@ -32,3 +32,7 @@ export function postsPaginator(posts: Post[], page: number, perPage: number): [P
 	const hasMorePosts = end < posts.length;
 	return [posts.slice(start, end), hasMorePosts];
 }
+
+export function getGithubPostURL(slug: string, lang: Locales) {
+	return `https://github.com/IslamZaoui/MyBlog/blob/main/src/posts/${slug}/${lang}.svx` as const
+}

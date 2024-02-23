@@ -6,52 +6,11 @@
 	import Youtube from 'lucide-svelte/icons/youtube';
 	import Coffee from 'lucide-svelte/icons/coffee';
 	import { Avatar } from '@skeletonlabs/skeleton';
+	import Head from '$lib/Components/Page/baseHead.svelte';
 	import config from '$lib/config';
-	import { getModalStore } from '@skeletonlabs/skeleton';
-	import utils from '$lib/utils';
-
-	const modalStore = getModalStore();
-
-	export let data;
-
-	async function onWindowKeydown(e: KeyboardEvent) {
-		if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-			e.preventDefault();
-			$modalStore.length
-				? modalStore.close()
-				: await utils.onShallowSearchSC(modalStore, data.Lang);
-		}
-	}
 </script>
 
-<svelte:window on:keydown|stopPropagation={async (e) => await onWindowKeydown(e)} />
-
-<svelte:head>
-	<title>{data.Lang === 'en' ? config.name : config.name}</title>
-
-	<meta
-		content={data.Lang === 'en' ? config.Sitedescription : config.SitedescriptionAR}
-		name="description"
-	/>
-	<meta content={data.Lang === 'en' ? config.name : config.name} property="og:title" />
-	<meta content={config.siteImage} property="og:image" />
-	<meta content="{config.url}{data.url.replace('/', '')}" property="og:url" />
-	<meta
-		content={data.Lang === 'en' ? config.Sitedescription : config.SitedescriptionAR}
-		property="og:description"
-	/>
-	<meta content={config.name} property="og:site_name" />
-	<meta content="website" property="og:type" />
-
-	<meta content={config.xHandle} name="twitter:creator" />
-	<meta content="summary_large_image" name="twitter:card" />
-	<meta content={data.Lang === 'en' ? config.name : config.name} name="twitter:title" />
-	<meta
-		content={data.Lang === 'en' ? config.Sitedescription : config.SitedescriptionAR}
-		name="twitter:description"
-	/>
-	<meta content={config.siteImage} name="twitter:image" />
-</svelte:head>
+<Head />
 
 <div class="container h-full mx-auto flex justify-center items-center select-none">
 	<div class="flex flex-col gap-5 items-center">

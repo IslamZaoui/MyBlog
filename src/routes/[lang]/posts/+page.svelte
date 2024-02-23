@@ -1,10 +1,9 @@
 <script lang="ts">
+	import Head from '$lib/Components/Page/postsHead.svelte';
 	import { afterNavigate } from '$app/navigation';
-	import Paginator from './../../../lib/Components/Posts/Paginator.svelte';
 	import { LL } from '$i18n/i18n-svelte';
 	import type { PageData } from './$types';
-	import PostCard from '$lib/Components/Posts/PostCard.svelte';
-	import config from '$lib/config';
+	import Posts from '$lib/Components/Posts';
 	import Button from '$lib/Components/Button';
 	import utils from '$lib/utils';
 
@@ -15,33 +14,7 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{$LL.POSTS()} | {config.name}</title>
-
-	<meta
-		content={data.Lang === 'en' ? config.Postdescription : config.PostdescriptionAR}
-		name="description"
-	/>
-
-	<meta content="{$LL.POSTS()} | {config.name}" property="og:title" />
-	<meta content={config.siteImage} property="og:image" />
-	<meta content="{config.url}{data.url.replace('/', '')}" property="og:url" />
-	<meta
-		content={data.Lang === 'en' ? config.Postdescription : config.PostdescriptionAR}
-		property="og:description"
-	/>
-	<meta content={config.name} property="og:site_name" />
-	<meta content="website" property="og:type" />
-
-	<meta content={config.xHandle} name="twitter:creator" />
-	<meta content="summary_large_image" name="twitter:card" />
-	<meta content="{$LL.POSTS()} | {config.name}" name="twitter:title" />
-	<meta
-		content={data.Lang === 'en' ? config.Postdescription : config.PostdescriptionAR}
-		name="twitter:description"
-	/>
-	<meta content={config.siteImage} name="twitter:image" />
-</svelte:head>
+<Head />
 
 <main class="container h-full mx-auto flex justify-center items-centerselect-none relative">
 	<div class="space-y-2 w-[700px]">
@@ -53,10 +26,10 @@
 		</header>
 		<div class="grid grid-cols-1 gap-4">
 			{#each data.posts as post}
-				<PostCard {post} />
+				<Posts.Card {post} />
 			{/each}
 		</div>
-		<Paginator currentPage={data.page} hasMorePosts={data.hasMorePosts} />
+		<Posts.Paginator currentPage={data.page} hasMorePosts={data.hasMorePosts} />
 	</div>
 	<Button.ScrollToTop />
 </main>
