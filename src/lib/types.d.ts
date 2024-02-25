@@ -18,3 +18,5 @@ type SearchStore = {
 	filtered: SearchPost[];
 	search: string;
 };
+
+type nextprevPosts = { next: Post | null, previous: Post | null }

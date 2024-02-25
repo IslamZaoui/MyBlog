@@ -10,7 +10,8 @@ export const load = (async ({ params, data }) => {
 
 		return {
 			content: post.default,
-			meta
+			meta,
+			posts: data.posts
 		};
 	} catch (e) {
 		error(404, {

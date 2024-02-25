@@ -36,3 +36,13 @@ export function postsPaginator(posts: Post[], page: number, perPage: number): [P
 export function getGithubPostURL(slug: string, lang: Locales) {
 	return `https://github.com/IslamZaoui/MyBlog/blob/main/src/posts/${slug}/${lang}.md` as const
 }
+
+export async function getNextAndPreviousPosts(slug: string, lang: Locales = 'en'): Promise<{ next: Post | null, previous: Post | null }> {
+	const posts = await getPosts(lang);
+	const index = posts.findIndex(post => post.slug === slug);
+
+	const nextPost = index > 0 ? posts[index - 1] : null;
+	const previousPost = index < posts.length - 1 ? posts[index + 1] : null;
+
+	return { next: nextPost, previous: previousPost };
+} 

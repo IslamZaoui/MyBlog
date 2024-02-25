@@ -4,6 +4,7 @@ const en = {
 	DIR: 'ltr',
 	LOADING: 'Loading...',
 	POSTS: 'Posts',
+	ALLPOSTS: 'All Posts',
 	HOME: 'Home',
 	POWERED: 'Powered by',
 	AND: '&',

@@ -13,7 +13,9 @@ export const GET: RequestHandler = async ({ fetch }) => {
 		'en',
 		'ar',
 		'en/posts',
-		'ar/posts',
+		'ar/posts', 
+		'en/posts/all',
+		'ar/posts/all',
 		...ENposts.map((post) => 'en/posts/' + post.slug),
 		...ARposts.map((post) => 'ar/posts/' + post.slug)
 	];
@@ -29,15 +31,15 @@ export const GET: RequestHandler = async ({ fetch }) => {
 	    xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 	  >
 	    ${pages
-				.map((page) => {
-					return `
+			.map((page) => {
+				return `
 	          <url>
 	            <loc>${config.url}${page}</loc>
 	            <lastmod>${new Date().toISOString()}</lastmod>
 	          </url>
 	        `;
-				})
-				.join('')}
+			})
+			.join('')}
 	  </urlset>
 	`.trim();
 	return new Response(sitemap, { headers });

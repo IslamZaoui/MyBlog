@@ -4,12 +4,17 @@
 	import External from 'lucide-svelte/icons/external-link';
 	import utils from '$lib/utils';
 	import type { Locales } from '$i18n/i18n-types';
+	import NextpervPosts from './nextpervPosts.svelte';
 
 	export let slug: string;
 	export let Lang: Locales;
+	export let posts: nextprevPosts;
 </script>
 
-<footer class="flex flex-col gap-4 select-none">
+<footer class="flex flex-col gap-10 select-none">
+	<section>
+		<NextpervPosts {posts}/>
+	</section>
 	<section
 		class="w-full border-4 border-surface-900-50-token rounded-2xl p-8 relative"
 		dir={$LL.DIR()}

@@ -27,6 +27,10 @@ type RootTranslation = {
 	 */
 	POSTS: string
 	/**
+	 * A​l​l​ ​P​o​s​t​s
+	 */
+	ALLPOSTS: string
+	/**
 	 * H​o​m​e
 	 */
 	HOME: string
@@ -125,6 +129,10 @@ export type TranslationFunctions = {
 	 * Posts
 	 */
 	POSTS: () => LocalizedString
+	/**
+	 * All Posts
+	 */
+	ALLPOSTS: () => LocalizedString
 	/**
 	 * Home
 	 */

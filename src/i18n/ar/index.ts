@@ -5,6 +5,7 @@ const ar = {
 	DIR: 'rtl',
 	LOADING: 'تحميل...',
 	POSTS: 'منشورات',
+	ALLPOSTS: 'جميع المنشورات',
 	HOME: 'الصفحة الرئيسية',
 	POWERED: 'مشغل بواسطة',
 	AND: 'و',
