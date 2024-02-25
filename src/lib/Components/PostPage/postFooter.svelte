@@ -12,9 +12,7 @@
 </script>
 
 <footer class="flex flex-col gap-10 select-none">
-	<section>
-		<NextpervPosts {posts}/>
-	</section>
+	<NextpervPosts {posts} />
 	<section
 		class="w-full border-4 border-surface-900-50-token rounded-2xl p-8 relative"
 		dir={$LL.DIR()}
