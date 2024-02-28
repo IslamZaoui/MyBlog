@@ -7,8 +7,8 @@ import videosPlugin from './mdsvex/videoPlugin.js';
 
 const imports = [
 	"import { CodeBlock } from '@skeletonlabs/skeleton';",
-	"import Video from '$lib/Components/video/video.svelte';",
-	"import Youtube from '$lib/Components/video/Youtube.svelte';"
+	"import Video from '$lib/Components/ui/video/video.svelte';",
+	"import Youtube from '$lib/Components/ui/video/Youtube.svelte';"
 ];
 const customImports = () => {
 	return (tree) => {
