@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Head from '$lib/Components/Page/postsHead.svelte';
+	import Head from '$lib/Components/pages/head/postsHead.svelte';
 	import { afterNavigate } from '$app/navigation';
 	import { LL } from '$i18n/i18n-svelte';
 	import type { PageData } from './$types';
-	import Posts from '$lib/Components/Posts';
-	import Button from '$lib/Components/Button';
+	import Posts from '$lib/Components/pages/Posts';
+	import Button from '$lib/Components/ui/Button';
 	import utils from '$lib/utils';
 
 	export let data: PageData;

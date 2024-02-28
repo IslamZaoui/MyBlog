@@ -6,7 +6,7 @@
 	import Youtube from 'lucide-svelte/icons/youtube';
 	import Coffee from 'lucide-svelte/icons/coffee';
 	import { Avatar } from '@skeletonlabs/skeleton';
-	import Head from '$lib/Components/Page/baseHead.svelte';
+	import Head from '$lib/Components/pages/head/baseHead.svelte';
 	import config from '$lib/config';
 </script>
 

@@ -4,7 +4,7 @@
 	import { LL } from '$i18n/i18n-svelte';
 	import type { PageData } from './$types';
 	import autoAnimate from '@formkit/auto-animate';
-	import PostCard from '$lib/Components/Posts/PostCard.svelte';
+	import PostCard from '$lib/Components/pages/Posts/PostCard.svelte';
 	import config from '$lib/config';
 	import { onDestroy } from 'svelte';
 

@@ -2,9 +2,9 @@
 	import { dev } from '$app/environment';
 	import utils from '$lib/utils';
 	import type { PageData } from './$types';
-	import Post from '$lib/Components/PostPage';
+	import Post from '$lib/Components/pages/PostPage';
 	import { onMount } from 'svelte';
-	import Button from '$lib/Components/Button';
+	import Button from '$lib/Components/ui/Button';
 
 	export let data: PageData;
 

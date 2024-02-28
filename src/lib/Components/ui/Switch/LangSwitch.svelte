@@ -4,10 +4,9 @@
 	import { page } from '$app/stores';
 	import { setLocale, locale } from '$i18n/i18n-svelte';
 	import type { Locales } from '$i18n/i18n-types';
-	import { locales } from '$i18n/i18n-util';
 	import { loadLocaleAsync } from '$i18n/i18n-util.async';
+	import utils from '$lib/utils';
 	import { fade } from 'svelte/transition';
-	import { replaceLocaleInUrl } from '../../../util';
 
 	const switchLocale = async (newLocale: Locales, updateHistoryState = true) => {
 		if (!newLocale || $locale === newLocale) return;
@@ -20,7 +19,7 @@
 
 		if (updateHistoryState) {
 			// update url to reflect locale changes
-			history.pushState({ locale: newLocale }, '', replaceLocaleInUrl($page.url, newLocale));
+			history.pushState({ locale: newLocale }, '', utils.replaceLocaleInUrl($page.url, newLocale));
 		}
 
 		// run the `load` function again
@@ -40,7 +39,7 @@
 		history.replaceState(
 			{ ...history.state, locale: lang },
 			'',
-			replaceLocaleInUrl($page.url, lang)
+			utils.replaceLocaleInUrl($page.url, lang)
 		);
 	}
 </script>
@@ -53,14 +52,14 @@
 			{#if $locale === 'ar'}
 				<a
 					aria-label="English route"
-					href={replaceLocaleInUrl($page.url, 'en')}
+					href={utils.replaceLocaleInUrl($page.url, 'en')}
 					rel="alternate"
 					hreflang="en">EN</a
 				>
 			{:else}
 				<a
 					aria-label="Arabic route"
-					href={replaceLocaleInUrl($page.url, 'ar')}
+					href={utils.replaceLocaleInUrl($page.url, 'ar')}
 					rel="alternate"
 					hreflang="ar">AR</a
 				>

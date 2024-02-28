@@ -4,7 +4,7 @@ import { detectLocale, i18n, isLocale } from '$i18n/i18n-util';
 import { loadAllLocales } from '$i18n/i18n-util.sync';
 import { redirect, type Handle, type RequestEvent } from '@sveltejs/kit';
 import { initAcceptLanguageHeaderDetector } from 'typesafe-i18n/detectors';
-import { getPathnameWithoutBase } from './util.js';
+import utils from '$lib/utils';
 import { sequence } from '@sveltejs/kit/hooks';
 
 loadAllLocales();
@@ -22,7 +22,7 @@ const getPreferredLocale = ({ request }: RequestEvent) => {
 
 const LocalisationHook: Handle = async ({ event, resolve }) => {
 	// read language slug
-	const [, lang] = getPathnameWithoutBase(event.url).split('/');
+	const [, lang] = utils.getPathnameWithoutBase(event.url).split('/');
 
 	// redirect to base locale if no locale slug was found
 	if (!routes.includes(lang)) {

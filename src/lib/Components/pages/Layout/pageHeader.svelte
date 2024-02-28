@@ -2,9 +2,9 @@
 	import LL from '$i18n/i18n-svelte';
 	import appScroll from '$lib/stores/appscroll';
 	import type { Locales } from '$i18n/i18n-types';
-	import LightSwitch from '../Switch/LightSwitch.svelte';
+	import LightSwitch from '../../ui/Switch/LightSwitch.svelte';
 	import { Search } from 'lucide-svelte';
-	import LangSwitch from '../Switch/LangSwitch.svelte';
+	import LangSwitch from '../../ui/Switch/LangSwitch.svelte';
 	import { getModalStore } from '@skeletonlabs/skeleton';
 	import utils from '$lib/utils';
 

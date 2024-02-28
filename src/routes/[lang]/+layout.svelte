@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import Layout from '$lib/Components/Layout';
+	import Layout from '$lib/Components/pages/Layout';
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import { getModalStore } from '@skeletonlabs/skeleton';
 	import utils from '$lib/utils';
