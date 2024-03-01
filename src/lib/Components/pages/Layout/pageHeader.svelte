@@ -7,6 +7,7 @@
 	import LangSwitch from '../../ui/Switch/LangSwitch.svelte';
 	import { getModalStore } from '@skeletonlabs/skeleton';
 	import utils from '$lib/utils';
+	import { page } from '$app/stores';
 
 	const modalStore = getModalStore();
 
@@ -17,20 +18,28 @@
 </script>
 
 <nav class="w-full flex justify-center select-none p-2 mb-4">
-	<div class="h-full w-[900px] flex sm:justify-between sm:flex-row gap-2 flex-col p-2 {$appScroll > 20 ? 'card variant-glass-surface drop-shadow-lg' : ''}">
+	<div
+		class="h-full w-[900px] flex sm:justify-between sm:flex-row gap-2 flex-col p-2 {$appScroll > 20
+			? 'card variant-glass-surface drop-shadow-lg'
+			: ''}"
+	>
 		<div class="flex gap-4 items-center">
 			<a href="/{data.Lang}"><strong id="SiteTitle" class="text-2xl">Islam Zaoui</strong></a>
 			<LightSwitch />
 			<LangSwitch />
-			<a
-				class="mybtn flex gap-2 rounded p-2 sm:variant-soft sm:hover:variant-soft-primary"
-				href="/{data.Lang}/search"
-				aria-label="Search"
-				on:click={async (e) => await utils.onShallowSearch(e, modalStore, data.url)}
-			>
-				<Search size="24" />
-				<small class="hidden sm:inline-block"><kbd class="kbd">Ctrl</kbd> + <kbd class="kbd">K</kbd></small>
-			</a>
+			{#if !$page.url.pathname.endsWith('/search')}
+				<a
+					class="mybtn flex gap-2 rounded p-2 sm:variant-soft sm:hover:variant-soft-primary"
+					href="/{data.Lang}/search"
+					aria-label="Search"
+					on:click={async (e) => await utils.onShallowSearch(e, modalStore, data.url)}
+				>
+					<Search size="24" />
+					<small class="hidden sm:inline-block"
+						><kbd class="kbd">Ctrl</kbd> + <kbd class="kbd">K</kbd></small
+					>
+				</a>
+			{/if}
 		</div>
 		<div class="flex gap-4 items-center">
 			<div>
