@@ -16,7 +16,10 @@ export const createSearchStore = (data: SearchPost[]) => {
 
 export const searchHandler = (store: SearchStore) => {
 	const searchTerm = store.search.toLowerCase() || '';
-	store.filtered = store.data.filter((item) => {
-		return item.searchTerms.includes(searchTerm);
-	});
+	if (searchTerm.length > 0)
+		store.filtered = store.data.filter((item) => {
+			return item.searchTerms.includes(searchTerm);
+		});
+	else
+		store.filtered = []
 };
