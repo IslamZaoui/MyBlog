@@ -19,7 +19,7 @@
 
 	// Highlight JS
 	import hljs from 'highlight.js';
-	import 'highlight.js/styles/tomorrow-night-bright.css';
+	import 'highlight.js/styles/github-dark-dimmed.css';
 	import { Modal, storeHighlightJs } from '@skeletonlabs/skeleton';
 	storeHighlightJs.set(hljs);
 

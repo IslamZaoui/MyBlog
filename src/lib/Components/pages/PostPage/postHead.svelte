@@ -19,5 +19,5 @@
 	<meta content="summary_large_image" name="twitter:card" />
 	<meta content="{data.meta.title} | {config.name}" name="twitter:title" />
 	<meta content={data.meta.description} name="twitter:description" />
-	<meta content="{config.url}API/OG/${data.meta.title.replace(/ /g, '%20')}" name="twitter:image" />
+	<meta content="{config.url}API/OG/{data.meta.title.replace(/ /g, '%20')}" name="twitter:image" />
 </svelte:head>
