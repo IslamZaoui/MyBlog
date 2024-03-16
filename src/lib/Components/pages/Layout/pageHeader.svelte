@@ -17,11 +17,9 @@
 	};
 </script>
 
-<nav class="w-full flex justify-center select-none p-2 mb-4">
+<nav class="w-full flex justify-center select-none mb-4 py-4">
 	<div
-		class="h-full w-[900px] flex sm:justify-between sm:flex-row gap-2 flex-col p-2 {$appScroll > 20
-			? 'card variant-glass-surface drop-shadow-lg'
-			: ''}"
+		class="h-full w-[800px] flex sm:justify-between sm:flex-row gap-2 flex-col"
 	>
 		<div class="flex gap-4 items-center">
 			<a href="/{data.Lang}"><strong id="SiteTitle" class="text-2xl">Islam Zaoui</strong></a>

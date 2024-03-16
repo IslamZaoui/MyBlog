@@ -6,13 +6,13 @@
 /*Font*/
 
 @font-face {
-	font-family: 'Geist';
-	src: local('GeistSans');
+	font-family: 'Vazirmatn';
+	src: url('/fonts/Vazirmatn-VariableFont_wght.ttf');
 }
 
 :root [data-theme='MyTheme'] {
-	--theme-font-family-base: 'Geist', sans-serif;
-	--theme-font-family-heading: 'Geist', sans-serif;
+	--theme-font-family-base: 'Vazirmatn', sans-serif;
+	--theme-font-family-heading: 'Vazirmatn', sans-serif;
 }
 
 /*page style*/
@@ -46,40 +46,48 @@ html {
 	@apply max-w-full;
 }
 
-.prose h1 {
-	@apply text-tertiary-700 dark:text-tertiary-500;
-}
-
+.prose h1,
 .prose h2,
 .prose h3,
 .prose h4,
 .prose h5,
-.prose h6 {
-	@apply text-primary-900 dark:text-primary-500;
-}
-
+.prose h6,
 .prose p,
 .prose ol,
 .prose ul,
-.prose li {
-	@apply dark:text-white text-black;
+.prose li,
+.prose th,
+.prose td,
+.prose em {
+	@apply text-black dark:text-white;
 }
 
-.prose th,
-.prose td {
-	@apply dark:text-white text-black;
+.prose hr {
+	@apply border-black dark:border-white;
+}
+
+.prose h1 {
+	@apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+}
+
+.prose h2 {
+	@apply scroll-m-20 border-b border-black dark:border-white pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0;
+}
+
+.prose h3 {
+	@apply scroll-m-20 text-2xl font-semibold tracking-tight;
+}
+
+.prose h4 {
+	@apply scroll-m-20 text-xl font-semibold tracking-tight;
 }
 
 .prose strong {
-	@apply dark:text-tertiary-500 text-tertiary-900;
-}
-
-.prose em {
-	@apply dark:text-white text-black;
+	@apply dark:text-tertiary-500 text-tertiary-700;
 }
 
 .prose :not(pre) code:not(.codeblock-code) {
-	@apply p-1 dark:text-primary-50 dark:bg-surface-400 rounded text-primary-200 bg-surface-600;
+	@apply relative rounded dark:bg-surface-300 text-white bg-surface-500 dark:text-black px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
 }
 
 .prose .codeblock pre {
@@ -91,12 +99,12 @@ html {
 }
 
 .prose blockquote {
-	@apply blockquote dark:border-tertiary-500 border-tertiary-700;
+	@apply blockquote dark:border-tertiary-500 border-tertiary-600;
 }
 
 .prose :is(ul):not(.contains-task-list) {
 	@apply list-none pl-5;
-	list-style-type: '🔥';
+	list-style-type: '🌟';
 }
 
 .prose :is(ul) li {

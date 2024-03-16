@@ -17,7 +17,7 @@
 <Head />
 
 <main class="container h-full mx-auto flex justify-center items-centerselect-none relative">
-	<div class="space-y-2 w-[700px]">
+	<div class="space-y-2 w-[900px]">
 		<header class="flex flex-col gap-4 mb-8" dir={$LL.DIR()}>
 			<h1><strong class="text-4xl">{$LL.ALLPOSTS()}</strong></h1>
 		</header>

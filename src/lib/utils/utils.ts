@@ -24,7 +24,6 @@ export const ScrollToTop = (way: 'smooth' | 'instant') => {
 	}
 }
 
-
 export function getCurrentYear(): number {
 	const currentDate = new Date();
 	return currentDate.getFullYear();
@@ -32,10 +31,12 @@ export function getCurrentYear(): number {
 
 export function scrollHandler(event: ComponentEvents<AppShell>['scroll']) {
 	appScroll.update((value: number) => (value = event.currentTarget.scrollTop));
+	maxappScroll.update((value: number) => (value = event.currentTarget.scrollHeight - 1000));
 }
 
 import { goto, preloadData, pushState } from '$app/navigation';
 import Modal from '../Components/Modal';
+import maxappScroll from '$lib/stores/maxappscroll';
 
 export async function onShallowSearch(
 	e: MouseEvent & { currentTarget: HTMLAnchorElement },

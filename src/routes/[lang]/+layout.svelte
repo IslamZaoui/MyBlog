@@ -28,8 +28,6 @@
 
 <AppShell
 	on:scroll={utils.scrollHandler}
-	regionPage="relative"
-	slotPageHeader="sticky top-0 z-10"
 	scrollbarGutter="stable both-edges"
 >
 	<svelte:fragment slot="pageHeader">
