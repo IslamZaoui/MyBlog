@@ -17,7 +17,7 @@
 	};
 </script>
 
-<nav class="w-full flex justify-center select-none mb-4 py-4">
+<nav class="w-full flex justify-center select-none mb-4 p-4">
 	<div
 		class="h-full w-[800px] flex sm:justify-between sm:flex-row gap-2 flex-col"
 	>
