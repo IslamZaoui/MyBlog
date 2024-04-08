@@ -1,7 +1,7 @@
 <p align="right"><strong>English</strong> | <a href="https://github.com/IslamZaoui/MyBlog/blob/main/README-ar.md">العربية</a></p>
 
 <p align="center">
-<a href="https://islamzaoui.top"><img src=https://github.com/islamzaoui/MyBlog/blob/main/static/asset/avatar.webp width=96 hieght=96 style="border-radius: 9999px; object-fit: cover;" /></a>
+<a href="https://islamzaoui.top"><img src=https://github.com/islamzaoui/MyBlog/blob/main/static/asset/avatar-wide.webp style="border-radius: 9999px; object-fit: cover;" /></a>
 </p>
 
 <h1 align="center">My Blog</h1>
@@ -9,8 +9,6 @@
 <p align="center">
 Simply Awesome <b>Blazingly Fast</b> Blog built with <b>SvelteKit</b> and <b>❤</b>
 </p>
-
-<p align="center"><a href="https://pagespeed.web.dev/analysis/https-islamzaoui-top/2yttaw724h?form_factor=desktop"><img style="float:middle" width="auto" alt="PAGESPEED" src=""></a></p>
 
 ## 🧭 Uses
 
