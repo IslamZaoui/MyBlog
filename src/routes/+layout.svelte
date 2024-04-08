@@ -13,7 +13,26 @@
 	inject({ mode: dev ? 'development' : 'production' });
 
 	// Highlight JS
-	import hljs from 'highlight.js';
+	import hljs from 'highlight.js/lib/core';
+
+	import xml from 'highlight.js/lib/languages/xml';
+	import css from 'highlight.js/lib/languages/css';
+	import json from 'highlight.js/lib/languages/json';
+	import javascript from 'highlight.js/lib/languages/javascript';
+	import typescript from 'highlight.js/lib/languages/typescript';
+	import shell from 'highlight.js/lib/languages/shell';
+	import java from 'highlight.js/lib/languages/java';
+	import python from 'highlight.js/lib/languages/python';
+
+	hljs.registerLanguage('xml', xml);
+	hljs.registerLanguage('css', css);
+	hljs.registerLanguage('json', json);
+	hljs.registerLanguage('javascript', javascript);
+	hljs.registerLanguage('typescript', typescript);
+	hljs.registerLanguage('shell', shell);
+	hljs.registerLanguage('java', java);
+	hljs.registerLanguage('python', python);
+
 	import 'highlight.js/styles/github-dark-dimmed.css';
 	import { Modal, storeHighlightJs } from '@skeletonlabs/skeleton';
 	storeHighlightJs.set(hljs);

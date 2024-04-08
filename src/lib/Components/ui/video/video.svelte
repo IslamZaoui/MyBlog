@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Plyr from 'plyr';
+	import 'plyr/dist/plyr.css';
 	import { onMount } from 'svelte';
 
 	let element: HTMLElement;
