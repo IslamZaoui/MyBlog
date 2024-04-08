@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { searchHandler } from '$lib/stores/search';
 	import { createSearchStore } from '$lib/stores/search';
-	import { LL } from '$i18n/i18n-svelte';
+	import * as LL from "$paraglide/messages"
 	import type { PageData } from './$types';
 	import autoAnimate from '@formkit/auto-animate';
 	import PostCard from '$lib/Components/pages/Posts/PostCard.svelte';
@@ -26,7 +26,7 @@
 </script>
 
 <svelte:head>
-	<title>{$LL.SEARCH()} | {config.name}</title>
+	<title>{LL.SEARCH()} | {config.name}</title>
 </svelte:head>
 
 <div class="h-full mx-auto flex max-w-[800px] justify-center">
@@ -35,8 +35,8 @@
 			<input
 				type="search"
 				class="input rounded-r-none"
-				placeholder="{$LL.SEARCH()}..."
-				dir={$LL.DIR()}
+				placeholder="{LL.SEARCH()}..."
+				
 				bind:value={$searchStore.search}
 			/>
 		</div>

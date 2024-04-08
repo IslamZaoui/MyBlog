@@ -1,8 +1,7 @@
 import type { LayoutServerLoad } from './$types';
 
-export const load = (async ({ url, locals }) => {
+export const load = (async ({ url }) => {
 	return {
-		url: url.pathname,
-		Lang: locals.locale
-	};
+		url: url.pathname
+};
 }) satisfies LayoutServerLoad;

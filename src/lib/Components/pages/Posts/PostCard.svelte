@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { LL } from '$i18n/i18n-svelte';
+	import * as LL from "$paraglide/messages"
 	import utils from '$lib/utils/index';
 	import Tags from 'lucide-svelte/icons/tags';
 	import Calendar from 'lucide-svelte/icons/calendar-days';
@@ -15,10 +15,10 @@
 </script>
 
 <a
-	href="/{$page.data.Lang}/posts/{post.slug}"
+	href="/posts/{post.slug}"
 	class="select-none"
 	on:click={() => modalStore.close()}
-	><div class="card shadow-md rounded-md card-hover" dir={$LL.DIR()}>
+	><div class="card shadow-md rounded-md card-hover" >
 		<article class="p-4 space-y-2">
 			<header class="postTitle text-2xl font-bold" data-flip-id="postTitle-{post.slug}">
 				<h2>{post.title}</h2>
@@ -45,21 +45,21 @@
 			<span>•</span>
 			<div class="flex gap-2 items-center">
 				<FileBar size="18" class="text-gray-500" />
-				<span>{post.readingTime.words} {$LL.WORDS()}</span>
+				<span>{post.readingTime.words} {LL.WORDS()}</span>
 			</div>
 			<span>•</span>
 			<div class="flex gap-2 items-center">
 				<Clock size="18" class="text-gray-500" />
-				<span>{post.readingTime.minutes.toFixed()} {$LL.MINS()}</span>
+				<span>{post.readingTime.minutes.toFixed()} {LL.MINS()}</span>
 			</div>
 			<span>•</span>
 			<div class="flex gap-2 items-center">
 				<Eye size="18" class="text-gray-500" />
 				<span>
 					{#await utils.getPostViews(post.slug)}
-						{$LL.LOADING()}
+						{LL.LOADING()}
 					{:then views}
-						{views} {$LL.VIEWS()}
+						{views} {LL.VIEWS()}
 					{/await}
 				</span>
 			</div>

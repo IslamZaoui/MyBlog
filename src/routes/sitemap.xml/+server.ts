@@ -1,21 +1,25 @@
 import type { RequestHandler } from './$types';
 import config from '$lib/config';
 
-export const GET: RequestHandler = async ({ fetch }) => {
-	const ENposts = (await (await fetch(`/API/getPosts?isAllPosts=true&lang=en`)).json())
+export const GET: RequestHandler = async ({ fetch, locals }) => {
+	const ENposts = (await (await fetch(`/API/getPosts?lang=${locals.paraglide.lang}&isAllPosts=true&lang=en`)).json())
 		.posts as Post[];
-	const ARposts = (await (await fetch(`/API/getPosts?isAllPosts=true&lang=ar`)).json())
+	const ARposts = (await (await fetch(`/API/getPosts?lang=${locals.paraglide.lang}&isAllPosts=true&lang=ar`)).json())
 		.posts as Post[];
 
 	const headers = { 'Content-Type': 'application/xml' };
 
 	const pages = [
+		'',
 		'en',
 		'ar',
+		'posts',
 		'en/posts',
 		'ar/posts', 
+		'posts/all',
 		'en/posts/all',
 		'ar/posts/all',
+		...ENposts.map((post) => 'posts/' + post.slug),
 		...ENposts.map((post) => 'en/posts/' + post.slug),
 		...ARposts.map((post) => 'ar/posts/' + post.slug)
 	];

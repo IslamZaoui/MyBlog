@@ -1,34 +1,30 @@
 <script lang="ts">
-	import LL from '$i18n/i18n-svelte';
-	import appScroll from '$lib/stores/appscroll';
-	import type { Locales } from '$i18n/i18n-types';
+	import * as LL from '$paraglide/messages';
 	import LightSwitch from '../../ui/Switch/LightSwitch.svelte';
 	import { Search } from 'lucide-svelte';
 	import LangSwitch from '../../ui/Switch/LangSwitch.svelte';
 	import { getModalStore } from '@skeletonlabs/skeleton';
 	import utils from '$lib/utils';
 	import { page } from '$app/stores';
+	import { i18n } from '$lib/i18n';
 
 	const modalStore = getModalStore();
 
 	export let data: {
-		Lang: Locales;
 		url: string;
 	};
 </script>
 
-<nav class="w-full flex justify-center select-none mb-4 p-4">
-	<div
-		class="h-full w-[800px] flex sm:justify-between sm:flex-row gap-2 flex-col"
-	>
+<nav class="w-full flex justify-center items-center select-none mb-4 p-4" dir="ltr">
+	<div class="h-full w-[800px] flex sm:justify-between sm:flex-row gap-2 flex-col">
 		<div class="flex gap-4 items-center">
-			<a href="/{data.Lang}"><strong id="SiteTitle" class="text-2xl">Islam Zaoui</strong></a>
+			<a href="/"><strong id="SiteTitle" class="text-2xl">Islam Zaoui</strong></a>
 			<LightSwitch />
 			<LangSwitch />
 			{#if !$page.url.pathname.endsWith('/search')}
 				<a
 					class="mybtn flex gap-2 rounded p-2 sm:variant-soft sm:hover:variant-soft-primary"
-					href="/{data.Lang}/search"
+					href="/search"
 					aria-label="Search"
 					on:click={async (e) => await utils.onShallowSearch(e, modalStore, data.url)}
 				>
@@ -41,15 +37,15 @@
 		</div>
 		<div class="flex gap-4 items-center">
 			<div>
-				<a class="font-bold mybtn" href="/{data.Lang}/">{$LL.HOME()}</a>
-				{#if data.url === `/${data.Lang}`}<div
+				<a class="font-bold mybtn" href="/">{LL.HOME()}</a>
+				{#if data.url === i18n.resolveRoute('/')}<div
 						class="navA border-t-2 dark:border-white border-black"
 						data-flip-id="navA"
 					/>{/if}
 			</div>
 			<div>
-				<a class="font-bold mybtn" href="/{data.Lang}/posts">{$LL.POSTS()}</a>
-				{#if data.url.startsWith(`/${data.Lang}/posts`)}<div
+				<a class="font-bold mybtn" href="/posts">{LL.POSTS()}</a>
+				{#if data.url.startsWith(i18n.resolveRoute('/posts'))}<div
 						class="navA border-t-2 dark:border-white border-black"
 						data-flip-id="navA"
 					/>{/if}

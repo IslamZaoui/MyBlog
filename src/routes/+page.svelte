@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { LL } from '$i18n/i18n-svelte';
+	import * as LL from '$paraglide/messages';
 	import Github from 'lucide-svelte/icons/github';
 	import Linkedin from 'lucide-svelte/icons/linkedin';
 	import Twitter from 'lucide-svelte/icons/twitter';
@@ -17,8 +17,8 @@
 		<Avatar src="/asset/avatar.webp" width="w-[260px]" alt="avatar" initials="IZ" />
 		<h1><strong class="h1">Islam Zaoui</strong></h1>
 		<div>
-			<p class="text-[18px] text-center">{$LL.DISL1()}</p>
-			<p class="text-[18px] text-center">{$LL.DISL2()}</p>
+			<p class="text-[18px] text-center">{LL.DISL1()}</p>
+			<p class="text-[18px] text-center">{LL.DISL2()}</p>
 		</div>
 		<span class="flex gap-4">
 			<a

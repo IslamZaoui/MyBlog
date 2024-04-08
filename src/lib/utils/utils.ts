@@ -1,5 +1,5 @@
 import type { ComponentEvents } from 'svelte';
-import type { AppShell, ModalSettings } from '@skeletonlabs/skeleton';
+import type { AppShell } from '@skeletonlabs/skeleton';
 import appScroll from '../stores/appscroll';
 
 type DateStyle = Intl.DateTimeFormatOptions['dateStyle'];
@@ -37,6 +37,7 @@ export function scrollHandler(event: ComponentEvents<AppShell>['scroll']) {
 import { goto, preloadData, pushState } from '$app/navigation';
 import Modal from '../Components/Modal';
 import maxappScroll from '$lib/stores/maxappscroll';
+import { i18n } from '$lib/i18n';
 
 export async function onShallowSearch(
 	e: MouseEvent & { currentTarget: HTMLAnchorElement },
@@ -62,12 +63,12 @@ export async function onShallowSearch(
 			}
 		});
 	} else {
-		goto(href);
+		goto(i18n.resolveRoute(href));
 	}
 }
 
-export async function onShallowSearchSC(modalStore: any, lang: string) {
-	const href = `/${lang}/search`;
+export async function onShallowSearchSC(modalStore: any) {
+	const href = `/search`;
 	const result = await preloadData(href);
 
 	if (result.type == 'loaded' && result.status == 200) {
@@ -80,6 +81,6 @@ export async function onShallowSearchSC(modalStore: any, lang: string) {
 			}
 		});
 	} else {
-		goto(href);
+		goto(i18n.resolveRoute(href));
 	}
 }

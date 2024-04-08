@@ -25,7 +25,7 @@
 		<Post.Header post={data.meta} />
 		<Post.Article content={data.content} />
 		<hr class="!border-t-2" />
-		<Post.Footer slug={data.meta.slug} Lang={data.Lang} posts={data.posts} />
+		<Post.Footer slug={data.meta.slug} posts={data.posts} />
 	</div>
 	<Button.ScrollToTop />
 	<ProgressBar

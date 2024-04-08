@@ -1,16 +1,11 @@
 <script lang="ts">
-	import config from '$lib/config';
-
-	import { setLocale } from '$i18n/i18n-svelte';
-	import { locale } from '$i18n/i18n-svelte';
-	export let data;
-
-	loadAllLocales();
-	// @ts-ignore
-	i18n($locale);
-	setLocale(data.Lang);
-
 	import '../app.postcss';
+
+	import config from '$lib/config';
+	import { ParaglideJS } from '@inlang/paraglide-js-adapter-sveltekit';
+	import { i18n } from '$lib/i18n.js';
+
+	export let data;
 
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
@@ -38,8 +33,6 @@
 	import { initializeStores } from '@skeletonlabs/skeleton';
 	initializeStores();
 
-	import { loadAllLocales } from '$i18n/i18n-util.sync';
-	import { i18n } from 'typesafe-i18n';
 	import type { AfterNavigate } from '@sveltejs/kit';
 
 	gsap.registerPlugin(Flip);
@@ -63,6 +56,26 @@
 			ease: 'power1.easeOut'
 		});
 	});
+
+	import { goto } from '$app/navigation';
+	import Layout from '$lib/Components/pages/Layout';
+	import { AppShell } from '@skeletonlabs/skeleton';
+	import { getModalStore } from '@skeletonlabs/skeleton';
+	import utils from '$lib/utils';
+
+	const modalStore = getModalStore();
+
+	async function onWindowKeydown(e: KeyboardEvent) {
+		if (data.url.includes('search')) return;
+		if (innerWidth < 640) {
+			goto(i18n.resolveRoute('/search'));
+			return;
+		}
+		if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+			e.preventDefault();
+			$modalStore.length ? modalStore.close() : await utils.onShallowSearchSC(modalStore);
+		}
+	}
 </script>
 
 <Modal />
@@ -71,4 +84,20 @@
 	<link rel="canonical" href="{config.url}{data.url.replace('/', '')}" />
 </svelte:head>
 
-<slot />
+<svelte:window on:keydown|stopPropagation={async (e) => await onWindowKeydown(e)} />
+
+<ParaglideJS {i18n}>
+	<AppShell on:scroll={utils.scrollHandler} scrollbarGutter="stable both-edges">
+		<svelte:fragment slot="pageHeader">
+			<Layout.pageHeader {data} />
+		</svelte:fragment>
+
+		<Layout.pageTransition url={data.url}>
+			<slot />
+		</Layout.pageTransition>
+
+		<svelte:fragment slot="pageFooter">
+			<Layout.pageFooter />
+		</svelte:fragment>
+	</AppShell>
+</ParaglideJS>

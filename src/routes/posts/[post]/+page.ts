@@ -3,7 +3,7 @@ import type { PageLoad } from './$types';
 
 export const load = (async ({ params, data }) => {
 	try {
-		const post = await import(`./../../../../posts/${params.post}/${params.lang}.md`);
+		const post = await import(`./../../../posts/${params.post}/${data.lang}.md`);
 		const meta = post.metadata as Post;
 		meta.views = data.views.toLocaleString();
 		meta.slug = params.post;

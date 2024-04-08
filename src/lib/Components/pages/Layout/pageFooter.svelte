@@ -1,7 +1,7 @@
 <script lang="ts">
 	import config from '$lib/config';
 	import utils from '$lib/utils';
-	import LL from '$i18n/i18n-svelte';
+	import * as LL from "$paraglide/messages"
 </script>
 
 <nav
@@ -16,14 +16,14 @@
 			target="_blank">CC BY-SA</a
 		>
 	</div>
-	<span dir={$LL.DIR()}
-		>{$LL.POWERED()}
+	<span 
+		>{LL.POWERED()}
 		<a class="myanchor" href="https://kit.svelte.dev/" target="_blank" rel="external">Sveltekit</a>
-		{$LL.AND()}
+		{LL.AND()}
 		<a class="myanchor" href="https://skeleton.dev/" target="_blank" rel="external">Skeleton</a>.
 	</span>
-	<span dir={$LL.DIR()}>
-		{$LL.CONTACTEMAIL()}
+	<span >
+		{LL.CONTACTEMAIL()}
 		<a class="myanchor" href="mailto:{config.contactEmail}">{config.contactEmail}</a>
 	</span>
 </nav>

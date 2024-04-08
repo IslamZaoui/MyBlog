@@ -1,6 +1,5 @@
 import type { Config } from '@sveltejs/adapter-vercel';
 import type { RequestHandler } from './$types';
-import type { Locales } from '$i18n/i18n-types';
 import utils from '$lib/utils';
 
 export const config: Config = {
@@ -8,7 +7,7 @@ export const config: Config = {
 };
 
 export const GET: RequestHandler = async ({ url }) => {
-	const lang = (url.searchParams.get('lang') as Locales) ?? 'en';
+	const lang = (url.searchParams.get('lang')) ?? 'en';
 	let posts = await utils.getPosts(lang);
 
 	let hasMorePosts = false;

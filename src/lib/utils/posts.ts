@@ -1,7 +1,6 @@
-import type { Locales } from '$i18n/i18n-types';
 import * as p from 'path';
 
-export async function getPosts(lang: Locales = 'en'): Promise<Post[]> {
+export async function getPosts(lang = 'en'): Promise<Post[]> {
 	let posts: Post[] = [];
 
 	let paths;
@@ -33,11 +32,11 @@ export function postsPaginator(posts: Post[], page: number, perPage: number): [P
 	return [posts.slice(start, end), hasMorePosts];
 }
 
-export function getGithubPostURL(slug: string, lang: Locales) {
+export function getGithubPostURL(slug: string, lang: string) {
 	return `https://github.com/IslamZaoui/MyBlog/blob/main/src/posts/${slug}/${lang}.md` as const
 }
 
-export async function getNextAndPreviousPosts(slug: string, lang: Locales = 'en'): Promise<{ next: Post | null, previous: Post | null }> {
+export async function getNextAndPreviousPosts(slug: string, lang = 'en'): Promise<{ next: Post | null, previous: Post | null }> {
 	const posts = await getPosts(lang);
 	const index = posts.findIndex(post => post.slug === slug);
 

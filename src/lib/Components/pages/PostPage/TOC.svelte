@@ -1,12 +1,12 @@
 <script lang="ts">
-	import LL from '$i18n/i18n-svelte';
+	import * as LL from "$paraglide/messages"
 	import { tocStore, TreeView, TreeViewItem } from '@skeletonlabs/skeleton';
 </script>
 
-<div class="card" dir={$LL.DIR()}>
+<div class="card" >
 	<TreeView labelledby="toc-heading">
 		<TreeViewItem>
-			<span class="pr-5">{$LL.toc()}</span>
+			<span class="pr-5">{LL.toc()}</span>
 			<svelte:fragment slot="children">
 				<div class="p-2 pr-5">
 					<ul class="toc-list space-y-2">

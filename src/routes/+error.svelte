@@ -1,15 +1,15 @@
 <script lang="ts">
-	import { LL } from '$i18n/i18n-svelte';
+	import * as LL from "$paraglide/messages"
 	import { page } from '$app/stores';
 	import config from '$lib/config';
 </script>
 
 <svelte:head>
-	<title>{config.name} | {$LL.ERROR()} {$page.status}</title>
+	<title>{config.name} | {LL.ERROR()} {$page.status}</title>
 </svelte:head>
 
 <div class="flex flex-col justify-center h-full items-center gap-4">
-	<span class="text-6xl font-bold text-primary-500">{$LL.ERROR()} {$page.status}</span>
+	<span class="text-6xl font-bold text-primary-500">{LL.ERROR()} {$page.status}</span>
 
 	{#if $page.error?.message}
 		<span class="text-2xl text-gray-600">{$page.error?.message}</span>
@@ -19,6 +19,6 @@
 	{/if}
 
 	<a href="/" class="btn variant-filled-primary">
-		{$LL.ERRORBTN()}
+		{LL.ERRORBTN()}
 	</a>
 </div>
