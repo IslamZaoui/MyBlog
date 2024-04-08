@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import remarkUnwrapImages from 'remark-unwrap-images';
 import readingTime from 'mdsvex-reading-time';
-import relativeImages from 'mdsvex-relative-images';
+import relativeImages from './mdsvex/mdsvex-relative-images.js';
 import remarkGfm from 'remark-gfm';
 import videosPlugin from './mdsvex/videoPlugin.js';
 

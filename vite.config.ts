@@ -6,6 +6,7 @@ import { paraglide } from "@inlang/paraglide-js-adapter-sveltekit/vite"
 
 export default defineConfig({
 	plugins: [
+		imagetools(),
 		paraglide({
 			project: "./project.inlang",
 			outdir: "./src/paraglide",
@@ -16,6 +17,5 @@ export default defineConfig({
 				greedy: [/^hljs-/]
 			}
 		}),
-		imagetools()
 	]
 });

@@ -52,7 +52,6 @@
     "gsap": "^3.12.5",
     "highlight.js": "^11.9.0",
     "lucide-svelte": "^0.363.0",
-    "mdsvex-relative-images": "^1.0.3",
     "plyr": "^3.7.8",
     "remark-gfm": "^4.0.0",
     "remark-unwrap-images": "^4.0.0",

@@ -7,13 +7,21 @@
 	import Coffee from 'lucide-svelte/icons/coffee';
 	import Head from '$lib/Components/pages/head/baseHead.svelte';
 	import config from '$lib/config';
+	import avatar from '$asset/avatar.webp?format=avif&w=260&h=260&as=metadata';
 </script>
 
 <Head />
 
 <div class="container h-full mx-auto flex justify-center items-center select-none">
 	<div class="flex flex-col gap-5 items-center">
-		<img src="/asset/avatar.webp" class="rounded-full" width="260px" height="260px" alt="avatar" />
+		<img
+			src={avatar.src}
+			class="rounded-full"
+			width={avatar.width}
+			height={avatar.height}
+			format={avatar.format}
+			alt="avatar"
+		/>
 		<h1><strong class="h1">Islam Zaoui</strong></h1>
 		<div>
 			<p class="text-[18px] text-center">{LL.DISL1()}</p>

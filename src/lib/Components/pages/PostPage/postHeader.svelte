@@ -6,7 +6,7 @@
 	import ArrowLeft from 'lucide-svelte/icons/arrow-left';
 	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 	import Eye from 'lucide-svelte/icons/eye';
-    import { page } from '$app/stores';
+	import { languageTag as currentLang } from "$paraglide/runtime.js"
 	import * as LL from "$paraglide/messages"
     import TOC from './TOC.svelte'
 	import utils from '$lib/utils';
@@ -16,7 +16,7 @@
 
 <header class="space-y-4 select-none" >
 	<a class="flex gap-2 items-center text-4xl" href="/posts">
-		{#if $page.params.lang === 'en'}
+		{#if currentLang() === 'en'}
 			<ArrowLeft size="36" />
 		{:else}
 			<ArrowRight />
@@ -43,7 +43,7 @@
 	>
 		<div class="flex gap-2 items-center">
 			<Calendar size="18" class="text-gray-500" />
-			<span>{utils.formatDate(post.date, $page.params.lang)}</span>
+			<span>{utils.formatDate(post.date, currentLang())}</span>
 		</div>
 		<span>•</span>
 		<div class="flex gap-2 items-center">
