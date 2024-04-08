@@ -1,4 +1,4 @@
-<p align="right"><strong>English</strong> | <a href="https://github.com/IslamZaoui/MyBlog/blob/main/README-ar.md">中文</a></p>
+<p align="right"><strong>English</strong> | <a href="https://github.com/IslamZaoui/MyBlog/blob/main/README-ar.md">العربية</a></p>
 
 <p align="center">
 <a href="https://islamzaoui.top"><img src=https://github.com/islamzaoui/MyBlog/blob/main/static/asset/avatar.webp width=96 hieght=96 style="border-radius: 9999px; object-fit: cover;" /></a>
