@@ -15,8 +15,8 @@ jobs:
           config_timezone: Asia/Taipei
           filename: metrics.pagespeed.svg
           output_action: gist
-          committer_gist: ${{ secrets.METRICS_GIST }}
-          token: ${{ secrets.METRICS_TOKEN }}
+          committer_gist: ${{ secrets.TOKEN }}
+          token: ${{ secrets.TOKEN }}
           base: ''
           plugin_pagespeed: yes
           plugin_pagespeed_detailed: yes
