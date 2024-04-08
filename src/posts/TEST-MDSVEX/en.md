@@ -67,8 +67,6 @@ def hello_world():
 
 ![test](https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4)
 
-![test3](https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4)
-
 ![test2](https://www.youtube.com/watch?v=vi1VTiqtZTU)
 
-![test23](./testimage.jpg)
+![test3](./testimage.jpg)
