@@ -47,35 +47,38 @@
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 
 	// @ts-ignore
-	import { gsap } from 'gsap/dist/gsap';
+	import { gsap } from 'gsap/dist/gsap.js';
 	// @ts-ignore
-	import { Flip } from 'gsap/dist/Flip';
+	import { Flip } from 'gsap/dist/Flip.js';
+	gsap.registerPlugin(Flip);
 
 	import { initializeStores } from '@skeletonlabs/skeleton';
 	initializeStores();
 
-	import type { AfterNavigate } from '@sveltejs/kit';
-
-	gsap.registerPlugin(Flip);
-
 	let state: Flip.FlipState;
 
+	const targets = '.postTitle, .postTags, .postDetails, .navA';
+
 	beforeNavigate(async () => {
-		state = await Flip.getState('.postTitle, .postTags, .postDetails, .navA');
+		try {
+			state = await Flip.getState(targets);
+		} catch (e) {}
 	});
 
-	afterNavigate(async (params: AfterNavigate) => {
+	afterNavigate(async (params) => {
 		const isNewPage = params.from?.url.pathname !== params.to?.url.pathname;
 		const elemPage = document.querySelector('#page');
 		if (isNewPage && elemPage !== null) {
 			elemPage.scrollTop = 0;
 		}
-		await Flip.from(state, {
-			targets: '.postTitle, .postTags, .postDetails, .navA',
-			duration: 0.3,
-			scale: true,
-			ease: 'power1.easeOut'
-		});
+		try {
+			await Flip.from(state, {
+				targets,
+				duration: 0.3,
+				scale: true,
+				ease: 'power1.easeOut'
+			});
+		} catch (e) {}
 	});
 
 	import { goto } from '$app/navigation';

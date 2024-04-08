@@ -5,7 +5,6 @@
 	import Twitter from 'lucide-svelte/icons/twitter';
 	import Youtube from 'lucide-svelte/icons/youtube';
 	import Coffee from 'lucide-svelte/icons/coffee';
-	import { Avatar } from '@skeletonlabs/skeleton';
 	import Head from '$lib/Components/pages/head/baseHead.svelte';
 	import config from '$lib/config';
 </script>
@@ -14,7 +13,7 @@
 
 <div class="container h-full mx-auto flex justify-center items-center select-none">
 	<div class="flex flex-col gap-5 items-center">
-		<Avatar src="/asset/avatar.webp" width="w-[260px]" alt="avatar" initials="IZ" />
+		<img src="/asset/avatar.webp" class="rounded-full" width="260px" height="260px" alt="avatar" />
 		<h1><strong class="h1">Islam Zaoui</strong></h1>
 		<div>
 			<p class="text-[18px] text-center">{LL.DISL1()}</p>

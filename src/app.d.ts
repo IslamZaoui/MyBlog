@@ -1,8 +1,5 @@
 declare global {
 	namespace App {
-		interface Locals {
-			locale: Locales;
-		}
 		interface PageData {
 			url: string;
 		}
