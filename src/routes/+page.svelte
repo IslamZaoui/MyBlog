@@ -16,7 +16,7 @@
 	<div class="flex flex-col gap-5 items-center">
 		<img
 			src={avatar.src}
-			class="rounded-full h-[260px] w-[260px]"
+			class="rounded-full sm:size-[260px] size-[160px]"
 			width={avatar.width}
 			height={avatar.height}
 			alt="avatar"
