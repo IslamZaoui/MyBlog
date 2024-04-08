@@ -23,6 +23,7 @@
 	import shell from 'highlight.js/lib/languages/shell';
 	import java from 'highlight.js/lib/languages/java';
 	import python from 'highlight.js/lib/languages/python';
+	import bash from 'highlight.js/lib/languages/bash';
 
 	hljs.registerLanguage('xml', xml);
 	hljs.registerLanguage('css', css);
@@ -32,6 +33,7 @@
 	hljs.registerLanguage('shell', shell);
 	hljs.registerLanguage('java', java);
 	hljs.registerLanguage('python', python);
+	hljs.registerLanguage('bash', bash);
 
 	import 'highlight.js/styles/github-dark-dimmed.css';
 	import { Modal, storeHighlightJs } from '@skeletonlabs/skeleton';
