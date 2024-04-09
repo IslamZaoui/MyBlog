@@ -7,7 +7,7 @@ export const load = (async ({ params, fetch, locals }) => {
 	// get views
 	try {
 		views = await (await fetch(`/API/views/${params.post}`, { method: 'get' })).json();
-	} catch (_) { }
+	} catch (_) {}
 
 	const posts = await utils.getNextAndPreviousPosts(params.post, locals.paraglide.lang);
 

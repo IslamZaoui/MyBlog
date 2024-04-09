@@ -6,9 +6,10 @@ tags:
   - Introduction
 published: true
 ---
+
 ## Introduction
 
-Hello, my name is Islam Zaoui and I am a Computer Science student at the University of M'sila in Algeria. I built this website using Sveltekit, the Skeleton UI library, and several other amazing libraries that were provided by the Svelte and JS community. 
+Hello, my name is Islam Zaoui and I am a Computer Science student at the University of M'sila in Algeria. I built this website using Sveltekit, the Skeleton UI library, and several other amazing libraries that were provided by the Svelte and JS community.
 
 ## My Goals
 

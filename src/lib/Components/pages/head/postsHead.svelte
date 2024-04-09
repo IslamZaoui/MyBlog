@@ -1,7 +1,7 @@
 <script lang="ts">
 	import config from '$lib/config';
-	import * as LL from "$paraglide/messages"
-	import { languageTag as currentLang } from "$paraglide/runtime.js"
+	import * as LL from '$paraglide/messages';
+	import { languageTag as currentLang } from '$paraglide/runtime.js';
 	import { page } from '$app/stores';
 </script>
 

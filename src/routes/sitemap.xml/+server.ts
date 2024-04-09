@@ -2,10 +2,16 @@ import type { RequestHandler } from './$types';
 import config from '$lib/config';
 
 export const GET: RequestHandler = async ({ fetch, locals }) => {
-	const ENposts = (await (await fetch(`/API/getPosts?lang=${locals.paraglide.lang}&isAllPosts=true&lang=en`)).json())
-		.posts as Post[];
-	const ARposts = (await (await fetch(`/API/getPosts?lang=${locals.paraglide.lang}&isAllPosts=true&lang=ar`)).json())
-		.posts as Post[];
+	const ENposts = (
+		await (
+			await fetch(`/API/getPosts?lang=${locals.paraglide.lang}&isAllPosts=true&lang=en`)
+		).json()
+	).posts as Post[];
+	const ARposts = (
+		await (
+			await fetch(`/API/getPosts?lang=${locals.paraglide.lang}&isAllPosts=true&lang=ar`)
+		).json()
+	).posts as Post[];
 
 	const headers = { 'Content-Type': 'application/xml' };
 
@@ -15,7 +21,7 @@ export const GET: RequestHandler = async ({ fetch, locals }) => {
 		'ar',
 		'posts',
 		'en/posts',
-		'ar/posts', 
+		'ar/posts',
 		'posts/all',
 		'en/posts/all',
 		'ar/posts/all',
@@ -35,15 +41,15 @@ export const GET: RequestHandler = async ({ fetch, locals }) => {
 	    xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 	  >
 	    ${pages
-			.map((page) => {
-				return `
+				.map((page) => {
+					return `
 	          <url>
 	            <loc>${config.url}${page}</loc>
 	            <lastmod>${new Date().toISOString()}</lastmod>
 	          </url>
 	        `;
-			})
-			.join('')}
+				})
+				.join('')}
 	  </urlset>
 	`.trim();
 	return new Response(sitemap, { headers });

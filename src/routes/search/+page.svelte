@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { searchHandler } from '$lib/stores/search';
 	import { createSearchStore } from '$lib/stores/search';
-	import * as LL from "$paraglide/messages"
+	import * as LL from '$paraglide/messages';
 	import type { PageData } from './$types';
 	import autoAnimate from '@formkit/auto-animate';
 	import PostCard from '$lib/Components/pages/Posts/PostCard.svelte';
@@ -36,7 +36,6 @@
 				type="search"
 				class="input rounded-r-none"
 				placeholder="{LL.SEARCH()}..."
-				
 				bind:value={$searchStore.search}
 			/>
 		</div>

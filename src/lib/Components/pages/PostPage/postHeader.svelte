@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
 	import Tags from 'lucide-svelte/icons/tags';
 	import Calendar from 'lucide-svelte/icons/calendar-days';
 	import FileBar from 'lucide-svelte/icons/file-bar-chart-2';
@@ -6,15 +6,15 @@
 	import ArrowLeft from 'lucide-svelte/icons/arrow-left';
 	import ArrowRight from 'lucide-svelte/icons/arrow-right';
 	import Eye from 'lucide-svelte/icons/eye';
-	import { languageTag as currentLang } from "$paraglide/runtime.js"
-	import * as LL from "$paraglide/messages"
-    import TOC from './TOC.svelte'
+	import { languageTag as currentLang } from '$paraglide/runtime.js';
+	import * as LL from '$paraglide/messages';
+	import TOC from './TOC.svelte';
 	import utils from '$lib/utils';
 
-    export let post: Post
+	export let post: Post;
 </script>
 
-<header class="space-y-4 select-none" >
+<header class="space-y-4 select-none">
 	<a class="flex gap-2 items-center text-4xl" href="/posts">
 		{#if currentLang() === 'en'}
 			<ArrowLeft size="36" />

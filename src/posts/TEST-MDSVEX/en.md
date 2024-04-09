@@ -29,7 +29,7 @@ And this is another paragraph.
 
 **Bold Text**
 
-*Italic Text*
+_Italic Text_
 
 > Blockquotes can be used to emphasize or cite text.
 

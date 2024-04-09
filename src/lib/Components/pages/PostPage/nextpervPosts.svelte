@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ArrowRight from 'lucide-svelte/icons/arrow-right';
-	import * as LL from "$paraglide/messages"
+	import * as LL from '$paraglide/messages';
 	import { page } from '$app/stores';
 	import ArrowLeft from 'lucide-svelte/icons/arrow-left';
 

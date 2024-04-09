@@ -22,7 +22,7 @@ export const ScrollToTop = (way: 'smooth' | 'instant') => {
 			elemPage.scrollTo(0, 0);
 		}
 	}
-}
+};
 
 export function getCurrentYear(): number {
 	const currentDate = new Date();

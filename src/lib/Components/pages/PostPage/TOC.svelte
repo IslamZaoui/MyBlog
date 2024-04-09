@@ -1,9 +1,9 @@
 <script lang="ts">
-	import * as LL from "$paraglide/messages"
+	import * as LL from '$paraglide/messages';
 	import { tocStore, TreeView, TreeViewItem } from '@skeletonlabs/skeleton';
 </script>
 
-<div class="card" >
+<div class="card">
 	<TreeView labelledby="toc-heading">
 		<TreeViewItem>
 			<span class="pr-5">{LL.toc()}</span>

@@ -7,7 +7,7 @@ export const config: Config = {
 };
 
 export const GET: RequestHandler = async ({ url }) => {
-	const lang = (url.searchParams.get('lang')) ?? 'en';
+	const lang = url.searchParams.get('lang') ?? 'en';
 	let posts = await utils.getPosts(lang);
 
 	let hasMorePosts = false;

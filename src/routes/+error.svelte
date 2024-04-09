@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as LL from "$paraglide/messages"
+	import * as LL from '$paraglide/messages';
 	import { page } from '$app/stores';
 	import config from '$lib/config';
 </script>

@@ -311,7 +311,7 @@ public class Main {
 The output should be like this:
 
 ```bash
-Enter number of clients: 
+Enter number of clients:
 5
 Factory Timing: 98ms
 Factory Produced a Product (5810).

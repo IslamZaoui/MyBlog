@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { page } from "$app/stores";
-	import { languageTag as currentLang } from "$paraglide/runtime.js"
-	import config from "$lib/config";
+	import { page } from '$app/stores';
+	import { languageTag as currentLang } from '$paraglide/runtime.js';
+	import config from '$lib/config';
 </script>
 
 <svelte:head>

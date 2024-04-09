@@ -1,10 +1,10 @@
 <script lang="ts">
-	import * as LL from "$paraglide/messages"
+	import * as LL from '$paraglide/messages';
 	import Edit from 'lucide-svelte/icons/file-pen-line';
 	import External from 'lucide-svelte/icons/external-link';
 	import utils from '$lib/utils';
 	import NextpervPosts from './nextpervPosts.svelte';
-	import { languageTag as currentLang } from "$paraglide/runtime.js"
+	import { languageTag as currentLang } from '$paraglide/runtime.js';
 
 	export let slug: string;
 	export let posts: nextprevPosts;
@@ -12,10 +12,7 @@
 
 <footer class="flex flex-col gap-10 select-none">
 	<NextpervPosts {posts} />
-	<section
-		class="w-full border-4 border-surface-900-50-token rounded-2xl p-8 relative"
-		
-	>
+	<section class="w-full border-4 border-surface-900-50-token rounded-2xl p-8 relative">
 		<div class="flex gap-2 flex-col mb-5">
 			<span class="text-2xl font-bold">{LL.EDITTITLE()}</span>
 			<p>

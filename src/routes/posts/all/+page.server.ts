@@ -5,6 +5,6 @@ export const load = (async ({ fetch, locals }) => {
 	const { posts } = (await response.json()) as { posts: Post[] };
 
 	return {
-		posts,
+		posts
 	};
 }) satisfies PageServerLoad;

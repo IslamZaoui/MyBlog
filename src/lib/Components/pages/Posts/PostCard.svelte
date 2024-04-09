@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import * as LL from "$paraglide/messages"
+	import * as LL from '$paraglide/messages';
 	import utils from '$lib/utils/index';
 	import Tags from 'lucide-svelte/icons/tags';
 	import Calendar from 'lucide-svelte/icons/calendar-days';
@@ -14,11 +14,8 @@
 	export let post: Post;
 </script>
 
-<a
-	href="/posts/{post.slug}"
-	class="select-none"
-	on:click={() => modalStore.close()}
-	><div class="card shadow-md rounded-md card-hover" >
+<a href="/posts/{post.slug}" class="select-none" on:click={() => modalStore.close()}
+	><div class="card shadow-md rounded-md card-hover">
 		<article class="p-4 space-y-2">
 			<header class="postTitle text-2xl font-bold" data-flip-id="postTitle-{post.slug}">
 				<h2>{post.title}</h2>

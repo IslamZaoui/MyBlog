@@ -20,6 +20,5 @@ export const searchHandler = (store: SearchStore) => {
 		store.filtered = store.data.filter((item) => {
 			return item.searchTerms.includes(searchTerm);
 		});
-	else
-		store.filtered = []
+	else store.filtered = [];
 };

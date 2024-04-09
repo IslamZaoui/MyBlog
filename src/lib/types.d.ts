@@ -19,4 +19,4 @@ type SearchStore = {
 	search: string;
 };
 
-type nextprevPosts = { next: Post | null, previous: Post | null }
+type nextprevPosts = { next: Post | null; previous: Post | null };

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { tocCrawler } from '@skeletonlabs/skeleton';
-    
+
 	export let content: any;
 </script>
 

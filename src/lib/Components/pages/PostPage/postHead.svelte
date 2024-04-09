@@ -1,11 +1,11 @@
-<script lang='ts'>
-	import config from "$lib/config";
+<script lang="ts">
+	import config from '$lib/config';
 
 	export let data: { meta: Post; url: string };
 </script>
 
 <svelte:head>
-    <title>{data.meta.title} | {config.name}</title>
+	<title>{data.meta.title} | {config.name}</title>
 	<meta content={data.meta.description} name="description" />
 
 	<meta content="{data.meta.title} | {config.name}" property="og:title" />
