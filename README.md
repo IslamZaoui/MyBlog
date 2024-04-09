@@ -10,7 +10,7 @@
 Simply Awesome <b>Blazingly Fast</b> Blog built with <b>SvelteKit</b> and <b>❤</b>
 </p>
 
-<p align="center"><a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fsvelte-qwer.vercel.app%2F&form_factor=desktop"><img style="float:middle" width="auto" alt="PAGESPEED" src="https://github.com/islamzaoui/MyBlog/blob/main/github-metrics.svg"></a></p>
+<p align="center"><a href="https://pagespeed.web.dev/analysis?url=https://islamzaoui.top/&form_factor=desktop"><img style="float:middle" width="auto" alt="PAGESPEED" src="https://github.com/islamzaoui/MyBlog/blob/main/github-metrics.svg"></a></p>
 
 ## 🧭 Uses
 
