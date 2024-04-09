@@ -16,7 +16,7 @@ const config = {
 		alias: {
 			$paraglide: 'src/paraglide',
 			$posts: 'src/posts',
-			$asset: 'static/asset'
+			$asset: 'src/asset'
 		}
 	}
 };

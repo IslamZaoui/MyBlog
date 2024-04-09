@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: /TEST
+Allow: /
 Sitemap: https://islamzaoui.top/sitemap.xml

@@ -1,9 +1,9 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { fade } from 'svelte/transition';
-	export let url: string;
 </script>
 
-{#key url}
+{#key $page.url.pathname}
 	<div in:fade class="px-4 h-full">
 		<slot />
 	</div>

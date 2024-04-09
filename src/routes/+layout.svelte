@@ -44,7 +44,7 @@
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
-	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	import { afterNavigate, beforeNavigate, invalidateAll } from '$app/navigation';
 
 	// @ts-ignore
 	import { gsap } from 'gsap/dist/gsap.js';
@@ -116,7 +116,7 @@
 			<Layout.pageHeader {data} />
 		</svelte:fragment>
 
-		<Layout.pageTransition url={data.url}>
+		<Layout.pageTransition>
 			<slot />
 		</Layout.pageTransition>
 

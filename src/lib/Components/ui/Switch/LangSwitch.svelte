@@ -12,7 +12,7 @@
 	{#key lang}
 		<div in:fade>
 			<a
-				on:click={() => invalidateAll()}
+				on:click={async () => await invalidateAll()}
 				aria-label="change language to {lang}"
 				href={i18n.route($page.url.pathname)}
 				rel="alternate"

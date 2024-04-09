@@ -8,8 +8,8 @@ import { skeleton } from '@skeletonlabs/tw-plugin';
 export default {
 	darkMode: 'class',
 	content: [
-		'./src/**/*.{html,js,svelte,ts}',
-		join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+		'./src/**/*.{html,js,svelte,ts,md}',
+		join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts,md}')
 	],
 	theme: {
 		extend: {}

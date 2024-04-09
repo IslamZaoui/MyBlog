@@ -1,0 +1,35 @@
+{
+	"name": "Islam Zaoui",
+	"short_name": "Islam Zaoui",
+	"icons": [
+		{
+			"src": "/asset/pwa-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/asset/pwa-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "/asset/pwa-maskable-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "/asset/pwa-maskable-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
+	],
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#B5BFE2",
+	"theme_color": "#e0e1e3",
+	"description": "Discover a digital park filled with valuable resources for developers at Islam Zaoui\\'s website. Explore now for useful tools and insights!"
+}
