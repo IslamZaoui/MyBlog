@@ -1,23 +1,6 @@
 <script lang="ts">
 	import '../app.postcss';
 
-	async function detectSWUpdate() {
-		const registration = await navigator.serviceWorker.getRegistration();
-		registration?.addEventListener('updatefound', () => {
-			const newSW = registration.installing;
-			newSW?.addEventListener('statechange', () => {
-				if (newSW.state === 'installed')
-					if (confirm('New version available. Load new version?')) {
-						window.location.reload();
-					}
-			});
-		});
-	}
-
-	onMount(() => {
-		detectSWUpdate();
-	});
-
 	import config from '$lib/config';
 	import { ParaglideJS } from '@inlang/paraglide-js-adapter-sveltekit';
 	import { i18n } from '$lib/i18n.js';
@@ -103,7 +86,6 @@
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import { getModalStore } from '@skeletonlabs/skeleton';
 	import utils from '$lib/utils';
-	import { onMount } from 'svelte';
 
 	const modalStore = getModalStore();
 
