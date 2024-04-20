@@ -65,8 +65,10 @@ def hello_world():
 - [x] Task List Item 1
 - [ ] Task List Item 2
 
-![test](https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4)
+{% video src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" %}
 
-![test2](https://www.youtube.com/watch?v=vi1VTiqtZTU)
+{% youtube id="vi1VTiqtZTU" %}
+
+{% img src="./testimage.jpg" alt="image1" %}
 
 ![test3](./testimage.jpg)

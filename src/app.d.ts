@@ -1,18 +1,19 @@
-declare global {
-	namespace App {
-		interface PageData {
-			url: string;
-		}
-		interface Error {
-			details?: string;
-		}
-		// interface Platform {}
-	}
+/// <reference types="@sveltejs/kit" />
 
-	interface Window {
-		dataLayer: IArguments[];
-		gtag?: (...args: any[]) => void;
+declare namespace App {
+	interface PageData {
+		url: string;
 	}
+	interface Error {
+		details?: string;
+	}
+	// interface Platform {}
 }
 
-export {};
+interface Window {
+	dataLayer: IArguments[];
+	gtag?: (...args: any[]) => void;
+}
+
+declare module 'mdsvex-reading-time';
+declare module 'lite-youtube-embed';

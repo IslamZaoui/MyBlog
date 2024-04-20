@@ -23,9 +23,14 @@ Simply Awesome <b>Blazingly Fast</b> Blog built with <b>SvelteKit</b> and <b>❤
 
 and a lot of other amazing libraries provided by Svelte and JS communities.
 
-## 🙏 Support
+## 💖 Support
 
 You can support my work by [Donating here](https://ko-fi.com/islamzaoui), starting as low as **$1/month** or **$1 one time**.
+
+## 🤝 Acknowledges
+
+- [joy of code](https://www.joyofcode.xyz/) for the amazing SvelteKit course.
+- [Haseeb Majid](https://haseebmajid.dev/) for inspiration of the design.
 
 ## 📝 License
 
